@@ -161,16 +161,19 @@ module.exports = generators.Base.extend({
         },
         method2: function() {
             console.log(chalk.underline.bgBlue('Copying templates '+asks.template+'...'));
+
             var folderName = camelCase(asks.appname);
+            console.log('FOLDER ' + this.destinationPath(folderName+'/_gitignore'));
             var template = asks.template;
             this.fs.copy(
                 this.templatePath(template),
                 this.destinationPath(folderName)
             );
             this.fs.copy(
-              this.templatePath(template+'/.gitignore'),
+              this.templatePath(template+'/_gitignore'),
               this.destinationPath(folderName+'/.gitignore')
             );
+            this.fs.delete(this.destinationPath(folderName+'/_gitignore'));
             this.fs.copyTpl(
                 this.templatePath(template+'/tiapp.xml'),
                 this.destinationPath(folderName+'/tiapp.xml'),
