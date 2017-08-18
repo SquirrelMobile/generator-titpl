@@ -1,0 +1,6 @@
+<Alloy>
+  <!-- MODAL TRUE sert à bloquer l'orientation sur Android -->
+  <Window id="win" modal="true" orientationModes="[Ti.UI.PORTRAIT]" layout="vertical">
+    <Require src="partials/_navbar" id="navbar" onClick="actions" />
+  </Window>
+</Alloy>

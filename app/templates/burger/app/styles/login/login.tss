@@ -1,0 +1,50 @@
+
+".container" : {
+  top : "15%",
+  left:"7%",
+  right: "7%",
+  layout: "vertical",
+  bottom : 0
+}
+
+".titleLbl": {
+  text: "Connexion",
+  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
+  color : "white"
+}
+
+".btn": {
+  top : 25,
+  title:  "Valider"
+}
+
+"#login": {
+  hintText: "Votre email",
+  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL
+}
+
+"#password": {
+  hintText: "Votre mot de passe",
+  keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII,
+  passwordMask: true,
+  returnKeyType: Ti.UI.RETURNKEY_GO
+}
+
+"#lostPassword": {
+  text: "J'ai perdu mon mot de passe",
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
+  color : "white",
+  height: 40,
+  top : 25
+}
+
+".form": {
+  height : Ti.UI.SIZE,
+  layout : "vertical",
+  left : "10%",
+  right : "10%"
+}
+
+".lblBtn": {
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 }
+}

@@ -1,0 +1,19 @@
+<Alloy>
+	<Window id="win" layout="vertical">
+
+		<Require id="navbar" src="partials/_navbar" onClick="close" />
+
+		<ScrollView class="container">
+
+			<View class="form">
+				<TextField id="lastname" top="25" txtError="Nom non valide" onReturn="next" next="firstname" class="champ" />
+				<TextField id="firstname" top="25" txtError="Prénom non valide" onReturn="next" next="email" class="champ" />
+				<TextField id="email" type="email" top="25" txtError="Email non valide" onReturn="next" next="password" class="champ" />
+				<TextField id="password" top="25" txtError="Mot de passe non valide" onReturn="submit" class="champ" />
+			</View>
+
+			<Button class="btn" onClick="submit" />
+
+		</ScrollView>
+	</Window>
+</Alloy>

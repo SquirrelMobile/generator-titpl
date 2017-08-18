@@ -1,0 +1,108 @@
+"Window": {
+	backgroundColor : Alloy.CFG.COLORS.main,
+	orientationModes: [Ti.UI.PORTRAIT],
+	fullscreen : false,
+	navBarHidden : true
+}
+
+"NavigationWindow" : {
+	orientationModes: [Ti.UI.PORTRAIT]
+}
+
+"Window[platform=android]": {
+	theme : 'Theme.AppCompat.NoTitleBar',
+	windowSoftInputMode: Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN,
+}
+
+"Button[platform=android]": {
+	backgroundColor: "transparent",
+	backgroundSelectedColor: "#cccccc"
+}
+
+"ScrollView":{
+	contentWidth: '100%'
+}
+
+".txt":{
+  top : 10,
+  left : 25,
+  right : 25,
+  height: 50,
+  clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS,
+  paddingLeft: 20,
+  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 15 },
+  color : Alloy.CFG.COLORS.black,
+  borderColor : Alloy.CFG.COLORS.gray,
+  borderRadius: 4,
+  autocorrect: false,
+  autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE
+}
+
+"TextField[platform=android]": {
+	hintTextColor: Alloy.CFG.COLORS.gray,
+	backgroundColor: "transparent",
+	padding: {left : 30}
+}
+
+"TextField[platform=android formFactor=tablet]": {
+	padding: {left : 50}
+}
+
+"ScrollView[platform=ios]": {
+	keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG
+}
+
+".back": {
+  backgroundImage: '/images/common/back.png',
+  width : 95,
+  left : 0,
+	height: 44,
+  title : '     Retour',
+  color : 'black',
+  font: {
+    fontFamily: Alloy.CFG.FONTS.bold,
+    fontSize: '11sp'
+  },
+  selectedColor: Alloy.CFG.COLORS.main
+}
+
+".champ": {
+	width: Ti.UI.FILL,
+  returnKeyType: Ti.UI.RETURNKEY_NEXT,
+  clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS,
+  height: 45,
+  paddingLeft: 20,
+	backgroundColor: "white",
+	borderRadius: 3,
+	width: Ti.UI.FILL,
+  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 15 },
+  color : Alloy.CFG.COLORS.black,
+	hintTextColor: "#717171",
+  borderColor : Alloy.CFG.COLORS.main2,
+
+  autocorrect: false,
+  autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE
+}
+
+".champ[platform=ios]": {
+	padding : {left : 15, top: 10, bottom: 10,right: 15},
+	tintColor: Alloy.CFG.COLORS.main2
+}
+
+".btn": {
+	font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 15 },
+  color : "white",
+  height: 50,
+  backgroundColor: Alloy.CFG.COLORS.main2,
+  borderRadius: 5,
+  left: "20%",
+  right: "20%"
+}
+
+".lblTitleLight": {
+	font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
+}
+
+".lblTitleMedium": {
+	font : { fontFamily: Alloy.CFG.FONTS.medium, fontSize: 24 },
+}

@@ -1,0 +1,57 @@
+"#win" : {
+	backgroundColor : "white"
+}
+
+"ListView" : {
+	willScrollOnStatusTap: true,
+	backgroundColor : "white",
+	left : 0,
+	right : 0,
+	top : Alloy.Globals.theTop,
+	bottom : 0,
+	separatorColor : 'transparent',
+	tableSeparatorInsets : { left : 0, right : 0 }
+}
+
+".img":{
+	left : 15,
+  height: 30
+}
+
+".title":{
+	left : 50
+}
+
+".noicon":{
+	left : 30,
+}
+
+".active":{
+  color : Alloy.CFG.COLORS.main,
+	font : {fontFamily: Alloy.CFG.FONTS.regular, fontSize: '19sp' }
+}
+
+".inactive":{
+  color : Alloy.CFG.COLORS.main,
+	font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: '19sp' }
+}
+
+".border":{
+	top: 0,
+	left: 0,
+  bottom : 0,
+  width : 5,
+  backgroundColor : Alloy.CFG.COLORS.main2
+}
+
+".list": {
+	borderColor: Alloy.CFG.COLORS.black,
+	borderWidth: 1,
+}
+
+".separator": {
+	height: 1,
+	width: Ti.UI.FILL,
+	backgroundColor: Alloy.CFG.COLORS.main2,
+	bottom: 0
+}

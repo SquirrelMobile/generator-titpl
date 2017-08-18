@@ -1,0 +1,39 @@
+{
+  "global": {
+    "FONTS": {
+      "light": "Helvetica-Light",
+      "regular": "Helvetica-Regular",
+      "bold": "Helvetica-Bold"
+    },
+    "COLORS": {
+      "main": "#f89a3c",
+      "main2" : "#f15b2a",
+      "black": "#222222",
+      "gray": "#dbdfe2",
+      "text": "#9896a4"
+    },
+    "pushwoosh" : {
+      "projectId" : "XXXX-XXXX",
+      "gcmID" : "XXXXXXXXXXXX"
+    }
+  },
+  "env:development": {
+    "baseurl": "http://www.squirrel.fr"
+  },
+  "env:test": {
+    "baseurl": "http://www.squirrel.fr"
+  },
+  "env:production": {
+    "baseurl": "http://www.squirrel.fr"
+  },
+  "os:android": {},
+  "os:blackberry": {},
+  "os:ios": {},
+  "os:mobileweb": {},
+  "os:windows": {},
+  "dependencies": {
+    "nl.fokkezb.loading": "*",
+    "de.manumaticx.pagingcontrol": "*",
+    "nl.fokkezb.drawer": "*"
+  }
+}

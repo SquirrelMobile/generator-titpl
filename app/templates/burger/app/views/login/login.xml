@@ -1,0 +1,22 @@
+<Alloy>
+	<NavigationWindow module="xp.ui" id="nav">
+		<Window id="win">
+			<ScrollView class="container">
+
+				<Label class="titleLbl lblTitleLight" />
+
+				<View class="form">
+					<TextField id="login" top="25" txtError="Email non valide" onReturn="next" next="password" class="champ" />
+					<TextField id="password" top="25" txtError="Mot de passe non valide" onReturn="connect" class="champ" />
+				</View>
+
+				<Button class="btn" title="Se connecter" onClick="connect" />
+
+				<Button class="btn" title="S'inscrire" onClick="openWin" type="signup" />
+
+				<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
+
+			</ScrollView>
+		</Window>
+	</NavigationWindow>
+</Alloy>

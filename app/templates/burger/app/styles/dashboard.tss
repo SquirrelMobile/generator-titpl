@@ -1,0 +1,33 @@
+"#drawer[platform=ios]": {
+  centerHiddenInteractionMode : "OPEN_CENTER_MODE_NAVBAR", //OPEN_CENTER_MODE_NONE, OPEN_CENTER_MODE_FULL
+  openDrawerGestureMode: "OPEN_MODE_BEZEL_PANNING_CENTERWINDOW", //OPEN_MODE_NONE, OPEN_MODE_PANNING_NAVBAR, OPEN_MODE_PANNING_CENTERWINDOW, OPEN_MODE_BEZEL_PANNING_CENTERWINDOW
+  closeDrawerGestureMode: "CLOSE_MODE_ALL", //CLOSE_MODE_TAP_CENTERWINDOW, CLOSE_MODE_ALL, CLOSE_MODE_PANNING_NAVBAR
+  leftDrawerWidth: Alloy.Globals.drawerWidth,
+  rightDrawerWidth: Alloy.Globals.drawerWidth,
+  animationMode : "ANIMATION_SLIDE_SCALE", //ANIMATION_SLIDE_SCALE, ANIMATION_SLIDE , ANIMATION_FADE, ANIMATION_PARALLAX_FACTOR_7, ANIMATION_PARALLAX_FACTOR_3, ANIMATION_NONE
+}
+
+"#drawer[platform=android]": {
+  openDrawerGestureMode: "OPEN_MODE_MARGIN", //OPEN_MODE_NONE, OPEN_MODE_MARGIN
+  closeDrawerGestureMode: "CLOSE_MODE_MARGIN", //CLOSE_MODE_ALL, CLOSE_MODE_NONE, CLOSE_MODE_MARGIN
+  hideToolbar : true,
+  leftDrawerWidth: 320,
+  rightDrawerWidth: 320,
+  parallaxAmount : 0.3,
+  exitOnClose: true,
+  animationMode : "ANIMATION_ZOOM" // ANIMATION_SCALE, ANIMATION_ZOOM, ANIMATION_SLIDEUP, ANIMATION_NONE
+}
+
+"#contentWrapper":{
+	left : 0,
+	right : 0,
+  top : 0
+}
+
+"#mainWindow": {
+  layout: "vertical"
+}
+
+"#nav": {
+  orientationModes: [Titanium.UI.PORTRAIT]
+}

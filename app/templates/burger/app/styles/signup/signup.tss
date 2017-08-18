@@ -1,0 +1,38 @@
+
+".container" : {
+  top : "15%",
+  left:"7%",
+  right: "7%",
+  layout: "vertical",
+  bottom : 0
+}
+
+".btn": {
+  top : 25,
+  title:  "Valider"
+}
+
+"#lastname": {
+  hintText: "Votre nom"
+}
+
+"#firstname": {
+  hintText: "Votre prénom"
+}
+
+"#email": {
+  hintText: "Votre email",
+  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL
+}
+
+"#password": {
+  hintText: "Votre mot de passe",
+  passwordMask: true
+}
+
+".form": {
+  height : Ti.UI.SIZE,
+  layout : "vertical",
+  left : "10%",
+  right : "10%"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.Custom" parent="@style/Theme.AppCompat.NoTitleBar">
+      <item name="colorPrimary">@color/primary</item>
+      <item name="colorPrimaryDark">@color/primaryDark</item>
+      <item name="colorAccent">@color/primaryDark</item>
+      <item name="colorControlHighlight">@color/colorHighlight</item>
+      <item name="colorControlActivated">@color/colorActivated</item>
+      <item name="android:navigationBarColor">@color/primary</item>
+      <item name="android:statusBarColor">@color/accent</item>
+      <item name="android:textColorPrimary">@color/textPrimary</item>
+    </style>
+    <color name="colorActivated">#f89a3c</color>
+    <color name="primary">#f89a3c</color>
+    <color name="primaryDark">#222222</color>
+    <color name="textPrimary">#222222</color>
+    <color name="accent">#f15b2a</color>
+    <color name="colorHighlight">#222222</color>
+</resources>
+<!-- http://www.appcelerator.com/blog/2015/07/understanding-the-android-material-theme/ -->

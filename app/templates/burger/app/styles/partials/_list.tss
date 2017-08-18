@@ -1,0 +1,21 @@
+".lbl": {
+  left : 20,
+  right : 20,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 14 },
+  color : Alloy.CFG.COLORS.black,
+}
+
+".separator": {
+  bottom: 0,
+  height: 1,
+  backgroundColor: Alloy.CFG.COLORS.gray,
+  width: Ti.UI.FILL
+}
+
+".vrow": {
+  backgroundColor: "white",
+  top : 0,
+  bottom: 0,
+  left : 0,
+  right : 0,
+}
