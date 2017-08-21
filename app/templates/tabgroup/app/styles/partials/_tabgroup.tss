@@ -1,0 +1,17 @@
+
+".container" : {
+  layout: "horizontal",
+  right : 0,
+  left : 0,
+  bottom : 0,
+  height : 64,
+  backgroundColor: "red"
+}
+
+".btnMenu": {
+  color : "white",
+  top : 0,
+  height : 64,
+  width: '25%',
+  backgroundColor: Alloy.CFG.COLORS.main2
+}

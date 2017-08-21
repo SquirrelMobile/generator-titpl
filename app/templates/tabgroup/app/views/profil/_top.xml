@@ -1,0 +1,10 @@
+<Alloy>
+	<View class="container" id="container" height="20%" backgroundColor="transparent">
+		<View backgroundColor="Alloy.CFG.COLORS.main2" top="0" height="50%"></View>
+		<View id="grpView" height="95%">
+			<View id="radius" height="Ti.UI.FILL" width="Ti.UI.SIZE">
+				<ImageView onChange="getHeight" onPostlayout="getHeight" image="/images/common/logo.png" id="photo" onClick="selectPhoto" height="Ti.UI.FILL" />
+			</View>
+		</View>
+	</View>
+</Alloy>

@@ -1,0 +1,17 @@
+<Alloy>
+	<View id="container">
+		<View id="nav" class="navbar">
+
+			<Button id="back" onClick="actions" type="back"></Button>
+
+			<Label id="title" visible="false"/>
+
+			<ImageView id="logo" onClick="actions" type="home" platform="android" />
+			<Button id="logo" onClick="actions" type="home" platform="ios" />
+
+			<ImageView id="close" onClick="actions" type="back" platform="android" />
+			<Button id="close" onClick="actions" type="back" platform="ios" />
+
+		</View>
+	</View>
+</Alloy>

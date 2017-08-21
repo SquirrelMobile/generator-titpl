@@ -1,0 +1,18 @@
+<Alloy>
+	<View id="win" class="container">
+
+		<Require id="navbar" src="partials/_navbar" />
+
+		<Require id="top" src="profil/_top" onOpenMedia="openMedia" />
+
+		<View height="5"/>
+
+		<Widget id="paging" src="de.manumaticx.pagingcontrol" />
+
+		<ScrollableView id="scrollableView">
+			<View title="Onglet 1" backgroundColor="red" />
+			<View title="Onglet 2" backgroundColor="blue" />
+		</ScrollableView>
+
+	</View>
+</Alloy>

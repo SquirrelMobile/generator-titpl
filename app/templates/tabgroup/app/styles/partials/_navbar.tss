@@ -1,0 +1,61 @@
+".navbar[platform=ios]": {
+  top : 20,
+  height : 44,
+  backgroundColor: Alloy.CFG.COLORS.main2
+}
+
+".navbar[platform=android]": {
+  top : 0,
+  height : 44
+}
+
+"#logo": {
+  image: '/images/common/logo.png',
+  backgroundImage: null,
+  top : 2,
+  bottom : 2,
+  visible: false
+}
+
+"#back": {
+  image: '/images/common/back.png',
+  backgroundImage: null,
+  left : 0,
+  width: 40,
+  height: 40,
+  visible: false
+}
+
+"#title": {
+  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 14 },
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  color : "white",
+  left: 50 ,
+  right: 50,
+  visible: false
+}
+
+"#container[platform=ios]": {
+  height: 64,
+  backgroundColor: Alloy.CFG.COLORS.main2
+}
+
+"#container[platform=android]": {
+  height: Ti.UI.SIZE,
+  backgroundColor: Alloy.CFG.COLORS.main2
+}
+
+"#close[platform=ios]": {
+  image: '/images/common/close.png',
+  right: 0,
+  width: 40,
+  height: 40,
+  backgroundImage: null,
+  visible: false
+}
+
+"#close[platform=android]": {
+  image: '/images/common/close.png',
+  right: 10,
+  visible: false
+}

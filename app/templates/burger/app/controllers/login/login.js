@@ -18,6 +18,14 @@
     });
   }
 
+  $.login.listener('return', function(){
+    $.password.focus();
+  });
+
+  $.password.listener('return', function(){
+    connect();
+  });
+
 })($.args);
 
 
@@ -53,8 +61,16 @@ function openWin(e){
  */
 function connect(e){
 
-    var password = require("core").requiredField($.password);
-    var login = require("core").requiredField($.login);
+    var password = $.password.getValue();
+    var login = $.login.getValue();
+
+    if(!require('core').valideEmail(login)){
+      Ti.UI.createAlertDialog({
+        title : 'Attention',
+        message : 'Merci de saisir un email valide'
+      }).show();
+      return false;
+    }
 
     if(password && login){
 
@@ -85,5 +101,76 @@ function next(e){
 
   if($[e.source.next])
     $[e.source.next].focus();
+
+}
+
+
+//TUTORIEL EXAMPLE
+if(Ti.App.Properties.getBool('showTutorial') || 1 == 1){
+
+  var tutorial = Alloy.createWidget("fr.squirrel.tutorial",{
+    indicatorSelect : {
+      image: "/images/ellipseblue.png"
+    },
+    indicatorUnselect : {
+      image: "/images/ellipseblueinactive.png"
+    },
+    titleBtnStart: "Next",
+    titleBtnEnd : "Close",
+    success : function(e){
+      tutorial.close();
+      Ti.App.Properties.setBool('showTutorial', false);
+    }
+  });
+
+  var pages = [
+    {
+      page : {
+        backgroundColor : Alloy.CFG.COLORS.main,
+      },
+      title : {
+        text : "Lorem ipsum dolor.",
+      },
+      subtitle :{
+        text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin magna eget velit aliquet, id facilisis nulla commodo. Fusce a hendrerit dolor, sed volutpat lacus.",
+      },
+      logo:{
+        image :"/images/common/logo.png"
+      }
+    },
+    {
+      page : {
+        backgroundColor : Alloy.CFG.COLORS.main,
+      },
+      title : {
+        text : "Curabitur scelerisque justo.",
+      },
+      subtitle :{
+        text : "Nam viverra gravida quam varius aliquam",
+      },
+      logo:{
+        image :"/images/common/logo.png"
+      }
+    },
+    {
+      page : {
+        backgroundColor : Alloy.CFG.COLORS.main,
+      },
+      title : {
+        text : "Cras in tincidunt eros.",
+      },
+      subtitle :{
+        text : "Aenean fringilla mi sit amet luctus tristique. Cras ultrices dolor non lacus bibendum tristique.",
+      },
+      logo:{
+        image :"/images/common/logo.png"
+      }
+    }
+  ];
+
+  $.win.addEventListener('open', function(){
+    this.removeEventListener('open', arguments.callee);
+    tutorial.setPages(pages);
+  });
 
 }

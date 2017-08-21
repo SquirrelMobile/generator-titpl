@@ -1,0 +1,7 @@
+<Alloy>
+	<View class="container">
+		<Require src="partials/_navbar" id="navbar" />
+
+		<Button top="50" class="btn" onClick="openWindow">Open new Window</Button>
+	</View>
+</Alloy>

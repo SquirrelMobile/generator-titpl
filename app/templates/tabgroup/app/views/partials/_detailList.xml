@@ -1,0 +1,6 @@
+<Alloy>
+	<View class="container" backgroundColor="blue">
+		<Require src="partials/_navbar" id="navbar" />
+		<Require src="partials/_list" id="listview" onClick="handleClick" />
+	</View>
+</Alloy>

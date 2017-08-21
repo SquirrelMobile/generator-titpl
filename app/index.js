@@ -19,10 +19,10 @@ var templateList = [
     name : 'Burger menu',
     value : 'burger'
   },
-  // {
-  //   name : 'Tabgroup navigation',
-  //   value : 'tabgroup'
-  // }
+  {
+    name : 'Tabgroup navigation',
+    value : 'tabgroup'
+  }
 ];
 
 function generateGUID() {
@@ -69,7 +69,7 @@ module.exports = generators.Base.extend({
             {
                 type:     'input',
                 name:     'bundle_id',
-                message:  'What is the bundle ID ?',
+                message:  'What is the bundle ID ? <id> in the tiapp.xml',
                 validate: notBlank,
                 filter : lower
             },
@@ -109,16 +109,35 @@ module.exports = generators.Base.extend({
             {
                 type:    'input',
                 name:    'copyright',
-                message: 'Copyright name:',
+                message: 'Copyright name :',
                 filter:  notSpecifiedFilter
             },
             {
                 type:    'list',
                 name:    'sdk',
-                message: 'Titanium SDK:',
+                message: 'Titanium SDK :',
                 choices: ti,
                 default : 0
-            }/*, {
+            },
+            {
+                type:    'input',
+                name:    'maincolor',
+                message: 'What is the main color for your app ? (background window color)',
+                default : '#f89a3c'
+            },
+            {
+                type:    'input',
+                name:    'maincolor2',
+                message: 'What is the second color for your app ? (navbar, button color)',
+                default : '#f15b2a'
+            },
+            {
+                type:    'input',
+                name:    'baseurl',
+                message: 'What is the baseurl of your webservice ?',
+                default : 'http://www.squirrel.fr'
+            },
+            /*, {
                 type:    'checkbox',
                 name:    'options',
                 message: 'Extras:',
@@ -145,6 +164,9 @@ module.exports = generators.Base.extend({
                     this.url         = props.url;
                     this.description = props.description;
                     this.sdk         = props.sdk;
+                    this.maincolor   = props.maincolor;
+                    this.maincolor2  = props.maincolor2;
+                    this.baseurl     = props.baseurl;
                     //this.version     = props.version;
                     //this.use_alloy   = props.options.indexOf('use_alloy') !== -1;
                     //this.use_tests   = props.options.indexOf('use_tests') !== -1;
@@ -152,18 +174,16 @@ module.exports = generators.Base.extend({
                     //this.guid        = generateGUID();
                     this.copyright   = props.copyright;
                   }).then(function(answers) {
-                        console.log(answers);
-                        if(answers.copyright === "not specified"){
-                          answers.copyright = new Date().getFullYear() + (answers.publisher ? " " + answers.publisher : "");
-                        }
-                        asks = answers;
-                      });
+                    if(answers.copyright === "not specified"){
+                      answers.copyright = new Date().getFullYear() + (answers.publisher ? " " + answers.publisher : "");
+                    }
+                    asks = answers;
+                  });
         },
         method2: function() {
             console.log(chalk.underline.bgBlue('Copying templates '+asks.template+'...'));
 
             var folderName = camelCase(asks.appname);
-            console.log('FOLDER ' + this.destinationPath(folderName+'/_gitignore'));
             var template = asks.template;
             this.fs.copy(
                 this.templatePath(template),
@@ -188,6 +208,15 @@ module.exports = generators.Base.extend({
                     DESCRIPTION:asks.description,
                     COPYRIGHT:asks.copyright,
                     SDK:asks.sdk
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(template+'/app/config.json'),
+                this.destinationPath(folderName+'/app/config.json'),
+                {
+                    MAINCOLOR:asks.maincolor,
+                    MAINCOLOR2:asks.maincolor2,
+                    BASEURL:asks.baseurl
                 }
             );
         },

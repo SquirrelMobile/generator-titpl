@@ -1,0 +1,41 @@
+{
+  "global": {
+    "FONTS": {
+      "light": "Helvetica-Light",
+      "regular": "Helvetica-Regular",
+      "bold": "Helvetica-Bold"
+    },
+    "COLORS": {
+      "main": "<%= MAINCOLOR %>",
+      "main2" : "<%= MAINCOLOR2 %>",
+      "black": "#222222",
+      "gray": "#dbdfe2",
+      "text": "#9896a4"
+    },
+    "pushwoosh" : {
+      "projectId" : "XXXX-XXXX",
+      "gcmID" : "XXXXXXXXXXXX"
+    }
+  },
+  "env:development": {
+    "baseurl": "<%= BASEURL %>"
+  },
+  "env:test": {
+    "baseurl": "<%= BASEURL %>"
+  },
+  "env:production": {
+    "baseurl": "<%= BASEURL %>"
+  },
+  "os:android": {},
+  "os:blackberry": {},
+  "os:ios": {},
+  "os:mobileweb": {},
+  "os:windows": {},
+  "dependencies": {
+    "nl.fokkezb.loading": "*",
+    "de.manumaticx.pagingcontrol": "*",
+    "com.mp5systems.rippleeffect": "*",
+    "input-materialdesign": "*",
+    "fr.squirrel.tutorial": "*"
+  }
+}

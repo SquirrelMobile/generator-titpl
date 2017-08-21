@@ -1,0 +1,12 @@
+<Alloy>
+	<ListSection>
+
+    <HeaderView>
+      <View class="section">
+        <Label id="title" />
+        <View class="separator" />
+      </View>
+    </HeaderView>
+
+  </ListSection>
+</Alloy>

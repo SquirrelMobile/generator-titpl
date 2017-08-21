@@ -1,0 +1,10 @@
+<Alloy>
+	<View class="btnMenu" type="menu" id="tab" onClick="handleClick">
+		<View class="vMenu">
+			<View class="vImg">
+				<ImageView id="img" />
+			</View>
+			<Label id="lblTab" />
+		</View>
+	</View>
+</Alloy>

@@ -1,0 +1,28 @@
+".btnMenu": {
+  color : "white",
+  top : 0,
+  height : 64,
+  width: '25%',
+  backgroundColor: Alloy.CFG.COLORS.main2
+}
+
+"#lblTab": {
+  touchEnabled: false,
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 11 },
+  color: "white"
+}
+
+"#img": {
+  touchEnabled: false
+}
+
+".vMenu": {
+   layout: "vertical",
+   touchEnabled : false,
+   height: Ti.UI.SIZE
+}
+
+".vImg": {
+  height: 30,
+  touchEnabled: false
+}

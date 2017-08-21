@@ -1,0 +1,6 @@
+<Alloy>
+	<View class="menu" type="view" onClick="handleClick">
+		<View class="containerOpaque" touchEnabled="false" />
+		<View id="menu" class="container" />
+	</View>
+</Alloy>

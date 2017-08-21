@@ -1,0 +1,5 @@
+
+".container": {
+  backgroundColor: Alloy.CFG.COLORS.main,
+  layout: "vertical"
+}

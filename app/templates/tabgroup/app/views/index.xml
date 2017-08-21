@@ -1,0 +1,5 @@
+<Alloy>
+	<!--On créé une navigation window depuis l'index pour en n'avoir qu'une seul-->
+	<!--Toutes les windows doivent être ouverte dans cette nav-->
+	<!--En mettant module="xp.ui" on appel la fonction createNavigationWindow dans la lib xp.ui-->
+</Alloy>

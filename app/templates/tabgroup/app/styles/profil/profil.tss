@@ -1,0 +1,21 @@
+
+".container" : {
+  layout: "vertical"
+}
+
+"#paging" : {
+  height: 40,
+  indicatorColor: Alloy.CFG.COLORS.main,
+  indicatorHeight : 2,
+  color : Alloy.CFG.COLORS.black,
+  activeColor : Alloy.CFG.COLORS.grey,
+  tabs: true,
+  backgroundColor : "white",
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 11 },
+  activeFont : { fontFamily: Alloy.CFG.FONTS.medium, fontSize : 11 },
+  tabWidth : "auto"
+}
+
+"#scrollableView": {
+  height: Ti.UI.FILL
+}

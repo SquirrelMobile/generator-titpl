@@ -1,0 +1,7 @@
+<Alloy>
+	<View class="container" backgroundColor="blue">
+		<Label top="25">I'm the detail view</Label>
+
+		<Button class="btn" onClick="openWindow">Open second window</Button>
+	</View>
+</Alloy>
