@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="win">
+		<Require src="partials/_navbar" id="navbar" onClick="close" />
+		<View id="containerCalendar"></View>
+	</Window>
+</Alloy>

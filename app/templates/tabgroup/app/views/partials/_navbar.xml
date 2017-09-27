@@ -2,15 +2,13 @@
 	<View id="container">
 		<View id="nav" class="navbar">
 
-			<Button id="back" onClick="actions" type="back"></Button>
+			<Button id="back" class="fa" onClick="actions" type="back"></Button>
 
 			<Label id="title" visible="false"/>
 
-			<ImageView id="logo" onClick="actions" type="home" platform="android" />
-			<Button id="logo" onClick="actions" type="home" platform="ios" />
+			<Button id="logo" onClick="actions" type="home" />
 
-			<ImageView id="close" onClick="actions" type="back" platform="android" />
-			<Button id="close" onClick="actions" type="back" platform="ios" />
+			<Button id="close" class="fa" onClick="actions" type="back" />
 
 		</View>
 	</View>

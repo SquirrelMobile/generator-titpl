@@ -9,22 +9,30 @@
   var menu = [
     {
        controller : 'home/home',
-       image : '/images/common/logo.png',
+       image : {
+         text : '\uf015'
+       },
        title : 'Menu Accueil'
     },
     {
        controller : 'partials/_detailList',
-       image : '/images/common/logo.png',
+       image : {
+         text : '\uf03a'
+       },
        title : 'Menu Liste'
     },
     {
        controller : 'profil/profil',
-       image : '/images/common/logo.png',
+       image : {
+         text : '\uf007'
+       },
        title : 'Menu Profil'
     },
     {
        controller : 'logout',
-       image : '/images/common/logo.png',
+       image : {
+         text : '\uf08b'
+       },
        title : 'Déconnexion',
        last : true
     }

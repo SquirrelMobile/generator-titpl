@@ -9,22 +9,27 @@
    var menu = [
      {
         controller : 'home/home',
-        image : '/images/common/logo.png',
+        image : {
+          text : '\uf015'
+        },
         title : 'Accueil'
      },
      {
         controller : 'partials/_detailList',
-        image : '/images/common/logo.png',
+        image : {
+          text : '\uf03a'
+        },
         title : 'Liste'
      },
      {
         controller : 'profil/profil',
-        image : '/images/common/logo.png',
+        image : {
+          text : '\uf007'
+        },
         title : 'Profil'
      },
      {
         controller : 'menu',
-        //image : '/images/common/logo.png',
         title : 'Autre',
         last : true
      }
@@ -37,7 +42,7 @@
  })($.args);
 
 function handleClick(e){
-
+  Ti.API.log('--- e ' + JSON.stringify(e));
   var s = e.source,
     type = s.type;
 

@@ -8,14 +8,14 @@
 
 				<ItemTemplate name="inactiveTemplateWithIcon">
 					<View class="separator" />
-					<ImageView bindId="image" class="img" />
+					<Label bindId="image" class="img" />
 					<Label bindId="title" class="title inactive" />
 				</ItemTemplate>
 
 				<ItemTemplate name="activeTemplateWithIcon">
 					<View class="border" />
 					<View class="separator" />
-					<ImageView bindId="image" class="img" />
+					<Label bindId="image" class="img" />
 					<Label bindId="title" class="title active" />
 				</ItemTemplate>
 

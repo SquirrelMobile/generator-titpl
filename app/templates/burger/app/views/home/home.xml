@@ -4,5 +4,7 @@
 
 		<Button top="50" class="btn" onClick="openWindow">Open new Window</Button>
 
+		<Button top="100" class="btn" onClick="openCalendar">Open calendar</Button>
+
 	</View>
 </Alloy>

@@ -1,3 +1,16 @@
+//http://fontawesome.io/icons/
+// take the unicode and add \u before
+//eg :<Label class="fa" text="\uf0c0" />
+".fa": {
+	font: { fontFamily : 'FontAwesome' }
+}
+
+//https://material.io/icons/
+//eg :<Label class="ma" text="\ue7fb" />
+".ma" : {
+	font : { fontFamily : 'MaterialIcons-Regular' }
+}
+
 "Window": {
 	backgroundColor : Alloy.CFG.COLORS.main,
 	orientationModes: [Ti.UI.PORTRAIT],

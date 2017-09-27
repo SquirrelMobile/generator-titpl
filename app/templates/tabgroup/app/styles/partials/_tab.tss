@@ -13,6 +13,9 @@
 }
 
 "#img": {
+  font: { fontFamily : 'FontAwesome', fontSize : '25sp' },
+  height: Ti.UI.SIZE,
+  color : "white",
   touchEnabled: false
 }
 

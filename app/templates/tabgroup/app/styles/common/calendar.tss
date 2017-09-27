@@ -1,0 +1,13 @@
+
+"#win" : {
+	opacity : 0,
+	backgroundColor : 'white',
+	layout : 'vertical'
+}
+
+"#containerCalendar":{
+	height : Ti.UI.SIZE,
+	left : 0,
+	right : 0,
+	backgroundColor : Alloy.CFG.COLORS.main
+}

@@ -15,7 +15,7 @@ var menu = null;
 })(args);
 
 function handleContent(o){
-
+  Ti.API.log('--- handleContent '  +JSON.stringify(o));
   var controller = o.controller || null;
   var type = o.type || 'view';
 

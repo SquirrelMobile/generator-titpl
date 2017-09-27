@@ -14,6 +14,8 @@
 }
 
 ".img":{
+	font: { fontFamily : 'FontAwesome', fontSize : '25sp' },
+	color : "black",
 	left : 15,
   height: 30
 }

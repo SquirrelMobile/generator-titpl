@@ -18,8 +18,10 @@
 }
 
 "#back": {
-  image: '/images/common/back.png',
   backgroundImage: null,
+  title : "\uf053",
+  font : { fontSize : '25sp' },
+  color : "black",
   left : 0,
   width: 40,
   height: 40,
@@ -45,17 +47,13 @@
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 
-"#close[platform=ios]": {
-  image: '/images/common/close.png',
+"#close": {
+  title : "\uf00d",
+  font : { fontSize : '25sp' },
+  color : "black",
   right: 0,
   width: 40,
   height: 40,
   backgroundImage: null,
-  visible: false
-}
-
-"#close[platform=android]": {
-  image: '/images/common/close.png',
-  right: 10,
   visible: false
 }

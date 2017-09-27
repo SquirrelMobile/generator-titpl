@@ -30,7 +30,9 @@ var menu = [
   {
     id : 'home',
     controller : 'home/home',
-    image : '/images/common/logo.png',
+    image : {
+        text : '\uf015'
+    },
     title : 'Accueil',
     templateActive : 'activeTemplateWithIcon',
     templateInactive : 'inactiveTemplateWithIcon'
@@ -410,7 +412,7 @@ _.defer(function(){
   $.menu.load(menu, true);
 });
 
-if(OS_ANDROID){
+/*if(OS_ANDROID){
 
   $.drawer.addEventListener('open', onNavDrawerWinOpen);
   function onNavDrawerWinOpen(evt) {
@@ -427,7 +429,7 @@ if(OS_ANDROID){
       }
   }
 
-}
+}*/
 
 
 /**

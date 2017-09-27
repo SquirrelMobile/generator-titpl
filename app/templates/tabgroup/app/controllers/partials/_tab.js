@@ -11,7 +11,7 @@ var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
   }
 
   if(args.image){
-    $.img.image = args.image;
+    $.img.applyProperties(args.image);
   }
 
   if(args.title){

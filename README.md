@@ -46,6 +46,6 @@ To test your application :
 
 1. Add more template
 2. Customize config.json file with fonts, colors, pushwoosh, baseurl
-3. Add other library/code example like input material, calenda view, in-app purchase, Maps, tutorial, Admob, wysiwyg, charts
+3. Add other library/code example like input material, in-app purchase, Maps, tutorial, Admob, wysiwyg, charts
 4. Enable / disable library on the fly when you create a new app
 5. Handle module dependancy with gittio cli

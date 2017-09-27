@@ -36,10 +36,11 @@ function load(data, loadFirst){
      properties : row,
      title : {
        text : row.title
-     },
-     image : {
-       image : row.image
-     }
+     } 
+   };
+
+   if(row.image){
+     elem.image = row.image
    };
 
    d.push(elem);

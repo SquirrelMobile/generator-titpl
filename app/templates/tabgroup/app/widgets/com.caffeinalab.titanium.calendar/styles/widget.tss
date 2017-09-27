@@ -1,0 +1,91 @@
+"Label": {
+	color: '#fff',
+	font: {
+		fontSize: 14
+	}
+}
+"#main": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
+},
+".bar": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+"#monthName": {
+	font: { fontSize: 18 }
+},
+".headerText": {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+},
+"#calendar": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	layout: 'vertical',
+},
+"#dayLabels": {
+	width: Ti.UI.FILL,
+	height: 30,
+},
+"#dayLabelsRow": {
+	layout: 'horizontal',
+	width: Ti.UI.SIZE,
+	height: Ti.UI.FILL,
+},
+".dayLabelView": {
+	height: Ti.UI.FILL,
+	backgroundColor: '#3000',
+},
+".dayLabel": {
+	left: 5,
+},
+"#monthScroll": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL
+},
+".month": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
+},
+".monthRow": {
+	layout: 'horizontal',
+	width: Ti.UI.SIZE,
+	height: 50,
+},
+".day": {
+	height: Ti.UI.FILL
+},
+".dayNumber": {
+	top: 3,
+	left: 5,
+	right : 5,
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	touchEnabled: false
+},
+".dayDot": {
+	height: 6,
+	width: 6,
+	borderRadius: 3,
+	top: 23,
+	//left: 5,
+	touchEnabled: false
+},
+".sp1/2": {
+	height: 6
+},
+".sp": {
+	height: 15
+},
+".msp":{
+	top: 15
+},
+".sp2": {
+	height: 30
+},
+".msp2":{
+	top: 30
+}
