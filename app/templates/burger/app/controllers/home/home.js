@@ -4,7 +4,11 @@
  *
  */
 
-var calendar = null;
+ /**
+  *
+  */
+ var calendar = null;
+ var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
 
 /**
  * @method Controller
@@ -60,7 +64,6 @@ function openWindow(e){
   dispatcher.trigger('openWindow', obj);
 
 }
-
 
 function openCalendar(e){
 

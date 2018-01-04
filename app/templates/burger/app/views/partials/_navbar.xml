@@ -2,7 +2,7 @@
 	<View id="container">
 		<View id="nav" class="navbar">
 
-			<Button id="burger" class="fa" onClick="actions" type="Left" />
+			<Button id="burger" class="fa" left="10" onClick="actions" type="Left" />
 
 			<Button id="back" class="fa" onClick="actions" type="back"></Button>
 

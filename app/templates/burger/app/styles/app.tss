@@ -79,7 +79,7 @@
   selectedColor: Alloy.CFG.COLORS.main
 }
 
-".field": {
+".champ": {
 	width: Ti.UI.FILL,
   returnKeyType: Ti.UI.RETURNKEY_NEXT,
   clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS,
@@ -92,11 +92,12 @@
   color : Alloy.CFG.COLORS.black,
 	hintTextColor: "#717171",
   borderColor : Alloy.CFG.COLORS.main2,
+
   autocorrect: false,
   autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE
 }
 
-".field[platform=ios]": {
+".champ[platform=ios]": {
 	padding : {left : 15, top: 10, bottom: 10,right: 15},
 	tintColor: Alloy.CFG.COLORS.main2
 }

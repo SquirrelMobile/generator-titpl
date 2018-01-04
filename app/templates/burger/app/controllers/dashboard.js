@@ -31,7 +31,7 @@ var menu = [
     id : 'home',
     controller : 'home/home',
     image : {
-        text : '\uf015'
+       text : '\uf015'
     },
     title : 'Accueil',
     templateActive : 'activeTemplateWithIcon',
@@ -39,24 +39,33 @@ var menu = [
   },
   {
     id : 'list',
+    image : {
+      text : '\uf03a'
+    },
     controller : 'partials/_detailList',
     title : 'Liste',
-    templateActive : 'activeTemplateWithoutIcon',
-    templateInactive : 'inactiveTemplateWithoutIcon'
+    templateActive : 'activeTemplateWithIcon',
+    templateInactive : 'inactiveTemplateWithIcon'
   },
   {
     id : 'profil',
+    image : {
+      text : '\uf007'
+    },
     controller : 'profil/profil',
     title : 'Profil',
-    templateActive : 'activeTemplateWithoutIcon',
-    templateInactive : 'inactiveTemplateWithoutIcon'
+    templateActive : 'activeTemplateWithIcon',
+    templateInactive : 'inactiveTemplateWithIcon'
   },
   {
     id : 'logout',
+    image : {
+      text : '\uf08b'
+    },
     controller : null,
     title : 'Déconnexion',
-    templateActive : 'activeTemplateWithoutIcon',
-    templateInactive : 'inactiveTemplateWithoutIcon'
+    templateActive : 'activeTemplateWithIcon',
+    templateInactive : 'inactiveTemplateWithIcon'
   }
 ];
 
@@ -412,7 +421,7 @@ _.defer(function(){
   $.menu.load(menu, true);
 });
 
-/*if(OS_ANDROID){
+if(OS_ANDROID){
 
   $.drawer.addEventListener('open', onNavDrawerWinOpen);
   function onNavDrawerWinOpen(evt) {
@@ -429,7 +438,7 @@ _.defer(function(){
       }
   }
 
-}*/
+}
 
 
 /**

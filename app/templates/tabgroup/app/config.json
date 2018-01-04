@@ -6,8 +6,8 @@
       "bold": "Helvetica-Bold"
     },
     "COLORS": {
-      "main": "#f89a3c",
-      "main2" : "#f15b2a",
+      "main": "<%= MAINCOLOR %>",
+      "main2" : "<%= MAINCOLOR2 %>",
       "black": "#222222",
       "gray": "#dbdfe2",
       "text": "#9896a4"
@@ -18,13 +18,13 @@
     }
   },
   "env:development": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "env:test": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "env:production": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "os:android": {},
   "os:blackberry": {},

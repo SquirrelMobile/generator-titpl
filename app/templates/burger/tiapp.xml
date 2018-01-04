@@ -19,6 +19,8 @@
     <use-jscore-framework>true</use-jscore-framework>
     <plist>
       <dict>
+        <key>CFBundleVersion</key>
+        <string>1</string>
         <key>NSCameraUsageDescription</key>
         <string>Autorisez l'application à accéder à la caméra ?</string>
         <key>NSPhotoLibraryUsageDescription</key>
@@ -42,6 +44,11 @@
         <false/>
         <key>UIStatusBarStyle</key>
         <string>UIStatusBarStyleDefault</string>
+        <key>CFBundleLocalizations</key>
+        <array>
+            <string>en</string>
+            <string>fr</string>
+        </array>
       </dict>
     </plist>
   </ios>

@@ -26,7 +26,10 @@ var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
 
 function handleClick(e){
 
-  rippleEffect.create(e);
+  if(e.source.rippleEffect){
+    rippleEffect.create(e);
+  }
+
   $.trigger('click', e);
 
 }

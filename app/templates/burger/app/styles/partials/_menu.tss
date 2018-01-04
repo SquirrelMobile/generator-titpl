@@ -14,10 +14,10 @@
 }
 
 ".img":{
-	font: { fontFamily : 'FontAwesome', fontSize : '25sp' },
-	color : "black",
 	left : 15,
-  height: 30
+	font: { fontFamily : 'FontAwesome', fontSize : '25sp' },
+  height: Ti.UI.SIZE,
+  color : Alloy.CFG.COLORS.main
 }
 
 ".title":{

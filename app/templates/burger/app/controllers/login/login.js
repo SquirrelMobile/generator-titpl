@@ -106,7 +106,7 @@ function next(e){
 
 
 //TUTORIEL EXAMPLE
-if(Ti.App.Properties.getBool('showTutorial') || 1 == 1){
+if(Ti.App.Properties.getBool('showTutorial')){
 
   var tutorial = Alloy.createWidget("fr.squirrel.tutorial",{
     indicatorSelect : {

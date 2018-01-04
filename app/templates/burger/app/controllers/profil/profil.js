@@ -64,9 +64,9 @@ function choisirOption(e){
 
   if(e.index === 0)
   {
-    require('media').takePhoto(function(photo,ext){
+    require('/media').takePhoto(function(photo,ext){
       $.top.photo.image = photo;
-      var name  = require('media').saveFile({
+      var name  = require('/media').saveFile({
         blob : photo,
         ext : ext
       });
@@ -76,9 +76,9 @@ function choisirOption(e){
   }
   else if(e.index === 1)
   {
-    require('media').openGallery(function(photo,ext){
+    require('/media').openGallery(function(photo,ext){
       $.top.photo.image = photo;
-      var name  = require('media').saveFile({
+      var name  = require('/media').saveFile({
         blob : photo,
         ext : ext
       });

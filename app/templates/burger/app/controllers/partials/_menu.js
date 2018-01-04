@@ -28,7 +28,7 @@ function load(data, loadFirst){
      menu : 'menu',
      height : 58,
      backgroundColor : Alloy.CFG.COLORS.menuBg,
-     selectionStyle : OS_IOS ? Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE : ''
+     selectionStyle : OS_IOS ? Titanium.UI.iOS.ListViewCellSelectionStyle.NONE : ''
    });
 
    elem = {
@@ -36,12 +36,12 @@ function load(data, loadFirst){
      properties : row,
      title : {
        text : row.title
-     } 
+     }
    };
 
    if(row.image){
-     elem.image = row.image
-   };
+     elem.image = row.image;
+   }
 
    d.push(elem);
 

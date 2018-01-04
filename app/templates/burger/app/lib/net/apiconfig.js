@@ -85,7 +85,7 @@ function alertDialog(text,title){
 				directory : dir,
 				zipname : zipname,
 				success : function(){
-					require('media').decompressionZip({
+					require('/media').decompressionZip({
 						zipname : zipname,
 						directory : dir,
 						destinationFolder : dir,

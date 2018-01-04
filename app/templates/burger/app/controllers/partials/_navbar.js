@@ -41,7 +41,7 @@ function actions(e){
  * @return {type}      description
  */
 $.load = function(conf){
-
+  
   if(conf.nav){
     $.nav.applyProperties(conf.nav);
     if(conf.nav.backgroundColor){

@@ -18,6 +18,7 @@
 }
 
 "#back": {
+  backgroundImage: null,
   title : "\uf053",
   font : { fontSize : '25sp' },
   color : "black",
@@ -31,7 +32,6 @@
   backgroundImage: null,
   title : "\uf0c9",
   font : { fontSize : '25sp' },
-  color : "black",
   left : 0,
   width: 40,
   height: 40,
