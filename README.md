@@ -6,6 +6,10 @@ Create Appcelerator Titanium skeleton
 
 **npm install -g generator-titpl**
 
+OR
+
+**npm update -g generator-titpl** if you already have it
+
 If you don't have yet the Yeoman tool, you should install it first :
 
 **npm install -g yo**
@@ -49,3 +53,4 @@ To test your application :
 3. Add other library/code example like input material, in-app purchase, Maps, tutorial, Admob, wysiwyg, charts
 4. Enable / disable library on the fly when you create a new app
 5. Handle module dependancy with gittio cli
+6. Handle error when titanium CLI is not installed

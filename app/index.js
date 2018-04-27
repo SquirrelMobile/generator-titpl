@@ -52,6 +52,8 @@ module.exports = generators.Base.extend({
         var self = this;
 
         exec('titanium sdk list -o json', function(error, stdout, stderr) {
+            //TODO gérer le pb en cas d'erreur du JSON
+            //TODO vérifier que le npm titanium est installé ou utiliser le npm appcelerator ?
             var sdkList = JSON.parse(stdout);
             for (var sdk in sdkList.installed) {
                 ti.push({ name : sdk, value : sdk});
@@ -69,28 +71,28 @@ module.exports = generators.Base.extend({
             {
                 type:     'input',
                 name:     'bundle_id',
-                message:  'What is the bundle ID ? <id> in the tiapp.xml',
+                message:  'What\'s your application id (example: com.company.myapp) ? :',
                 validate: notBlank,
                 filter : lower
             },
             {
                 type:     'input',
                 name:     'appname',
-                message:  'What will you call your app ?',
+                message:  'What\'s the project name ? :',
                 default:  this.appname,
                 validate: notBlank
             },
             {
                 type:     'input',
                 name:     'publisher',
-                message:  'Publisher name :',
+                message:  'What\'s the publisher name ? :',
                 default : 'Squirrel',
                 validate: notBlank
             },
             {
                 type:    'input',
                 name:    'url',
-                message: 'What is the URL for the project webpage (if any) ?',
+                message: 'What\'s the URL for the project webpage (if any) ? :',
                 default : 'http://www.squirrel.fr'
             },
             /*{
@@ -103,38 +105,38 @@ module.exports = generators.Base.extend({
             {
                 type:    'input',
                 name:    'description',
-                message: 'Provide a short description for your app :',
+                message: 'Provide a short description for your app : ',
                 filter:  notSpecifiedFilter
             },
             {
                 type:    'input',
                 name:    'copyright',
-                message: 'Copyright name :',
+                message: 'What\'s the copyright name ? :',
                 filter:  notSpecifiedFilter
             },
             {
                 type:    'list',
                 name:    'sdk',
-                message: 'Titanium SDK :',
+                message: 'Which SDK would you like to use ? :',
                 choices: ti,
                 default : 0
             },
             {
                 type:    'input',
                 name:    'maincolor',
-                message: 'What is the main color for your app ? (background window color)',
+                message: 'What\'s the main color for your app ? (background window color)',
                 default : '#f89a3c'
             },
             {
                 type:    'input',
                 name:    'maincolor2',
-                message: 'What is the second color for your app ? (navbar, button color)',
+                message: 'What\'s the second color for your app ? (navbar, button color)',
                 default : '#f15b2a'
             },
             {
                 type:    'input',
                 name:    'baseurl',
-                message: 'What is the baseurl of your webservice ?',
+                message: 'What\'s the baseurl of your webservice ? :',
                 default : 'http://www.squirrel.fr'
             },
             /*, {
