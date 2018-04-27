@@ -4,9 +4,6 @@
  *
  */
 
-var dispatcher = require('dispatcher');
-
-
 /**
  * openWindow - description
  *
@@ -23,7 +20,7 @@ function openWindow(e){
         nav : {
           backgroundColor : 'blue',
         },
-        back : {
+        btnLeft : {
           visible : true
         },
         logo : {
@@ -32,6 +29,6 @@ function openWindow(e){
       }
     }
   };
-  dispatcher.trigger('openWindow', obj);
+  Alloy.Globals.events.trigger('openWindow', obj);
 
 }

@@ -12,7 +12,7 @@
 (function constructor(args){
 
   $.navbar.load({
-    back : {
+    btnLeft : {
       visible : true
     },
     title : {

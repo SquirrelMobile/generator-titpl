@@ -11,7 +11,7 @@ var $calendar, calendarView, triggerCalendar;
         text : 'Merci de choisir une date',
         color : "white"
       },
-      back : {
+      btnLeft : {
         visible : true
       }
     });

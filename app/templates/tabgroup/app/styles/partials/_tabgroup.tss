@@ -5,7 +5,7 @@
   left : 0,
   bottom : 0,
   height : 64,
-  backgroundColor: "red"
+  backgroundColor: Alloy.CFG.COLORS.main2
 }
 
 ".btnMenu": {

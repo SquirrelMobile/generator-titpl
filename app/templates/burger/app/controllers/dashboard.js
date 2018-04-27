@@ -13,15 +13,13 @@ if(OS_IOS){
   /**
    * @type {object} nav navigation window
    */
-  Alloy.Globals.nav = $.nav;
+  //Alloy.Globals.nav = $.nav;
 }
 
 /**
  * @type {string} currentController current controller
  */
 var currentController = null;
-
-var dispatcher = require('dispatcher');
 
 /**
  * @type {array} menu menu
@@ -60,7 +58,7 @@ var menu = [
   {
     id : 'logout',
     image : {
-      text : '\uf08b'
+      text : '\uf2f5'
     },
     controller : null,
     title : 'Déconnexion',
@@ -80,8 +78,8 @@ var menu = [
     $.drawer.window.windowSoftInputMode = Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN;
   }
   $.drawer.open();
-  dispatcher.off("findRowMenu");
-  dispatcher.off("openWindow");
+  Alloy.Globals.events.off("findRowMenu");
+  Alloy.Globals.events.off("openWindow");
 
 })($.args);
 
@@ -129,7 +127,7 @@ function toggle(e) {
 
 }
 
-dispatcher.on('openMenu', toggle);
+Alloy.Globals.events.on('openMenu', toggle);
 
 /**
  * @event windowDidOpen
@@ -162,10 +160,11 @@ var controllerWebview = null;
  * @param  {Object} e Object menu item
  */
 function loadView(e){
-  Ti.API.log('--- loadView ' + JSON.stringify(e));
+  Ti.API.log('--- loadView ' + JSON.stringify(e) + ' currentWin ' + currentWin);
   if(OS_IOS){
     if(currentWin){
-      $.nav.closeWindow(currentWin);
+      //$.nav.closeWindow(currentWin);
+      $.nav.popToRootWindow();
       currentWin = null;
     }
   }
@@ -323,9 +322,11 @@ function findRowMenu(o){
   });
 
 }
-dispatcher.on("findRowMenu",findRowMenu);
+Alloy.Globals.events.on("findRowMenu",findRowMenu);
 
-
+/**
+ * @type {view} save the last opened window
+ */
 var currentWin = null;
 
 /**
@@ -364,7 +365,7 @@ function handleModelWin(o){
   win.on('select' , function(e){
 
     if(o.dispatcher){
-      dispatcher.trigger(o.dispatcher, e);
+      Alloy.Globals.events.trigger(o.dispatcher, e);
     }
 
     close();
@@ -383,7 +384,7 @@ function handleModelWin(o){
 
 }
 
-dispatcher.on('openWindow', handleModelWin);
+Alloy.Globals.events.on('openWindow', handleModelWin);
 
 
 /**
@@ -394,8 +395,8 @@ dispatcher.on('openWindow', handleModelWin);
 function logout(){
 
   Ti.App.Properties.setBool('isConnected',false);
-  dispatcher.off('openWindow');
-  dispatcher.off('findRowMenu');
+  Alloy.Globals.events.off('openWindow');
+  Alloy.Globals.events.off('findRowMenu');
 
   if(OS_IOS){
     $.drawer.close();

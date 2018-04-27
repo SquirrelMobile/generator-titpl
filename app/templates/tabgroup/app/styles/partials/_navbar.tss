@@ -17,7 +17,7 @@
   visible: false
 }
 
-"#back": {
+"#btnLeft": {
   backgroundImage: null,
   title : "\uf053",
   font : { fontSize : '25sp' },
@@ -47,7 +47,7 @@
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 
-"#close": {
+"#btnRight": {
   title : "\uf00d",
   font : { fontSize : '25sp' },
   color : "black",

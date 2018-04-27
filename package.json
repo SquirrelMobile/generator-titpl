@@ -1,6 +1,6 @@
 {
   "name": "generator-titpl",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Scalfolding Axway Appcelerator Titanium mobile application",
   "repository": "squirrelmobile/generator-titpl",
   "author": {

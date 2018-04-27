@@ -14,6 +14,10 @@ var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
     $.img.applyProperties(args.image);
   }
 
+  if (args.id) {
+    $.tab.idMenu = args.id;
+  }
+
   if(args.title){
     $.lblTab.text = args.title;
   }
@@ -25,7 +29,7 @@ var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
 })($.args);
 
 function handleClick(e){
-
+  
   if(e.source.rippleEffect){
     rippleEffect.create(e);
   }
@@ -33,3 +37,13 @@ function handleClick(e){
   $.trigger('click', e);
 
 }
+
+$.disable = function(){
+  $.img.color = "white";
+  $.lblTab.color = "white";
+};
+
+$.enable = function(){
+  $.img.color = Alloy.CFG.COLORS.black;
+  $.lblTab.color =  Alloy.CFG.COLORS.black;
+};

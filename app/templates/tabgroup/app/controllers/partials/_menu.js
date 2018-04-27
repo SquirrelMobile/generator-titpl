@@ -3,43 +3,18 @@
  * Display menu view
  *
  */
+ var currentTab = null;
+ var objTab = {};
 
 (function constructor(args){
+   Ti.API.log('--- args mrnu ' + JSON.stringify(args));
+  _.each(args.menu, function(m){
+    objTab[m.controller] = Alloy.createController('/partials/_tab', m);
+    $.menu.add(objTab[m.controller].getView());
 
-  var menu = [
-    {
-       controller : 'home/home',
-       image : {
-         text : '\uf015'
-       },
-       title : 'Menu Accueil'
-    },
-    {
-       controller : 'partials/_detailList',
-       image : {
-         text : '\uf03a'
-       },
-       title : 'Menu Liste'
-    },
-    {
-       controller : 'profil/profil',
-       image : {
-         text : '\uf007'
-       },
-       title : 'Menu Profil'
-    },
-    {
-       controller : 'logout',
-       image : {
-         text : '\uf08b'
-       },
-       title : 'Déconnexion',
-       last : true
+    if(m.id === args.currentController){
+      objTab[m.controller].enable();
     }
-  ];
-
-  _.each(menu, function(m){
-    $.menu.add(Alloy.createController('/partials/_tab', m).getView());
   });
 
 })($.args);
@@ -52,8 +27,25 @@ function handleClick(e){
   if(type === "menu" || type === "view"){
     $.trigger('click', {
       controller : s.controller,
-      type : type
+      type : type,
+      id : s.idMenu,
+      submenu : true
     });
+
+    if(type === 'menu'){
+
+      if(currentTab){
+        if(objTab[currentTab]){
+          objTab[currentTab].disable();
+        }
+      }
+      currentTab = s.controller;
+      if(objTab[s.controller]){
+        objTab[s.controller].enable();
+      }
+
+    }
+
   }
 
 }

@@ -40,12 +40,12 @@ $.load = function(conf){
     }
   }
 
-  if(conf.back){
-    $.back.applyProperties(conf.back);
+  if(conf.btnLeft){
+    $.btnLeft.applyProperties(conf.btnLeft);
   }
 
-  if(conf.close){
-    $.close.applyProperties(conf.close);
+  if(conf.btnRight){
+    $.btnRight.applyProperties(conf.btnRight);
   }
 
   if(conf.logo){

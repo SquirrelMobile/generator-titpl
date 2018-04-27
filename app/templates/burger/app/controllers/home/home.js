@@ -33,12 +33,6 @@
 })($.args);
 
 /**
- * @type {Object} dispatcher of menu item
- */
-var dispatcher = require('dispatcher');
-
-
-/**
  * openWindow - Open new window
  *
  * @param  {Object} e object
@@ -61,7 +55,7 @@ function openWindow(e){
       }
     }
   };
-  dispatcher.trigger('openWindow', obj);
+  Alloy.Globals.events.trigger('openWindow', obj);
 
 }
 

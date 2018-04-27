@@ -3,11 +3,14 @@
     "FONTS": {
       "light": "Helvetica-Light",
       "regular": "Helvetica-Regular",
-      "bold": "Helvetica-Bold"
+      "bold": "Helvetica-Bold",
+      "fabrands": "FontAwesome5BrandsRegular",
+      "fareg": "FontAwesome5FreeRegular",
+      "fa": "FontAwesome5FreeSolid"
     },
     "COLORS": {
-      "main": "<%= MAINCOLOR %>",
-      "main2" : "<%= MAINCOLOR2 %>",
+      "main": "#f89a3c",
+      "main2" : "#f15b2a",
       "black": "#222222",
       "gray": "#dbdfe2",
       "text": "#9896a4"
@@ -18,13 +21,13 @@
     }
   },
   "env:development": {
-    "baseurl": "<%= BASEURL %>"
+    "baseurl": "http://www.squirrel.fr"
   },
   "env:test": {
-    "baseurl": "<%= BASEURL %>"
+    "baseurl": "http://www.squirrel.fr"
   },
   "env:production": {
-    "baseurl": "<%= BASEURL %>"
+    "baseurl": "http://www.squirrel.fr"
   },
   "os:android": {},
   "os:blackberry": {},

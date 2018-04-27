@@ -15,7 +15,7 @@
 
 ".img":{
 	left : 15,
-	font: { fontFamily : 'FontAwesome', fontSize : '25sp' },
+	font: { fontFamily : Alloy.CFG.FONTS.fa, fontSize : '25sp' },
   height: Ti.UI.SIZE,
   color : Alloy.CFG.COLORS.main
 }

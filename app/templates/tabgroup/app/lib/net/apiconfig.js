@@ -136,7 +136,7 @@ function alertDialog(text,title){
 						zipname = o.zipname,
 						success = o.success || function(){};
 
-			      Alloy.Globals.loading.show('Chargement...');
+			      Alloy.Globals.loading.show(L('loading'));
 
 			      var client = Ti.Network.createHTTPClient({
 		            onload : function(e) {

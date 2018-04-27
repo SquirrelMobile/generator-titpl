@@ -10,7 +10,6 @@
  * @param  {Arguments} args Arguments passed to the controller
  */
 
- var dispatcher = require("dispatcher");
  var currentWin = null;
  var ui = require("xp.ui");
  var $nav = null;
@@ -24,8 +23,8 @@
        window : Alloy.createController('dashboard').getView()
      });
      $nav.open();
-     dispatcher.off('openWindow');
-     dispatcher.on('openWindow', handleOpenWin);
+     Alloy.Globals.events.off('openWindow');
+     Alloy.Globals.events.on('openWindow', handleOpenWin);
 
    }else{
      Alloy.createController('login/login', args).getView().open();
@@ -60,7 +59,7 @@
    win.on('select' , function(e){
 
      if(o.dispatcher){
-       dispatcher.trigger(o.dispatcher, e);
+       Alloy.Globals.events.trigger(o.dispatcher, e);
      }
 
      close();

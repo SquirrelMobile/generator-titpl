@@ -1,10 +1,10 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
-var dispatcher = require('dispatcher');
+var controller = null;
 
 (function constructor(args){
 
-  var controller = Alloy.createController(args.controller, args);
+  controller = Alloy.createController(args.controller, args);
   controller.on("back",function(){
     $.destroy();
     $.win.close();
@@ -27,9 +27,12 @@ function actions(e){
       $.destroy();
       $.win.close();
     break;
+    case 'action':
+      if (_.isFunction(controller.submit)) {
+        controller.submit();
+      }
     case 'home':
       $.win.close();
-      dispatcher.trigger("findRowMenu", { id : "home"});
     break;
     default:
     break;

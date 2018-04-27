@@ -1,6 +1,5 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
-var dispatcher = require('dispatcher');
 
 (function constructor(args){
 
@@ -29,10 +28,14 @@ function actions(e){
     break;
     case 'home':
       $.win.close();
-      dispatcher.trigger("findRowMenu", { id : "home"});
+      Alloy.Globals.events.trigger("findRowMenu", { id : "home"});
     break;
     default:
     break;
   }
 
+}
+
+function clean(e){
+  $.destroy();
 }

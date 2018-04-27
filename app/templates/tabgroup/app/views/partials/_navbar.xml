@@ -2,13 +2,13 @@
 	<View id="container">
 		<View id="nav" class="navbar">
 
-			<Button id="back" class="fa" onClick="actions" type="back"></Button>
+			<Button id="btnLeft" class="fa" onClick="actions" type="back"></Button>
 
 			<Label id="title" visible="false"/>
 
 			<Button id="logo" onClick="actions" type="home" />
 
-			<Button id="close" class="fa" onClick="actions" type="back" />
+			<Button id="btnRight" class="fa" onClick="actions" type="action" />
 
 		</View>
 	</View>

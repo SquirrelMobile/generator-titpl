@@ -30,12 +30,6 @@ var calendar = null;
 })($.args);
 
 /**
- * @type {Object} dispatcher of menu item
- */
-var dispatcher = require('dispatcher');
-
-
-/**
  * openWindow - Open new window
  *
  * @param  {Object} e object
@@ -49,7 +43,7 @@ function openWindow(e){
     data : {
       controller : 'partials/_detail',
       navbar : {
-        back : {
+        btnLeft : {
           visible : true
         },
         logo : {
@@ -58,7 +52,7 @@ function openWindow(e){
       }
     }
   };
-  dispatcher.trigger('openWindow', obj);
+  Alloy.Globals.events.trigger('openWindow', obj);
 
 }
 
@@ -97,3 +91,7 @@ function updateDate(e){
   var date = Alloy.Globals.moment(e.date);
   alert('Date choisie ' + date.format('dddd DD MMMM YYYY'));
 }
+
+$.load = function(){
+  //reload data here that enabledCache is true on dashboard.js
+};

@@ -328,7 +328,7 @@
       },
 
       /**
-       * detectCrash - description      
+       * detectCrash - description
        *
        * @return {type}  description
        */
@@ -367,7 +367,90 @@
         	d.show();
 
         }
-      }
+      },
+      requestLocationPermissions : function(cb) {
+
+        var location = function(e) {
+            Ti.API.log('--- location ' + JSON.stringify(e));
+            if (e.success) {
+
+                var coords = e.coords;
+                if (coords) {
+                    require('dao/variable').set('latitude', coords.latitude);
+                    require('dao/variable').set('longitude', coords.longitude);
+                }
+                if(cb){
+                  cb();
+                }
+
+            } else {
+              if(cb){
+                cb();
+              }
+            }
+        };
+
+        if (OS_ANDROID) {
+            Ti.Geolocation.ACCURACY_BEST;
+
+            if (!Ti.Geolocation.hasLocationPermissions(Ti.Geolocation.AUTHORIZATION_ALWAYS)) {
+
+                Ti.Geolocation.requestLocationPermissions(Ti.Geolocation.AUTHORIZATION_ALWAYS, function(result) {
+                    if (!result.success) {
+
+                        alert('Veuillez autoriser le partage de votre localisation svp afin d\'utiliser l\'application');
+                    } else {
+
+                        if (!Ti.Geolocation.locationServicesEnabled) {
+
+                            var geoloc = Ti.Geolocation.lastGeolocation;
+                            if (geoloc) {
+                                require('dao/variable').set('latitude', geoloc.latitude);
+                                require('dao/variable').set('longitude', geoloc.longitude);
+                            }
+                            if(cb){
+                              cb();
+                            }
+                        } else {
+
+                            Ti.Geolocation.getCurrentPosition(location);
+                        }
+                    }
+                });
+
+            } else {
+                if (!Ti.Geolocation.locationServicesEnabled) {
+                    var geoloc = Ti.Geolocation.lastGeolocation;
+                    if (geoloc) {
+                        require('dao/variable').set('latitude', geoloc.latitude);
+                        require('dao/variable').set('longitude', geoloc.longitude);
+                    }
+                    if(cb){
+                      cb();
+                    }
+                } else {
+                    Ti.Geolocation.getCurrentPosition(location);
+                }
+            }
+
+        } else {
+
+            if (Ti.Geolocation.locationServicesAuthorization != Titanium.Geolocation.AUTHORIZATION_WHEN_IN_USE && Ti.Geolocation.locationServicesAuthorization != Titanium.Geolocation.AUTHORIZATION_UNKNOWN) {
+                var geoloc = Ti.Geolocation.lastGeolocation;
+                if (geoloc) {
+                    require('dao/variable').set('latitude', geoloc.latitude);
+                    require('dao/variable').set('longitude', geoloc.longitude);
+                }
+                if(cb){
+                  cb();
+                }
+            } else {
+                Ti.Geolocation.getCurrentPosition(location);
+            }
+
+        }
+
+    }
   };
 
   module.exports = _exports;

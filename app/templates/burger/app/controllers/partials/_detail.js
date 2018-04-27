@@ -4,9 +4,6 @@
  *
  */
 
-var dispatcher = require('dispatcher');
-
-
 /**
  * openWindow - description
  *
@@ -32,6 +29,6 @@ function openWindow(e){
       }
     }
   };
-  dispatcher.trigger('openWindow', obj);
+  Alloy.Globals.events.trigger('openWindow', obj);
 
 }

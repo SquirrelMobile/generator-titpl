@@ -12,7 +12,7 @@
 (function constructor(args){
 
   $.navbar.load({
-    back : {
+    btnLeft : {
       visible : true
     },
     logo : {
@@ -39,7 +39,7 @@ function submit(e){
     }).show();
     return false;
   }
-  
+
   //Alloy.Globals.loading.show("Chargement...");
   /*Alloy.Globals.Api.lostPassword({body :{email : $.email.value}}, function(e){
 

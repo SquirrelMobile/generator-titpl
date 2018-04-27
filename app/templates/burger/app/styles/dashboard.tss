@@ -11,8 +11,8 @@
   openDrawerGestureMode: "OPEN_MODE_MARGIN", //OPEN_MODE_NONE, OPEN_MODE_MARGIN
   closeDrawerGestureMode: "CLOSE_MODE_MARGIN", //CLOSE_MODE_ALL, CLOSE_MODE_NONE, CLOSE_MODE_MARGIN
   hideToolbar : true,
-  leftDrawerWidth: 320,
-  rightDrawerWidth: 320,
+  leftDrawerWidth: Alloy.Globals.drawerWidth,
+  rightDrawerWidth: Alloy.Globals.drawerWidth,
   parallaxAmount : 0.3,
   exitOnClose: true,
   animationMode : "ANIMATION_ZOOM" // ANIMATION_SCALE, ANIMATION_ZOOM, ANIMATION_SLIDEUP, ANIMATION_NONE

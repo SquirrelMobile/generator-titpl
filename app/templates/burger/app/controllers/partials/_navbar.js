@@ -12,9 +12,6 @@
 
 })($.args);
 
-var dispatcher = require('dispatcher');
-
-
 /**
  * actions - description
  *
@@ -24,9 +21,9 @@ var dispatcher = require('dispatcher');
 function actions(e){
 
   if(e.source.type === "Left" || e.source.type === "Right"){
-    dispatcher.trigger('openMenu', { type : e.source.type });
+    Alloy.Globals.events.trigger('openMenu', { type : e.source.type });
   }else if(e.source.type === "home"){
-    dispatcher.trigger('findRowMenu', { id : 'home' });
+    Alloy.Globals.events.trigger('findRowMenu', { id : 'home' });
   }else{
     $.trigger('click', { type : e.source.type });
   }
@@ -41,7 +38,7 @@ function actions(e){
  * @return {type}      description
  */
 $.load = function(conf){
-  
+
   if(conf.nav){
     $.nav.applyProperties(conf.nav);
     if(conf.nav.backgroundColor){

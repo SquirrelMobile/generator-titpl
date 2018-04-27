@@ -2,7 +2,15 @@
 // take the unicode and add \u before
 //eg :<Label class="fa" text="\uf0c0" />
 ".fa": {
-	font: { fontFamily : 'FontAwesome' }
+	font: { fontFamily : Alloy.CFG.FONTS.fa }
+}
+
+".fabrands": {
+	font: { fontFamily : Alloy.CFG.FONTS.fabrands }
+}
+
+".fareg": {
+	font: { fontFamily : Alloy.CFG.FONTS.fareg }
 }
 
 //https://material.io/icons/
