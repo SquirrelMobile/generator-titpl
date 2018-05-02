@@ -51,13 +51,18 @@ module.exports = generators.Base.extend({
         this.sdks = [];
         var self = this;
 
-        exec('titanium sdk list -o json', function(error, stdout, stderr) {
-            //TODO gérer le pb en cas d'erreur du JSON
-            //TODO vérifier que le npm titanium est installé ou utiliser le npm appcelerator ?
-            var sdkList = JSON.parse(stdout);
-            for (var sdk in sdkList.installed) {
-                ti.push({ name : sdk, value : sdk});
-            };
+        exec('appc ti sdk list -o json', function(error, stdout, stderr) {
+            if(error){
+              console.log(chalk.underline.red('\nError : '+ error));
+              console.log(chalk.underline.green('\nPlease run : npm install -g appcelerator (if not installed)'));
+              console.log(chalk.underline.green('\nPlease run : npm install -g titanium (if not installed)'));
+              return;
+            }else{
+              var sdkList = JSON.parse(stdout);
+              for (var sdk in sdkList.installed) {
+                  ti.push({ name : sdk, value : sdk});
+              };
+            }
         });
         //https://github.com/SBoudrias/Inquirer.js
         var prompts = [
