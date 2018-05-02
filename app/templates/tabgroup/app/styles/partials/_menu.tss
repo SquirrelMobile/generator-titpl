@@ -8,7 +8,7 @@
 
 ".container" : {
   zIndex: 2,
-  bottom: 64,
+  bottom: Alloy.Globals.footerHeight,
   //height : 145,
   height: Ti.UI.SIZE,
   left : 0,
@@ -19,14 +19,14 @@
 ".btnMenu": {
   width : '25%',
   //height : '50%',
-  height : 64,
+  height : Alloy.Globals.footerHeight,
   color : "white",
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 
 ".containerOpaque": {
   top : 0,
-  bottom: 64,
+  bottom: Alloy.Globals.footerHeight,
   left : 0,
   right : 0,
   backgroundColor: "black",

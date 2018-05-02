@@ -30,7 +30,7 @@
       getAll : function(table, where){
 
           var w = where || '';
-          Ti.API.log('SELECT * FROM '+ table+' '+w);
+          
           var res = db.execute('SELECT * FROM '+ table+' '+w);
 
           var all = [], d = null, name = null;

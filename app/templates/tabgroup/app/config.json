@@ -9,8 +9,8 @@
       "fa": "FontAwesome5FreeSolid"
     },
     "COLORS": {
-      "main": "#f89a3c",
-      "main2" : "#f15b2a",
+      "main": "<%= MAINCOLOR %>",
+      "main2" : "<%= MAINCOLOR2 %>",
       "black": "#222222",
       "gray": "#dbdfe2",
       "text": "#9896a4"
@@ -18,16 +18,19 @@
     "pushwoosh" : {
       "projectId" : "XXXX-XXXX",
       "gcmID" : "XXXXXXXXXXXX"
+    },
+    "crash" : {
+      "email" : "youremail@company.com"
     }
   },
   "env:development": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "env:test": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "env:production": {
-    "baseurl": "http://www.squirrel.fr"
+    "baseurl": "<%= BASEURL %>"
   },
   "os:android": {},
   "os:blackberry": {},
@@ -37,7 +40,6 @@
   "dependencies": {
     "nl.fokkezb.loading": "*",
     "de.manumaticx.pagingcontrol": "*",
-    "com.mp5systems.rippleeffect": "*",
     "input-materialdesign": "*",
     "fr.squirrel.tutorial": "*",
     "com.caffeinalab.titanium.calendar": "*"

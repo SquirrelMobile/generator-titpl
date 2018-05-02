@@ -18,7 +18,7 @@
     title : {
       visible : true,
       color : 'black',
-      text : 'Profil'
+      text : L('account')
     }
   });
 
@@ -43,8 +43,8 @@ function openMedia(e){
 
   var opts = {
     cancel: 2,
-    options: ['Prendre une photo', 'Choisir une photo', 'Annuler'],
-    title: 'Choisir une photo'
+    options: [L('takePicture'), L('choosePicture'), L('cancel')],
+    title: L('choosePicture')
   };
 
   var dialog = Ti.UI.createOptionDialog(opts);
@@ -82,7 +82,6 @@ function choisirOption(e){
         blob : photo,
         ext : ext
       });
-      Ti.API.log('-- name ' +name);
       require('dao/variable').set('photo', name);
     });
 

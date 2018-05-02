@@ -14,7 +14,7 @@ var tabmenu = [
      image : {
        text : '\uf015'
      },
-     title : 'Accueil'
+     title : L('home')
   },
   {
      id : 'list',
@@ -23,7 +23,7 @@ var tabmenu = [
      image : {
        text : '\uf03a'
      },
-     title : 'Liste'
+     title : L('list')
   },
   {
      id : 'profil',
@@ -32,7 +32,7 @@ var tabmenu = [
      image : {
        text : '\uf007'
      },
-     title : 'Profil'
+     title : L('account')
   },
   {
      id : "menu",
@@ -40,7 +40,7 @@ var tabmenu = [
      image : {
        text : '\uf141'
      },
-     title : 'Autre',
+     title : L('more'),
      last : true
   }
 ];
@@ -53,7 +53,7 @@ var tabsubmenu = [
      image : {
        text : '\uf015'
      },
-     title : 'Accueil'
+     title : L('home')
   },
   {
      id : 'list2',
@@ -62,7 +62,7 @@ var tabsubmenu = [
      image : {
        text : '\uf03a'
      },
-     title : 'Liste'
+     title : L('list')
   },
   {
      id : 'profil2',
@@ -71,7 +71,7 @@ var tabsubmenu = [
      image : {
        text : '\uf007'
      },
-     title : 'Profil'
+     title : L('account')
   },
   {
      id : 'logout',
@@ -79,7 +79,7 @@ var tabsubmenu = [
      image : {
        text : '\uf2f5'
      },
-     title : 'Déconnexion',
+     title : L('logout'),
      last : true
   }
 ];
@@ -91,7 +91,7 @@ var tabsubmenu = [
 })(args);
 
 function handleContent(o){
-  Ti.API.log('--- handleContent '  +JSON.stringify(o));
+
   var controller = o.controller || null;
   var idController = o.id || null;
   var type = o.type || 'view';
@@ -131,7 +131,7 @@ function handleContent(o){
     }else{
 
       if(enabledCache){
-        Ti.API.log('--- currentController '  + currentController +' idController ' + idController + ' submenu ' + submenu);
+
         if(currentController !== idController){ // si on appui sur un menu different
 
           if(idController){
@@ -141,12 +141,12 @@ function handleContent(o){
             if(!oldMenu){
               oldMenu = _.findWhere(tabsubmenu, { id : currentController});
             }
-            Ti.API.log('-- -old ' + JSON.stringify(oldMenu));
+
             if(oldMenu && oldMenu.currentController){
               oldMenu.currentController.getView().hide();
               oldMenu.currentController.getView().zIndex = 1;
             }
-            Ti.API.log('--- currentMenu '  + JSON.stringify(currentMenu));
+
             if(currentMenu){
 
               if(currentMenu.currentController){ // si le controller n'est pas null
@@ -157,7 +157,7 @@ function handleContent(o){
 
                 currentMenu.currentController.getView().show();
                 currentMenu.currentController.getView().zIndex = 10;
-                currentController = idController; // home/home
+                currentController = idController;
 
                 if(submenu){
                   $.tabgroup.enableLast();
@@ -185,8 +185,6 @@ function handleContent(o){
 
         if(currentController !== idController){
 
-          //cleanMenu();
-
           if(submenu){
             $.tabgroup.enableLast();
           }
@@ -194,10 +192,6 @@ function handleContent(o){
           currentController = idController;
           $.content.removeAllChildren();
           $.content.add(Alloy.createController(controller).getView());
-
-        }else{
-
-          //cleanMenu();
 
         }
 

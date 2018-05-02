@@ -14,7 +14,7 @@ var menuTab = null;
  $.load = function(menu){
    menuTab = menu;
    _.each(menu, function(m){
-     Ti.API.log('--- m ' + JSON.stringify(m));
+     
      objTab[m.controller] = Alloy.createController('/partials/_tab', m);
      $.tabgroup.add(objTab[m.controller].getView());
    });
@@ -31,7 +31,7 @@ var menuTab = null;
  };
 
 function handleClick(e){
-  Ti.API.log('--- e ' + JSON.stringify(e));
+
   var s = e.source,
     type = s.type;
 

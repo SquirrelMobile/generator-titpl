@@ -49,3 +49,6 @@ if(OS_IOS){
 
 //appc new --import --no-services
 // adb logcat | grep TiAPI
+
+Alloy.Globals.top = OS_IOS ? (Alloy.Globals.Device.isiPhoneX ? 40 : 20) : 0;
+Alloy.Globals.footerHeight = OS_IOS ? (Alloy.Globals.Device.isiPhoneX ? 84 : 64) : 64;

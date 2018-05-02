@@ -4,7 +4,7 @@
   right : 0,
   left : 0,
   bottom : 0,
-  height : 64,
+  height : Alloy.Globals.footerHeight,
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 

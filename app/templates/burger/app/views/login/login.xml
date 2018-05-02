@@ -10,9 +10,9 @@
 					<Widget id="password" src="input-materialdesign" />
 				</View>
 
-				<Button class="btn" title="Se connecter" onClick="connect" />
+				<Button class="btn" title="L('connect')" onClick="connect" />
 
-				<Button class="btn" title="S'inscrire" onClick="openWin" type="signup" />
+				<Button class="btn" title="L('register')" onClick="openWin" type="signup" />
 
 				<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
 

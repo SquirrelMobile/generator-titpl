@@ -66,8 +66,8 @@ function connect(e){
 
     if(!require('core').valideEmail(login)){
       Ti.UI.createAlertDialog({
-        title : 'Attention',
-        message : 'Merci de saisir un email valide'
+        title : L('warning'),
+        message : L('emailInvalidMsg')
       }).show();
       return false;
     }
@@ -115,8 +115,8 @@ if(Ti.App.Properties.getBool('showTutorial')){
     indicatorUnselect : {
       image: "/images/ellipseblueinactive.png"
     },
-    titleBtnStart: "Next",
-    titleBtnEnd : "Close",
+    titleBtnStart: L('next'),
+    titleBtnEnd : L('close'),
     success : function(e){
       tutorial.close();
       Ti.App.Properties.setBool('showTutorial', false);

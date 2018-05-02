@@ -7,7 +7,7 @@
  var objTab = {};
 
 (function constructor(args){
-   Ti.API.log('--- args mrnu ' + JSON.stringify(args));
+
   _.each(args.menu, function(m){
     objTab[m.controller] = Alloy.createController('/partials/_tab', m);
     $.menu.add(objTab[m.controller].getView());

@@ -17,7 +17,7 @@
     },
     title : {
       visible : true,
-      text : 'Inscription'
+      text : L('signup')
     }
   });
 
@@ -56,8 +56,8 @@ function submit(e){
 
   if(!require('core').valideEmail(email)){
     Ti.UI.createAlertDialog({
-      title : 'Attention',
-      message : 'Merci de saisir un email valide'
+      title : L('warning'),
+      message : L('emailInvalidMsg')
     }).show();
     return false;
   }
@@ -70,13 +70,13 @@ function submit(e){
       password : password,
       email : email
     };
-    //Alloy.Globals.loading.show("Chargement...");
+    //Alloy.Globals.loading.show(L('loading'));
     /*Alloy.Globals.Api.signup({body : obj }, function(e){
 
     });*/
     Ti.UI.createAlertDialog({
-      title : 'Confirmation',
-      message : 'Votre compte a bien été créé'
+      title : L('confirmation'),
+      message : L('createAccountConfirm')
     }).show();
     close();
   }

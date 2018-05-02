@@ -5,101 +5,6 @@
 (function(){
 
   var _exports = {
-
-      /**
-       * requiredField - description
-       *
-       * @param  {type} field         description
-       * @param  {type} option        description
-       * @param  {type} civilfieldLbl description
-       * @return {type}               description
-       */
-      requiredField: function(field, option,civilfieldLbl){
-
-        var verifOk = true;
-        var option = option || {};
-        _.defaults(option,{
-          borderColor : "red",
-          hintTextColor :"red",
-          text : field.txtError || "Champ non valide",
-          borderColorBefore : "transparent",
-          hintTextColorBefore : "#717171"
-        });
-
-        if(field.value === ""){
-          field.borderColor = option.borderColor;
-          if (civilfieldLbl) {
-            civilfieldLbl.color = option.hintTextColor;
-          }
-          else {
-            field.hintTextColor = option.hintTextColor;
-            field.hintText = option.text;
-            field.zIndex = 1;
-            verifOk = false;
-          }
-
-        }else{
-          field.borderColor = option.borderColorBefore;
-          if (civilfieldLbl) {
-            civilfieldLbl.color = "black";
-          }
-          else {
-            field.hintTextColor = option.hintTextColorBefore;
-            field.zIndex = -1;
-          }
-        }
-
-        if(field.type === "email"){
-          if(!_exports.valideEmail(field.value)){
-            field.borderColor = option.borderColor;
-            field.hintTextColor = option.hintTextColor;
-            field.zIndex = 1;
-            field.hintText =  option.text;
-
-            verifOk = false;
-          }
-        }
-
-        return verifOk;
-
-      },
-
-      /**
-       * civilite - description
-       *
-       * @param  {type} optTmp    description
-       * @param  {type} lbl       description
-       * @param  {type} groupView description
-       * @return {type}           description
-       */
-      civilite : function(optTmp, lbl, groupView){
-        var opt = null;
-        opt = optTmp;
-        if (_.indexOf(opt, "Annuler") === -1) {
-          opt.push("Annuler");
-        }
-        var optionDial = Ti.UI.createOptionDialog({
-          options : opt,
-          cancel : opt.length-1,
-          title: 'Civilité :',
-          destructive: opt.length-1
-        });
-
-        optionDial.addEventListener("click",function(e){
-          if(opt[e.index] !== "Annuler")
-          {
-            lbl.setText(opt[e.index]);
-            lbl.color = Alloy.CFG.COLORS.black;
-            groupView.value = lbl.text;
-          }
-          else {
-            optionDial.hide();
-          }
-
-        });
-        optionDial.show();
-      },
-
       /**
        * call - description
        *
@@ -109,17 +14,12 @@
       call : function(numero){
         var dialog = Ti.UI.createAlertDialog({
           cancel: 1,
-          buttonNames: ['Oui', 'Non'],
+          buttonNames: [L('yes'),L('no')],
           message: numero,
-          title: 'Composer ce numero?'
+          title: L('dial')
         });
         dialog.addEventListener('click', function(e){
-          if (e.index === e.source.cancel){
-
-              Ti.API.log("close dialog");
-          }
-          else if(e.index === 0){
-            Ti.API.log("Tel: "+ numero);
+          if(e.index === 0){
             Ti.Platform.openURL('tel:'+numero);
           }
         });
@@ -191,78 +91,6 @@
       },
 
       /**
-       * turnPercentToDp - description
-       *
-       * @param  {type} percent description
-       * @return {type}         description
-       */
-      turnPercentToDp: function(percent){
-
-          var dp = 0;
-
-          if(percent){
-
-              if(OS_IOS){
-
-                  if(percent > 1){
-                      percent = parseFloat(percent)/100;
-                  }
-                  dp = Math.ceil(Ti.Platform.displayCaps.platformWidth*percent);
-
-              }else{
-
-                  dp = Math.round(percent)+'%';
-
-              }
-
-          }
-
-          return dp;
-
-      },
-
-      /**
-       * getHtml - description
-       *
-       * @param  {type} str description
-       * @return {type}     description
-       */
-      getHtml : function(str){
-        if (OS_IOS) {
-          return (str ? (str.replace(/<p>/gm, '<p><br>')
-          .replace(/<\/p>/gm, '<br></p>')
-          .replace(/ style=\'text-align: justify;\'/gm, '')
-          .replace(/<h1>/gm, '<h1><font color="#0092dd"><br>')
-          .replace(/<\/h1>/gm, '</h1><br></font>')
-          .replace(/<h2>/gm, '<h2><font color="#0092dd"><br>')
-          .replace(/<\/h2>/gm, '</h2><br></font>')
-          .replace(/<h3>/gm, '<h3><font color="#0092dd"><br>')
-          .replace(/<\/h3>/gm, '</h3><br></font>')
-          .replace(/<h4>/gm, '<h4><font color="#0092dd"><br>')
-          .replace(/<\/h4>/gm, '</h4><br></font>')
-          .replace(/<strong>/g, '<font face="'+Alloy.CFG.FONTS.medium+'" size="'+(Alloy.isHandheld ? 11 : 15) +'" color="#0092dd">')
-          .replace(/<\/strong>/g, '</font>')) : '');
-          //.replace(/<\/strong>/g, '</font><br>')) : '');
-        }
-        else {
-          return (str ? (str.replace(/<p>/gm, '<p><br>')
-          .replace(/<\/p>/gm, '<br></p>')
-          .replace(/ style=\'text-align: justify;\'/gm, '')
-          .replace(/<h1>/gm, '<h1><font color="#0092dd"><br>')
-          .replace(/<\/h1>/gm, '</h1><br></font>')
-          .replace(/<h2>/gm, '<h2><font color="#0092dd"><br>')
-          .replace(/<\/h2>/gm, '</h2><br></font>')
-          .replace(/<h3>/gm, '<h3><font color="#0092dd"><br>')
-          .replace(/<\/h3>/gm, '</h3><br></font>')
-          .replace(/<h4>/gm, '<h4><font color="#0092dd"><br>')
-          .replace(/<\/h4>/gm, '</h4><br></font>')
-          .replace(/<strong>/g, '<font face="'+Alloy.CFG.FONTS.medium+'" size="'+(Alloy.isHandheld ? 11 : 15) +'" color="#0092dd">')
-          .replace(/<\/strong>/g, '</font>')) : '');
-          //.replace(/<\/strong>/g, '</font><br>')) : '');
-        }
-      },
-
-      /**
        * listenNetwork - description
        *
        * @return {type}  description
@@ -282,52 +110,6 @@
   		},
 
       /**
-       * humanReadableTable - description
-       *
-       * @param  {type} date description
-       * @return {type}      description
-       */
-      humanReadableTable : function(date){
-
-        var since = Alloy.Globals.moment(date),
-          now = Alloy.Globals.moment(),
-          diff = now.diff(since, 'hours');
-
-        //moins de 24h
-        if(diff < 24){
-          return since.fromNow(true);
-        //entre 24h et 48h
-        }else if(diff >= 24 && diff < 48){
-          return since.fromNow(true);
-        //fulldate
-        }else{
-          return since.format('DD/MM/YYYY');
-        }
-
-      },
-
-      /**
-       * isiOS7Plus - description
-       *
-       * @return {type}  description
-       */
-      isiOS7Plus : function(){
-          // iOS-specific test
-          if (OS_IOS)
-          {
-              var version = Titanium.Platform.version.split(".");
-              var major = parseInt(version[0],10);
-
-              // Can only test this support on a 3.2+ device
-              if (major >= 7)
-              {
-                  return true;
-              }
-          }
-          return false;
-      },
-
-      /**
        * detectCrash - description
        *
        * @return {type}  description
@@ -342,25 +124,23 @@
         	}
         });
 
-        Ti.API.log('--- Ti.App.Properties.getBool(asCrash)) ' + Ti.App.Properties.getBool('asCrash'));
         if(Ti.App.Properties.getBool('asCrash')){
 
         	var d = Ti.UI.createAlertDialog({
-        		title : 'Attention',
-        		message : "Un crash de l'application a été détecté, voulez-vous envoyer l'erreur au développeur ?",
-        		buttonNames : ['Oui', 'Non'],
+        		title : L('warning'),
+        		message : L('crashMsg'),
+        		buttonNames : [L('yes'), L('no')],
         		cancel : 1,
         		destructive : 0
         	});
 
         	d.addEventListener('click', function(e){
-        		Ti.API.log('--- uncaughtException click ' + JSON.stringify(Ti.App.Properties.getObject('crash')));
         		if(e.index != e.cancel){
         			Ti.App.Properties.setBool('asCrash', false);
         			var emailDialog = Ti.UI.createEmailDialog({});
-        			emailDialog.subject = "Crash de l'application";
-        			emailDialog.toRecipients = ['thomas@squirrel.fr'];
-        			emailDialog.messageBody = 'Erreur : '+JSON.stringify(Ti.App.Properties.getObject('crash'));
+        			emailDialog.subject = L('crashTitle')+" "+Ti.App.name;
+        			emailDialog.toRecipients = [Alloy.CFG.crash.email];
+        			emailDialog.messageBody = L('error')+' : '+JSON.stringify(Ti.App.Properties.getObject('crash'));
         			emailDialog.open();
         		}
         	});
@@ -398,7 +178,8 @@
                 Ti.Geolocation.requestLocationPermissions(Ti.Geolocation.AUTHORIZATION_ALWAYS, function(result) {
                     if (!result.success) {
 
-                        alert('Veuillez autoriser le partage de votre localisation svp afin d\'utiliser l\'application');
+                        Ti.UI.createAlertDialog({ title : L('warning'), message : L('locationActiveMsg')}).show();
+                        
                     } else {
 
                         if (!Ti.Geolocation.locationServicesEnabled) {

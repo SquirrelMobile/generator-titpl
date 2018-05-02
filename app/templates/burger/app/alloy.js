@@ -46,6 +46,8 @@ if(OS_IOS){
 	Ti.UI.iOS.setAppBadge(0);
 }
 
+Alloy.Globals.top = OS_IOS ? (Alloy.Globals.Device.isiPhoneX ? 40 : 20) : 0;
+
 //enable push notification with OneSignal
 //require("net/onesignalpns")();
 

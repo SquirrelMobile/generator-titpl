@@ -49,8 +49,8 @@ To test your application :
 # TODO
 
 1. Add more template
-2. Customize config.json file with fonts, colors, pushwoosh, baseurl
-3. Add other library/code example like input material, in-app purchase, Maps, tutorial, Admob, wysiwyg, charts
+2. Customize config.json file with fonts
+3. Add other library/code example like in-app purchase, Maps, Admob, wysiwyg, charts
 4. Enable / disable library on the fly when you create a new app
 5. Handle module dependancy with gittio cli
 6. Handle error when titanium CLI is not installed

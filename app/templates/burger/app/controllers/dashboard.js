@@ -31,7 +31,7 @@ var menu = [
     image : {
        text : '\uf015'
     },
-    title : 'Accueil',
+    title : L('home'),
     templateActive : 'activeTemplateWithIcon',
     templateInactive : 'inactiveTemplateWithIcon'
   },
@@ -41,7 +41,7 @@ var menu = [
       text : '\uf03a'
     },
     controller : 'partials/_detailList',
-    title : 'Liste',
+    title : L('list'),
     templateActive : 'activeTemplateWithIcon',
     templateInactive : 'inactiveTemplateWithIcon'
   },
@@ -51,7 +51,7 @@ var menu = [
       text : '\uf007'
     },
     controller : 'profil/profil',
-    title : 'Profil',
+    title : L('account'),
     templateActive : 'activeTemplateWithIcon',
     templateInactive : 'inactiveTemplateWithIcon'
   },
@@ -61,7 +61,7 @@ var menu = [
       text : '\uf2f5'
     },
     controller : null,
-    title : 'Déconnexion',
+    title : L('logout'),
     templateActive : 'activeTemplateWithIcon',
     templateInactive : 'inactiveTemplateWithIcon'
   }
@@ -469,9 +469,9 @@ if(OS_ANDROID){
     }else{
 
       var dialog = Ti.UI.createAlertDialog({
-        title : 'Attention',
-        message : 'Etes-vous sûr de vouloir quitter l\'application ?',
-        buttonNames : ['Oui', 'Annuler'],
+        title : L('warning'),
+        message : L('leaveApp'),
+        buttonNames : [L('yes'), L('cancel')],
         cancel : 1
       });
 

@@ -10,7 +10,7 @@
 	top : Alloy.Globals.theTop,
 	bottom : 0,
 	separatorColor : 'transparent',
-	tableSeparatorInsets : { left : 0, right : 0 }
+	listSeparatorInsets : { left : 0, right : 0 }
 }
 
 ".img":{

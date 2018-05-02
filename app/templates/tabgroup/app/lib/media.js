@@ -203,8 +203,8 @@
         if(!fileArchive.exists()){
 
           Ti.UI.createAlertDialog({
-            title : 'Erreur',
-            message : 'Erreur lors de la récupération des données'
+            title : L('error'),
+            message : L('errorMessageData')
           }).show();
           return false;
 
@@ -219,8 +219,8 @@
               }
             }else{
               Ti.UI.createAlertDialog({
-                title : 'Erreur',
-                message : 'Erreur lors de la décompression des données'
+                title : L('error'),
+                message : L('errorMessageData')
               }).show();
             }
           });

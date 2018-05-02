@@ -8,7 +8,6 @@
   *
   */
  var calendar = null;
- var rippleEffect = Alloy.createWidget('com.mp5systems.rippleeffect');
 
 /**
  * @method Controller
@@ -64,7 +63,6 @@ function openCalendar(e){
   calendar.open({
     args : {
       active_dates : ['2017-09-02'],
-      title : 'Date de début',
       showNoReturn : false,
 
       //WIDGET
@@ -92,5 +90,5 @@ function updateDate(e){
   //e.reset
   //e.date
   var date = Alloy.Globals.moment(e.date);
-  alert('Date choisie ' + date.format('dddd DD MMMM YYYY'));
+  alert('Choosen date ' + date.format('dddd DD MMMM YYYY'));
 }

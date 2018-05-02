@@ -6,7 +6,7 @@ function alertDialog(text,title){
 	Ti.UI.createAlertDialog({
 		title : title,
 		message : text,
-		ok : "OK"
+		ok : L('ok')
 	}).show();
 }
 
@@ -17,7 +17,6 @@ function alertDialog(text,title){
 						post: '/api/v1/sessions',
 						onError : function(response, e){
 							Alloy.Globals.loading.hide();
-							alertDialog("Mauvais identifiant ou mot de passe","Erreur");
 							Ti.API.error('--- error=' + JSON.stringify(response) + JSON.stringify(e) );
 						},
         	},

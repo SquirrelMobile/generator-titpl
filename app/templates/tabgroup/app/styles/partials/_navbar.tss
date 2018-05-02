@@ -1,5 +1,5 @@
 ".navbar[platform=ios]": {
-  top : 20,
+  top : Alloy.Globals.top,
   height : 44,
   backgroundColor: Alloy.CFG.COLORS.main2
 }
@@ -29,7 +29,7 @@
 }
 
 "#title": {
-  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 14 },
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 16 },
   textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
   color : "white",
   left: 50 ,
@@ -38,7 +38,7 @@
 }
 
 "#container[platform=ios]": {
-  height: 64,
+  height: Ti.UI.SIZE,
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 

@@ -8,7 +8,7 @@ var $calendar, calendarView, triggerCalendar;
       },
       title : {
         visible : true,
-        text : 'Merci de choisir une date',
+        text : L('chooseDate'),
         color : "white"
       },
       btnLeft : {

@@ -34,19 +34,19 @@ function submit(e){
 
   if(!require('core').valideEmail(email)){
     Ti.UI.createAlertDialog({
-      title : 'Attention',
-      message : 'Merci de saisir un email valide'
+      title : L('warning'),
+      message : L('emailInvalidMsg')
     }).show();
     return false;
   }
 
-  //Alloy.Globals.loading.show("Chargement...");
+  //Alloy.Globals.loading.show(L('loading'));
   /*Alloy.Globals.Api.lostPassword({body :{email : $.email.value}}, function(e){
 
   });*/
   Ti.UI.createAlertDialog({
-    title : 'Confirmation',
-    message : 'Un email vient de vous être envoyé'
+    title : L('confirmation'),
+    message : L('emailSendMsg')
   }).show();
   close();
 

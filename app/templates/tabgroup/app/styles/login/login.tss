@@ -8,24 +8,24 @@
 }
 
 ".titleLbl": {
-  text: "Connexion",
+  text: L('connexionTitle'),
   font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
   color : "white"
 }
 
 ".btn": {
   top : 25,
-  title:  "Valider"
+  title:  L('validate')
 }
 
 "#login": {
   autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
   autocorrect: false,
-  titleHint : 'Votre email',
+  titleHint : L('yourEmail'),
   colorFont : "white",
   colorFocus : Alloy.CFG.COLORS.main2,
   colorPattern : "white",
-  required : "Email non valide",
+  required : L('emailInvalid'),
   keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL,
   returnKey: Ti.UI.RETURNKEY_NEXT
 }
@@ -33,18 +33,17 @@
 "#password": {
   minLength : 8,
   autocorrect: false,
-  titleHint : 'Votre mot de passe',
+  titleHint : L('yourPassword'),
   colorFont : "white",
   colorFocus : Alloy.CFG.COLORS.main2,
   colorPattern : "white",
-  required : "Mot de passe non valide",
-  hintText: "Votre mot de passe",
+  required : L('invalidPassword'),
   password: true,
   returnKey: Ti.UI.RETURNKEY_SEND
 }
 
 "#lostPassword": {
-  text: "J'ai perdu mon mot de passe",
+  text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
   color : "white",
   height: 40,
