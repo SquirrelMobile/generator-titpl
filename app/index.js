@@ -14,6 +14,8 @@ var generators = require('yeoman-generator');
 var bundleIdFromName = "";
 var asks = {};
 var ti = [];
+var defaultSDK = '7.2.0.GA';
+ti.push({ name : defaultSDK, value : defaultSDK});
 var templateList = [
   {
     name : 'Burger menu',
@@ -24,6 +26,8 @@ var templateList = [
     value : 'tabgroup'
   }
 ];
+
+
 
 function generateGUID() {
     /* jshint bitwise:false */
@@ -52,6 +56,7 @@ module.exports = generators.Base.extend({
         var self = this;
 
         exec('appc ti sdk list -o json', function(error, stdout, stderr) {
+
             if(error){
               console.log(chalk.underline.red('\nError : '+ error));
               console.log(chalk.underline.green('\nPlease run : npm install -g appcelerator (if not installed)'));
@@ -59,11 +64,13 @@ module.exports = generators.Base.extend({
               return;
             }else{
               var sdkList = JSON.parse(stdout);
+              ti = [];
               for (var sdk in sdkList.installed) {
                   ti.push({ name : sdk, value : sdk});
               };
             }
         });
+
         //https://github.com/SBoudrias/Inquirer.js
         var prompts = [
             {
