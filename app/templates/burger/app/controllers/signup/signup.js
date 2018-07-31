@@ -64,10 +64,10 @@ function submit(e){
   if(lastname && firstname && email && password){
 
     var obj = {
-      lastname : $.lastname.value,
-      firstname : $.firstname.value,
-      password : $.password.value,
-      email : $.email.value
+      lastname : lastname,
+      firstname : firstname,
+      password : password,
+      email : email
     };
     //Alloy.Globals.loading.show(L('loading'));
     /*Alloy.Globals.Api.signup({body : obj }, function(e){

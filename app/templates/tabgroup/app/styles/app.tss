@@ -126,3 +126,12 @@
 ".lblTitleMedium": {
 	font : { fontFamily: Alloy.CFG.FONTS.medium, fontSize: 24 },
 }
+
+".tf":{
+	autocorrect: false,
+  colorFont : "white",
+  colorFocus : Alloy.CFG.COLORS.main2,
+  colorDefault : Alloy.CFG.COLORS.main2,
+  colorPattern : Alloy.CFG.COLORS.main2,
+  returnKey: Ti.UI.RETURNKEY_NEXT
+}

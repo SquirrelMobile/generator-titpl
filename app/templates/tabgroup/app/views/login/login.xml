@@ -6,8 +6,8 @@
 				<Label class="titleLbl lblTitleLight" />
 
 				<View class="form">
-					<Widget id="login" src="input-materialdesign" />
-					<Widget id="password" src="input-materialdesign" />
+					<Widget id="login" class="tf" src="input-materialdesign" />
+					<Widget id="password" class="tf" src="input-materialdesign" />
 				</View>
 
 				<Button class="btn" title="L('connect')" onClick="connect" />

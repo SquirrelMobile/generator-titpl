@@ -174,7 +174,7 @@ var main = function() {
         function send() {
 
             // go
-            if (args.params && (args.method === "POST" || args.method === "PUT")) {
+            if (args.params && (args.method === "POST" || args.method === "PUT" || args.method === "PATCH")) {
                 if (formEncode) {
 
                     http.send(args.params);
@@ -231,6 +231,7 @@ var main = function() {
             if (args.post) method = "POST";
             if (args.get) method = "GET";
             if (args.put) method = "PUT";
+            if (args.patch) method = "PATCH";
             if (args.delete) method = "DELETE";
 
             url = args[method.toLowerCase()] || args.get;

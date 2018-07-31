@@ -4,12 +4,22 @@
  *
  */
 
+
+ var control = Ti.UI.createRefreshControl({
+     tintColor: Alloy.CFG.COLORS.main
+ });
+ control.addEventListener('refreshstart',function(e){
+     $.trigger('refresh', e);
+ });
+
 /**
  * @method Controller
  * Display list view
  * @param  {Arguments} args Arguments passed to the controller
  */
 (function constructor(args){
+
+  $.listview.setRefreshControl(control);
 
 })($.args);
 
@@ -73,4 +83,14 @@ $.addItemSection = function(section){
  */
 $.load = function(sections){
     $.listview.setSections(sections);
+
+    _.defer(function(){
+      control.endRefreshing();
+    });
+};
+
+$.getControl = function(){
+
+  return control;
+
 };

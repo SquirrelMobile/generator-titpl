@@ -231,6 +231,69 @@
 
         }
 
+    },
+    getAttributed : function(o){
+
+
+        /*var conf = {
+          newText : 'text to edit',
+          attrs : [
+            {
+              words : ['word'],
+              type : Titanium.UI.ATTRIBUTE_FONT,
+              value : {fontFamily: Alloy.CFG.FONTS.bold, fontStyle: 'bold', fontSize : 18 }
+            },
+            {
+              words : ['word'],
+              type : Titanium.UI.ATTRIBUTE_UNDERLINES_STYLE,
+              value : Titanium.UI.ATTRIBUTE_UNDERLINE_STYLE_SINGLE
+            }
+          ]
+        }
+
+        use :
+        var attrContent = require('core').getAttributed(conf);
+        if(attrContent){
+          $.label.setAttributedString(attrContent);
+        }
+        */
+        var tab  = [];
+
+        var newText = o.newText || '';
+        var attrs = o.attrs;
+
+        function searchText(word,i,attr){
+
+          var pos = newText.indexOf(word,i);
+
+          if(pos > -1){
+            var obj = {
+              type: attr.type,
+              value: attr.value,
+              range: [pos, word.length]
+            };
+
+            tab.push(obj);
+            searchText(word,++pos,attr);
+          }
+
+        }
+
+        _.each(attrs, function(attr){
+
+          _.each(attr.words, function(word){
+            searchText(word,0,attr);
+          });
+
+        });
+
+        var attr = Titanium.UI.createAttributedString({
+          text: newText,
+          attributes: tab
+        });
+
+        return attr;
+
     }
   };
 

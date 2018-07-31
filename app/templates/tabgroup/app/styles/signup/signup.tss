@@ -13,45 +13,28 @@
 }
 
 "#email": {
+  maskType : 'email',
   autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
-  autocorrect: false,
   titleHint : L('yourEmail'),
-  colorFont : "white",
-  colorFocus : Alloy.CFG.COLORS.main2,
-  colorPattern : "white",
-  required : L('emailInvalid'),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL,
-  returnKey: Ti.UI.RETURNKEY_NEXT
+  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL
 }
 
 "#password": {
   minLength : 8,
-  autocorrect: false,
   titleHint : L('yourPassword'),
-  colorFont : "white",
-  colorFocus : Alloy.CFG.COLORS.main2,
-  colorPattern : "white",
-  required : L('invalidPassword'),
   password: true,
-  returnKey: Ti.UI.RETURNKEY_SEND
+  returnKey: Ti.UI.RETURNKEY_SEND,
+  iconAction: '\uf070'
 }
 
 "#lastname": {
   titleHint : L('yourLastname'),
-  autocorrect: false,
-  colorFont : "white",
-  colorFocus : Alloy.CFG.COLORS.main2,
-  colorPattern : "white",
   required : L('invalidLastname'),
   returnKey: Ti.UI.RETURNKEY_NEXT
 }
 
 "#firstname": {
   titleHint: L('yourFirstname'),
-  autocorrect: false,
-  colorFont : "white",
-  colorFocus : Alloy.CFG.COLORS.main2,
-  colorPattern : "white",
   required : L('invalidFirstname'),
   returnKey: Ti.UI.RETURNKEY_NEXT
 }

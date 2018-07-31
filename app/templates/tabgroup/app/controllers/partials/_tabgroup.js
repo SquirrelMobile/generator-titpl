@@ -14,9 +14,9 @@ var menuTab = null;
  $.load = function(menu){
    menuTab = menu;
    _.each(menu, function(m){
-     
-     objTab[m.controller] = Alloy.createController('/partials/_tab', m);
-     $.tabgroup.add(objTab[m.controller].getView());
+
+     objTab[m.id] = Alloy.createController('/partials/_tab', m);
+     $.tabgroup.add(objTab[m.id].getView());
    });
 
    var m = menuTab[0];
@@ -49,9 +49,9 @@ function handleClick(e){
           objTab[currentTab].disable();
         }
       }
-      currentTab = s.controller;
-      if(objTab[s.controller]){
-        objTab[s.controller].enable();
+      currentTab = s.idMenu;
+      if(objTab[s.idMenu]){
+        objTab[s.idMenu].enable();
       }
 
     }

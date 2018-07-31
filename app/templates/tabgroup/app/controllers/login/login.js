@@ -26,6 +26,15 @@
     connect();
   });
 
+  var _toFlag = false;
+  $.password.clickIconAction(function(e) {
+
+    $.password.setPasswordMask(_toFlag);
+    $.password.setIconAction(_toFlag ? '\uf070' : '\uf06e');
+    _toFlag = !_toFlag;
+
+  });
+
 })($.args);
 
 

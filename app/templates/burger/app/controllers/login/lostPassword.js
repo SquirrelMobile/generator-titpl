@@ -41,7 +41,7 @@ function submit(e){
   }
 
   //Alloy.Globals.loading.show(L('loading'));
-  /*Alloy.Globals.Api.lostPassword({body :{email : $.email.value}}, function(e){
+  /*Alloy.Globals.Api.lostPassword({body :{email : email }}, function(e){
 
   });*/
   Ti.UI.createAlertDialog({

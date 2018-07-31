@@ -77,8 +77,8 @@ function connect(e){
       /*Alloy.Globals.loading.show(L("loading"));
       //WS LOGIN
       var obj = {
-        email : $.login.value,
-        password : $.password.value
+        email : login,
+        password : password
       };
 
       Alloy.Globals.Api.signin({body:obj},function(e){
