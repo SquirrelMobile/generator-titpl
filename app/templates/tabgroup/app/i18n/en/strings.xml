@@ -44,4 +44,8 @@
 	<string name="errorMessageData">Error while retrieving data</string>
 	<string name="next">Next</string>
 	<string name="close">Close</string>
+	<string name="media.dialog.title">Choose a picture</string>
+	<string name="media.dialog.message">Choose source :</string>
+	<string name="gallery">Photo gallery</string>
+	<string name="camera">Camera</string>
 </resources>

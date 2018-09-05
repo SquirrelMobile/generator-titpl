@@ -11,8 +11,6 @@
  */
 (function constructor(args){
 
-  getHeight();
-
 })($.args);
 
 
@@ -21,16 +19,15 @@
  *
  * @return {type}  description
  */
-function getHeight(){
+function getHeight(e){
 
-  var height = $.grpView.getRect().height;
+  var height = e.source.rect.height;
   var radius = height/2;
 
-  $.radius.width = height;
-  $.radius.borderRadius = radius;
+  $.photo.width = height;
+  $.photo.borderRadius = radius;
 
 }
-
 
 /**
  * selectPhoto - description

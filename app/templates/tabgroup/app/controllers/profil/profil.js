@@ -27,63 +27,26 @@
   var photo = require('dao/variable').get('photo');
 
   if(photo){
-    $.top.photo.image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, photo);
+    $.top.photo.image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, photo).read();
   }
 
 })($.args);
 
-
 /**
- * openMedia - description
+ * openDialogCamera - description
  *
  * @param  {type} e description
  * @return {type}   description
  */
-function openMedia(e){
+function openDialogCamera(e){
 
-  var opts = {
-    cancel: 2,
-    options: [L('takePicture'), L('choosePicture'), L('cancel')],
-    title: L('choosePicture')
-  };
-
-  var dialog = Ti.UI.createOptionDialog(opts);
-  dialog.addEventListener("click",choisirOption);
-  dialog.show();
-
-}
-
-
-/**
- * choisirOption - description
- *
- * @param  {type} e description
- * @return {type}   description
- */
-function choisirOption(e){
-
-  if(e.index === 0)
-  {
-    require('/media').takePhoto(function(photo,ext){
-      $.top.photo.image = photo;
-      var name  = require('/media').saveFile({
-        blob : photo,
-        ext : ext
-      });
-      require('dao/variable').set('photo', name);
+  require('/media').openDialogCamera(function(photo,ext){
+    $.top.photo.image = photo;
+    var name  = require('/media').saveFile({
+      blob : photo,
+      ext : ext
     });
+    require('dao/variable').set('photo', name);
+  });
 
-  }
-  else if(e.index === 1)
-  {
-    require('/media').openGallery(function(photo,ext){
-      $.top.photo.image = photo;
-      var name  = require('/media').saveFile({
-        blob : photo,
-        ext : ext
-      });
-      require('dao/variable').set('photo', name);
-    });
-
-  }
 }

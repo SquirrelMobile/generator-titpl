@@ -44,4 +44,8 @@
 	<string name="errorMessageData">Erreur lors de la récupération des données</string>
 	<string name="next">Suivant</string>
 	<string name="close">Fermer</string>
+	<string name="media.dialog.title">Choisir une photo</string>
+	<string name="media.dialog.message">Choisir la source :</string>
+	<string name="gallery">Galerie photo</string>
+	<string name="camera">Appareil photo</string>
 </resources>

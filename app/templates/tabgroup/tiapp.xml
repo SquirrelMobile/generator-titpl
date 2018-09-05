@@ -84,13 +84,10 @@
     <theme>default</theme>
   </mobileweb>
   <modules>
-    <module platform="android">ti.imagefactory</module>
-    <module platform="iphone">ti.imagefactory</module>
-    <module platform="android">ti.compression</module>
-    <module platform="iphone">ti.compression</module>
-    <module platform="iphone">com.williamrijksen.onesignal</module>
-    <module platform="android">com.williamrijksen.onesignal</module>
-    <module platform="android">com.skypanther.tirotate</module>
+    <module>av.imageview</module>
+    <module>ti.imagefactory</module>
+    <module>ti.compression</module>
+    <module>com.williamrijksen.onesignal</module>
   </modules>
   <deployment-targets>
     <target device="android">true</target>

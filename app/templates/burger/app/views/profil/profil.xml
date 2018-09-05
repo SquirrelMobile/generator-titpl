@@ -3,7 +3,7 @@
 
 		<Require id="navbar" src="partials/_navbar" />
 
-		<Require id="top" src="profil/_top" onOpenMedia="openMedia" />
+		<Require id="top" src="profil/_top" onOpenMedia="openDialogCamera" />
 
 		<View height="5"/>
 

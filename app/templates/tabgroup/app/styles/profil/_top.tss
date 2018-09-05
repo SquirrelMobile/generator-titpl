@@ -1,3 +1,16 @@
 
 ".container" : {
 }
+
+'#photo': {
+  height : Ti.UI.FILL,
+  image : '/images/common/logo.png'
+}
+
+'#photo[platform=android]': {
+  rounded : true
+}
+
+'#grpView': {
+  width: Ti.UI.SIZE
+}

@@ -45,4 +45,8 @@
 	<string name="next">Next</string>
 	<string name="close">Close</string>
 	<string name="leaveApp">Are you sure you want to leave the app ?</string>
+	<string name="media.dialog.title">Choose a picture</string>
+	<string name="media.dialog.message">Choose source :</string>
+	<string name="gallery">Photo gallery</string>
+	<string name="camera">Camera</string>
 </resources>

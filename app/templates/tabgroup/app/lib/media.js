@@ -71,7 +71,31 @@
         }
 
       },
+      openDialogCamera : function(callback){
 
+        var cb = callback || function(){};
+
+        var dialog = Ti.UI.createAlertDialog({
+          title : L("media.dialog.title"),
+          message : L("media.dialog.message"),
+          buttonNames : [L('camera'), L('gallery'),L('cancel')],
+          cancel : 2
+        });
+
+        dialog.addEventListener('click', function(e){
+          if(e.index === 0){
+            _exports.takePhoto(cb);
+          }else if(e.index === 1){
+            _exports.openGallery(cb);
+          }
+          else {
+            return false;
+          }
+        });
+
+        dialog.show();
+
+      },
       /**
        * openGallery - description
        *
