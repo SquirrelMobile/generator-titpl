@@ -1,0 +1,15 @@
+<Alloy>
+    <Toolbar platform="ios">
+        <Items>
+          <View id="contentBtn" layout="horizontal" horizontalWrap="false">
+            <Button id="previous" opacity="0.3" title="\uf106" class="btnKeytool" onClick="previous" />
+            <Button id="next" opacity="0.3" title="\uf107" class="btnKeytool" onClick="next" />
+          </View>
+          <FlexSpace></FlexSpace>
+          <Button id="hintext" color="black" touchEnabled="false" class="btnKeytool" />
+          <FlexSpace></FlexSpace>
+          <Button title="OK" color="#000" class="btnKeytoolClose" backgroundImage="null" onClick="closeKeyboard" />
+
+        </Items>
+    </Toolbar>
+</Alloy>

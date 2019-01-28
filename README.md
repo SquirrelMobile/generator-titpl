@@ -56,6 +56,14 @@ To test your application :
 
 # CHANGELOG
 
+1.2.2 : 28-01-2019
+- Update FontAwesome
+- Add new Template with native tabgroup
+- Add keytoolbarios controller
+- Update OneSignal module
+- Remove camalcase npm
+- Use spawnSync to ti SDK list
+
 1.2.1 : 05-09-2018
 - Add av.imageview module
 - Change media lib to choose / take picture on profil

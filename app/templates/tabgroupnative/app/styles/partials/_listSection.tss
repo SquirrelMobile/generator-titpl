@@ -1,0 +1,17 @@
+"#title" : {
+  left : 20,
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 13 },
+  color : Alloy.CFG.COLORS.main
+}
+
+".section" : {
+  height : 42,
+  backgroundColor: "white"
+}
+
+".separator": {
+  width: Ti.UI.FILL,
+  height: 1,
+  backgroundColor: Alloy.CFG.COLORS.main,
+  bottom: 0
+}

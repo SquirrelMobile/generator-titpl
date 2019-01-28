@@ -1,0 +1,15 @@
+'TabGroup[platform=android]': {
+  theme : "Theme.Custom",
+  smoothScrollOnTabClick : false,
+  swipeable : false,
+  modal : false
+}
+
+'TabGroup[platform=ios]': {
+  navbarHidden: true,
+  tabBarHidden : true
+}
+
+'TabGroup': {
+  backgroundColor : "white"
+}

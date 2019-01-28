@@ -79,6 +79,6 @@
 	color: "white",
 	font: {
 		fontSize: 14,
-		fontFamily: 'FontAwesome5FreeSolid'
+		fontFamily: 'FontAwesome5ProSolid'
 	}
 }

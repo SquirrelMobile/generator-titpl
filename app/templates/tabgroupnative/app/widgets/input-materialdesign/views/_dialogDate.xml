@@ -1,0 +1,10 @@
+<Alloy>
+  <Window id="win" backgroundColor="#30000000" onClick="close">
+    <View class="winStyle" height="Ti.UI.SIZE" bubbleParent="false" backgroundColor="white" borderRadius="7" module="xp.ui">
+      <View height="Ti.UI.SIZE" bubbleParent="false" top="20" bottom="20" left="20" right="20" layout="vertical" >
+        <Picker id="picker" />
+        <Button class="btn" title="L('validate')" bottom="10" id="btnNext" onClick="valid"  />
+      </View>
+    </View>
+  </Window>
+</Alloy>

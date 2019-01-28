@@ -32,7 +32,7 @@ if (args.isCalendar) {
 
 function handleDate(e){
 
-  var controller = Alloy.createController("component/_dialogDate",{date :Alloy.Globals.moment()});
+  var controller = Widget.createController("_dialogDate",{date :Alloy.Globals.moment()});
     controller.on("date",function(date){
       currentDate = Alloy.Globals.moment(date);
       setValue(currentDate.format("DD MMMM YYYY"),true);

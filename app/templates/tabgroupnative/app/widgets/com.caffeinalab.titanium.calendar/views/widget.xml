@@ -1,0 +1,16 @@
+<Alloy>
+	<View id="main" bubbleParent="false">
+		<View class="sp1/2" />
+		<View id="header" class="bar">
+			<Label id="monthName" class="headerText" />
+		</View>
+		<View class="sp1/2" />
+		<View id="calendar" >
+			<View id="dayLabels" >
+				<View id="dayLabelsRow" />
+			</View>
+			<ScrollableView id="monthScroll" onClick="calendarClicked"/>
+		</View>
+		<View class="sp1/2" />
+	</View>
+</Alloy>

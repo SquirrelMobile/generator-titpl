@@ -13,6 +13,10 @@
 	font: { fontFamily : Alloy.CFG.FONTS.fareg }
 }
 
+".falight": {
+	font: { fontFamily : Alloy.CFG.FONTS.falight }
+}
+
 //https://material.io/icons/
 //eg :<Label class="ma" text="\ue7fb" />
 ".ma" : {

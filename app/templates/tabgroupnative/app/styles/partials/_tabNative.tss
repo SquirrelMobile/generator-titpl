@@ -1,0 +1,18 @@
+'#container': {
+  top: 0,
+  bottom: Alloy.Globals.footerHeight
+}
+
+'#footer': {
+  height: Alloy.Globals.footerHeight,
+  bottom : 0
+}
+
+".win": {
+  navbarHidden : true,
+  tabBarHidden : true
+}
+
+"Tab": {
+  navbarHidden: true
+}

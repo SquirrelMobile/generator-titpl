@@ -1,0 +1,10 @@
+<Alloy>
+	<Tab id="tab">
+		<Window class="win">
+			<View>
+				<View id="container"></View>
+				<View id="footer"></View>
+			</View>
+		</Window>
+	</Tab>
+</Alloy>

@@ -1,0 +1,29 @@
+
+".btnKeytool": {
+  /* style:Ti.UI.iOS.SystemButton.DONE, */
+  font: {
+      fontFamily: Alloy.CFG.FONTS.fa,
+      fontSize: 35
+  },
+}
+
+".btnKeytoolClose": {
+  /* style:Ti.UI.iOS.SystemButton.DONE */
+}
+
+"Button": {
+  color: "#000"
+}
+
+"#next[formFactor=tablet]": {
+  left: 6
+}
+
+'#hintext': {
+  left: 50,
+  right: 50,
+  width: Ti.UI.FILL,
+  color : "black",
+  font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
+  minimumFontSize: 9
+}

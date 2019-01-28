@@ -5,8 +5,9 @@
       "regular": "Helvetica-Regular",
       "bold": "Helvetica-Bold",
       "fabrands": "FontAwesome5BrandsRegular",
-      "fareg": "FontAwesome5FreeRegular",
-      "fa": "FontAwesome5FreeSolid"
+      "fareg": "FontAwesome5ProRegular",
+      "falight": "FontAwesome5ProLight",
+      "fa": "FontAwesome5ProSolid"
     },
     "COLORS": {
       "main": "<%= MAINCOLOR %>",

@@ -1,0 +1,3 @@
+<Alloy>
+	<TabGroup id="tabGroup" onOpen="handleOpen" />
+</Alloy>

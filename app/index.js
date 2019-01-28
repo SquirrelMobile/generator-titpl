@@ -3,9 +3,9 @@ var util = require('util');
 var path = require('path');
 var memFs = require('mem-fs');
 var editor = require('mem-fs-editor');
-var exec = require('child_process').exec;
+//var exec = require('child_process').exec;
+var exec = require('child_process').spawnSync;
 var chalk = require('chalk');
-const camelCase = require('camelcase');
 
 var store = memFs.create();
 var fs = editor.create(store);
@@ -24,10 +24,18 @@ var templateList = [
   {
     name : 'Tabgroup navigation',
     value : 'tabgroup'
+  },
+  {
+    name : 'Native Tabgroup navigation',
+    value : 'tabgroupnative'
   }
 ];
 
-
+function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+    return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+  }).replace(/\s+/g, '');
+}
 
 function generateGUID() {
     /* jshint bitwise:false */
@@ -55,149 +63,156 @@ module.exports = generators.Base.extend({
         this.sdks = [];
         var self = this;
 
-        exec('appc ti sdk list -o json', function(error, stdout, stderr) {
+        console.log(chalk.green('\Loading SDK list...'));
 
-            if(error){
-              console.log(chalk.underline.red('\nError : '+ error));
-              console.log(chalk.underline.green('\nPlease run : npm install -g appcelerator (if not installed)'));
-              console.log(chalk.underline.green('\nPlease run : npm install -g titanium (if not installed)'));
-              return;
-            }else{
-              var sdkList = JSON.parse(stdout);
-              ti = [];
-              for (var sdk in sdkList.installed) {
-                  ti.push({ name : sdk, value : sdk});
-              };
-            }
-        });
+        var evt = exec('appc',['ti', 'sdk', 'list', '-o', 'json']);
 
-        //https://github.com/SBoudrias/Inquirer.js
-        var prompts = [
-            {
-                type:     'list',
-                name:     'template',
-                message:  'Which template do you need ?',
-                choices : templateList,
-                default : 0
-            },
-            {
-                type:     'input',
-                name:     'bundle_id',
-                message:  'What\'s your application id (example: com.company.myapp) ? :',
-                validate: notBlank,
-                filter : lower
-            },
-            {
-                type:     'input',
-                name:     'appname',
-                message:  'What\'s the project name ? :',
-                default:  this.appname,
-                validate: notBlank
-            },
-            {
-                type:     'input',
-                name:     'publisher',
-                message:  'What\'s the publisher name ? :',
-                default : 'Squirrel',
-                validate: notBlank
-            },
-            {
-                type:    'input',
-                name:    'url',
-                message: 'What\'s the URL for the project webpage (if any) ? :',
-                default : 'http://www.squirrel.fr'
-            },
-            /*{
-                type:     'input',
-                name:     'version',
-                message:  'What version would you like to start with?',
-                default:  '0.0.0',
-                validate: notBlank
-            },*/
-            {
-                type:    'input',
-                name:    'description',
-                message: 'Provide a short description for your app : ',
-                filter:  notSpecifiedFilter
-            },
-            {
-                type:    'input',
-                name:    'copyright',
-                message: 'What\'s the copyright name ? :',
-                filter:  notSpecifiedFilter
-            },
-            {
-                type:    'list',
-                name:    'sdk',
-                message: 'Which SDK would you like to use ? :',
-                choices: ti,
-                default : 0
-            },
-            {
-                type:    'input',
-                name:    'maincolor',
-                message: 'What\'s the main color for your app ? (background window color)',
-                default : '#f89a3c'
-            },
-            {
-                type:    'input',
-                name:    'maincolor2',
-                message: 'What\'s the second color for your app ? (navbar, button color)',
-                default : '#f15b2a'
-            },
-            {
-                type:    'input',
-                name:    'baseurl',
-                message: 'What\'s the baseurl of your webservice ? :',
-                default : 'http://www.squirrel.fr'
-            },
-            /*, {
-                type:    'checkbox',
-                name:    'options',
-                message: 'Extras:',
-                choices: [{
-                        name:    'Include Alloy',
-                        value:   'use_alloy',
-                        checked: true
-                        }, {
-                        name:    'Include a testing framework (mocha, chai, sinon, mockti)',
-                        value:   'use_tests',
-                        checked: true
-                        }, {
-                        name:    'Use an express server for local (offline) development',
-                        value:   'use_server',
-                        checked: false
-                        }]
-                }*/];
+        if(evt.error){
+          console.log(chalk.underline.red('\nError : '+ evt.error));
+          console.log(chalk.underline.green('\nPlease run (if not installed) : npm install -g appcelerator'));
+          console.log(chalk.underline.green('\nPlease run (if not installed) : npm install -g titanium'));
+          process.exit(1);
+        }else{
+          var sdkList = JSON.parse(evt.stdout.toString());
+          ti = [];
+          for (var sdk in sdkList.installed) {
+              ti.push({ name : ''+sdk, value : ''+sdk});
+          };
 
-                return this.prompt(prompts, function (props) {
-                    this.template   = props.template;
-                    this.bundle_id   = props.bundle_id;
-                    this.appname     = props.appname;
-                    this.publisher   = props.publisher;
-                    this.url         = props.url;
-                    this.description = props.description;
-                    this.sdk         = props.sdk;
-                    this.maincolor   = props.maincolor;
-                    this.maincolor2  = props.maincolor2;
-                    this.baseurl     = props.baseurl;
-                    //this.version     = props.version;
-                    //this.use_alloy   = props.options.indexOf('use_alloy') !== -1;
-                    //this.use_tests   = props.options.indexOf('use_tests') !== -1;
-                    //this.use_server  = props.options.indexOf('use_server') !== -1;
-                    //this.guid        = generateGUID();
-                    this.copyright   = props.copyright;
-                  }).then(function(answers) {
-                    if(answers.copyright === "not specified"){
-                      answers.copyright = new Date().getFullYear() + (answers.publisher ? " " + answers.publisher : "");
-                    }
-                    asks = answers;
-                  });
+          //https://github.com/SBoudrias/Inquirer.js
+          var prompts = [
+              {
+                  type:     'list',
+                  name:     'template',
+                  message:  'Which template do you need ?',
+                  choices : templateList,
+                  default : 0
+              },
+              {
+                  type:     'input',
+                  name:     'bundle_id',
+                  message:  'What\'s your application id (example: com.company.myapp) ? :',
+                  validate: notBlank,
+                  filter : lower
+              },
+              {
+                  type:     'input',
+                  name:     'appname',
+                  message:  'What\'s the project name ? :',
+                  default:  this.appname,
+                  validate: notBlank
+              },
+              {
+                  type:     'input',
+                  name:     'publisher',
+                  message:  'What\'s the publisher name ? :',
+                  default : 'Squirrel',
+                  validate: notBlank
+              },
+              {
+                  type:    'input',
+                  name:    'url',
+                  message: 'What\'s the URL for the project webpage (if any) ? :',
+                  default : 'http://www.squirrel.fr'
+              },
+              /*{
+                  type:     'input',
+                  name:     'version',
+                  message:  'What version would you like to start with?',
+                  default:  '0.0.0',
+                  validate: notBlank
+              },*/
+              {
+                  type:    'input',
+                  name:    'description',
+                  message: 'Provide a short description for your app : ',
+                  filter:  notSpecifiedFilter
+              },
+              {
+                  type:    'input',
+                  name:    'copyright',
+                  message: 'What\'s the copyright name ? :',
+                  filter:  notSpecifiedFilter
+              },
+              {
+                  type:    'list',
+                  name:    'sdk',
+                  message: 'Which SDK would you like to use ? :',
+                  choices: ti,
+                  default : 0
+              },
+              {
+                  type:    'input',
+                  name:    'maincolor',
+                  message: 'What\'s the main color for your app ? (background window color)',
+                  default : '#f89a3c'
+              },
+              {
+                  type:    'input',
+                  name:    'maincolor2',
+                  message: 'What\'s the second color for your app ? (navbar, button color)',
+                  default : '#f15b2a'
+              },
+              {
+                  type:    'input',
+                  name:    'baseurl',
+                  message: 'What\'s the baseurl of your webservice ? :',
+                  default : 'http://www.squirrel.fr'
+              },
+              /*, {
+                  type:    'checkbox',
+                  name:    'options',
+                  message: 'Extras:',
+                  choices: [{
+                          name:    'Include Alloy',
+                          value:   'use_alloy',
+                          checked: true
+                          }, {
+                          name:    'Include a testing framework (mocha, chai, sinon, mockti)',
+                          value:   'use_tests',
+                          checked: true
+                          }, {
+                          name:    'Use an express server for local (offline) development',
+                          value:   'use_server',
+                          checked: false
+                          }]
+                  }*/];
+
+                  return this.prompt(prompts, function (props) {
+                      this.template   = props.template;
+                      this.bundle_id   = props.bundle_id;
+                      this.appname     = props.appname;
+                      this.publisher   = props.publisher;
+                      this.url         = props.url;
+                      this.description = props.description;
+                      this.sdk         = props.sdk;
+                      this.maincolor   = props.maincolor;
+                      this.maincolor2  = props.maincolor2;
+                      this.baseurl     = props.baseurl;
+                      //this.version     = props.version;
+                      //this.use_alloy   = props.options.indexOf('use_alloy') !== -1;
+                      //this.use_tests   = props.options.indexOf('use_tests') !== -1;
+                      //this.use_server  = props.options.indexOf('use_server') !== -1;
+                      //this.guid        = generateGUID();
+                      this.copyright   = props.copyright;
+                    }).then(function(answers) {
+                      if(answers.copyright === "not specified"){
+                        answers.copyright = new Date().getFullYear() + (answers.publisher ? " " + answers.publisher : "");
+                      }
+                      asks = answers;
+                    });
+
+        }
+
         },
         method2: function() {
             console.log(chalk.underline.bgBlue('Copying templates '+asks.template+'...'));
 
-            var folderName = camelCase(asks.appname);
+            var folderName = "appdefault";
+            if(asks.appname){
+              var folderName = camelize(asks.appname);
+            }
+
             var template = asks.template;
             this.fs.copy(
                 this.templatePath(template),

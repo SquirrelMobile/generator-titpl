@@ -1,0 +1,35 @@
+
+"#win[platform=ios]": {
+  modal: false,
+}
+
+"#win[platform=android]": {
+  modal: true,
+  theme : 'Theme.Custom'
+}
+
+"#picker": {
+top: 10,
+ type:Ti.UI.PICKER_TYPE_DATE,
+}
+
+"#btnNext": {
+  text: L("validate")
+}
+
+".winStyle[formFactor=handheld]": {
+  left: 40,
+  right : 40
+}
+
+".winStyle[formFactor=tablet]": {
+ width: 315
+}
+
+".btn": {
+    top : 25,
+    backgroundColor : Alloy.CFG.COLORS.main,
+    borderColor: Alloy.CFG.COLORS.main2,
+    color: Alloy.CFG.COLORS.main2,
+    font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
+}
