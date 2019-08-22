@@ -1,0 +1,15 @@
+<Alloy>
+  <ItemTemplate name="column" height="50" >
+    <View height="45" layout="horizontal" horizontalWrap="false" clickStyle="true" left="3" right="3" backgroundColor="white">
+      <View class="elem">
+        <ImageView bindId="elem1" contentMode="Alloy.Globals.CONTENT_MODE_FILL" ns="AvImageview"   class="photo"></ImageView>
+      </View>
+      <View class="elem">
+        <ImageView bindId="elem2" contentMode="Alloy.Globals.CONTENT_MODE_FILL" ns="AvImageview"  class="photo"></ImageView>
+      </View>
+      <View class="elem">
+        <ImageView bindId="elem3" contentMode="Alloy.Globals.CONTENT_MODE_FILL" ns="AvImageview"  class="photo"></ImageView>
+      </View>
+    </View>
+  </ItemTemplate>
+</Alloy>

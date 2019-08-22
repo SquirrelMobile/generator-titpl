@@ -1,0 +1,30 @@
+
+"#checkBoxView": {
+  borderColor: "#979797",
+  borderWidth: 1,
+  borderRadius: 3,
+  backgroundColor: "white",
+  height: 15,
+  width: 15
+
+}
+
+"#textContent": {
+  font: {
+		fontFamily: Alloy.CFG.FONTS.regular,
+		fontSize: 12
+	},
+	color: Alloy.CFG.COLORS.black,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+  width: Ti.UI.SIZE
+}
+
+".fa": {
+  font: {
+    fontFamily: Alloy.CFG.FONTS.fa,
+    fontSize: 15
+  },
+  minimumFontSize: 9,
+  text: "\uf00c",
+	color: Alloy.CFG.COLORS.second
+}

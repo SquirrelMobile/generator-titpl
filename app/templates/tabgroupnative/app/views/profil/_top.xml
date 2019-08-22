@@ -4,5 +4,7 @@
 		<View id="grpView" height="95%" onPostlayout="getHeight">
 			<ImageView id="photo" onClick="selectPhoto" module="av.imageview" />
 		</View>
+		<Label id="name" bottom="0" color="white"></Label>
+		<Button top="0" class="btn" title="logout" onClick="logout"></Button>
 	</View>
 </Alloy>

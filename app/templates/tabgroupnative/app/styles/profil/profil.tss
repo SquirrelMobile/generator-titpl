@@ -11,6 +11,7 @@
   activeColor : Alloy.CFG.COLORS.grey,
   tabs: true,
   backgroundColor : "white",
+  activeColor :  Alloy.CFG.COLORS.main2,
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 11 },
   activeFont : { fontFamily: Alloy.CFG.FONTS.medium, fontSize : 11 },
   tabWidth : "auto"

@@ -4,32 +4,31 @@
  *
  */
 
+import { User } from "/classes/user";
+
+Alloy.Globals.currentUser = Ti.App.Properties.getObject("user", null)
+  ? new User(Ti.App.Properties.getObject("user"))
+  : null;
 /**
  * @method Controller
  * Display profil view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
+(function constructor(args) {
   $.navbar.load({
-    burger : {
-      visible : true
+    logo: {
+      visible: true
     },
-    title : {
-      visible : true,
-      color : 'black',
-      text : L('account')
+    burger: {
+      visible: true
     }
   });
 
   $.paging.setScrollableView($.scrollableView);
-
-  var photo = require('dao/variable').get('photo');
-
-  if(photo){
-    $.top.photo.image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, photo).read();
+  if (Alloy.Globals.currentUser) {
+    $.top.photo.image = Alloy.Globals.currentUser.getAvatar();
+    $.top.name.text = Alloy.Globals.currentUser.getFullName();
   }
-
 })($.args);
 
 /**
@@ -38,15 +37,13 @@
  * @param  {type} e description
  * @return {type}   description
  */
-function openDialogCamera(e){
-
-  require('/media').openDialogCamera(function(photo,ext){
+function openDialogCamera(e) {
+  require("/media").openDialogCamera(function(photo, ext) {
     $.top.photo.image = photo;
-    var name  = require('/media').saveFile({
-      blob : photo,
-      ext : ext
+    var name = require("/media").saveFile({
+      blob: photo,
+      ext: ext
     });
-    require('dao/variable').set('photo', name);
+    require("dao/variable").set("photo", name);
   });
-
 }

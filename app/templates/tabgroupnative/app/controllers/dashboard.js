@@ -3,71 +3,51 @@ var args = $.args;
 var currentController = null;
 var objTab = {};
 
-(function constructor(args){
-
-  load(Alloy.Globals.tabmenu);
-
-})(args);
-
-function load(menu){
-
+(function constructor(args) {
+  if (OS_ANDROID) {
+    $.tabGroup.addEventListener("androidback", function() {});
+  } else {
+    $.tabGroup.hideNavBar();
+  }
   Alloy.Globals.events.off("popToRootWindow");
   Alloy.Globals.events.off("openWindowInTab");
+})(args);
 
-  _.each(menu, function(m){
-
-    objTab[m.id] = Alloy.createController('/partials/_tabNative', m);
-    objTab[m.id].on('select', changeTab);
-
-    $.tabGroup.addTab(objTab[m.id].getView());
-
-  });
-
-}
-
-function closeToRoot(){
-
+function closeToRoot() {
   $.tabGroup.activeTab.popToRootWindow();
-
 }
 
-Alloy.Globals.events.on("popToRootWindow",closeToRoot);
+Alloy.Globals.events.on("popToRootWindow", closeToRoot);
 
-function openWindow(o){
-
+function openWindow(o) {
   var tab = $.tabGroup.activeTab;
 
   _.defaults(o, {
-    data : {},
-    controller : null,
-    dispatcher  : null
+    data: {},
+    controller: null,
+    dispatcher: null
   });
 
   var win = Alloy.createController(o.controller, o.data);
   var currentWin = win.getView();
 
-  function close(){
-
-    if(currentWin){
-        tab.close(currentWin);
-        currentWin = null;
+  function close() {
+    if (currentWin) {
+      tab.close(currentWin);
+      currentWin = null;
     }
     if (win) {
-      win.off('close');
-
+      win.off("close");
     }
     win = null;
-
   }
-  win.on('close', close);
-  win.on('select' , function(e){
-
-    if(o.dispatcher){
+  win.on("close", close);
+  win.on("select", function(e) {
+    if (o.dispatcher) {
       Alloy.Globals.events.trigger(o.dispatcher, e);
     }
 
     close();
-
   });
 
   if (currentController !== o.controller) {
@@ -75,38 +55,31 @@ function openWindow(o){
   }
   if (o.controller === "win") {
     currentController = o.data.controller;
-  }
-  else {
+  } else {
     currentController = o.controller;
-
   }
 }
 
-Alloy.Globals.events.on("openWindowInTab",openWindow);
+Alloy.Globals.events.on("openWindowInTab", openWindow);
 
-function changeTab(e){
-
-  if(e.source.idMenu === "logout"){
+function changeTab(e) {
+  if (e.source.idMenu === "logout") {
     logout();
-  }else{
+  } else {
     $.tabGroup.activeTab = objTab[e.source.idMenu].getView();
   }
-
-
 }
 
-function logout(){
-
-  if(OS_IOS){
-    $.tabGroup.close();
-  }
-  Ti.App.Properties.setBool('isConnected', false);
-  Alloy.createController('login/login', { closeApp : true }).getView().open();
-
-}
-
-function handleOpen(e){
-  if (OS_ANDROID) {
-    $.tabGroup.activity.actionBar.hide();
+var oldTab = "home";
+function focus(e) {
+  if (e.tab && ["home", "account"].indexOf(e.tab.id) > -1) {
+    $[oldTab + "Content"].opacity = 0;
+    oldTab = e.tab.id;
+    $[e.tab.id + "Content"].animate({
+      opacity: 1,
+      duration: 300
+    });
   }
 }
+
+function handleOpen(e) {}

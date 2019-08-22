@@ -1,7 +1,6 @@
 <Alloy>
 	<View id="win" class="container">
 
-		<Require id="navbar" src="partials/_navbar" />
 
 		<Require id="top" src="profil/_top" onOpenMedia="openDialogCamera" />
 

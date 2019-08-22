@@ -2,14 +2,43 @@
   theme : "Theme.Custom",
   smoothScrollOnTabClick : false,
   swipeable : false,
-  modal : false
+  modal : false,
+  tabsBackgroundColor : "white",
+  style: Titanium.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION
 }
 
 'TabGroup[platform=ios]': {
   navbarHidden: true,
-  tabBarHidden : true
+  tabsTintColor  : Alloy.CFG.COLORS.main,
+  unselectedItemTintColor  : "black"
 }
 
-'TabGroup': {
-  backgroundColor : "white"
+
+'#home': {
+icon : "/images/common/logo.png",
+ title: L("home"),
+ activeTitleColor : Alloy.CFG.COLORS.main,
+ tintColor : Alloy.CFG.COLORS.main,
+ touchFeedback: true,
+ activeIconIsMask : true,
+ touchFeedbackColor: "white",
+ titleColor: "#000",
+ activeIcon : "/images/groupActive.png"
+}
+
+'#account': {
+  icon : "/images/common/logo.png",
+   title: L("account"),
+   activeTitleColor : Alloy.CFG.COLORS.main,
+   activeIconIsMask : true,
+	 touchFeedback: true,
+   touchFeedbackColor: "white",
+   titleColor: "#000",
+   activeIcon : "/images/profileActive.png"
+}
+
+'.navbar': {
+  logo : {
+    visible : true
+  }
 }

@@ -1,16 +1,16 @@
 <Alloy>
 		<ListView id="listview" defaultItemTemplate="default" separatorColor="transparent" onItemclick="handleClick" onMarker="marker">
-
+			<HeaderView >
+				<View id="header" height="1" onClick="headerClick" onChange="headerChange"></View>
+			</HeaderView>
 			<Templates>
-
-				<ItemTemplate name="default" height="80">
-					<View class="vrow">
-						 <Label bindId="title" class="lbl" />
-						 <View class="separator" />
-					</View>
-				</ItemTemplate>
-
+				<Require src="/templateList/photos"></Require>
+				<Require src="/templateList/columnsStyle"></Require>
 			</Templates>
+			<FooterView>
+				<View id="footer" height="10">
 
+				</View>
+			</FooterView>
 		</ListView>
 </Alloy>

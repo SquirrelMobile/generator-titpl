@@ -1,7 +1,5 @@
 <Alloy>
-	<View class="container" backgroundColor="blue">
-		<Label top="25">L('detailView')</Label>
-
-		<Button class="btn" onClick="openWindow" title="L('openNewWin')"></Button>
+	<View class="container" backgroundColor="white">
+		<Widget src="fr.squirrel.zoomimage" width="Ti.UI.FILL" height="Ti.UI.FILL" id=zoomImage></Widget>
 	</View>
 </Alloy>

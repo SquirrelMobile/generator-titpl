@@ -4,16 +4,19 @@ var labels = [];
 
 init(arguments[0] || {});
 
-function getTabWidth(num){
+function getTabWidth(num) {
   var displayWidth = Ti.Platform.displayCaps.platformWidth,
-      orientation = Ti.Gesture.orientation,
-      denominator,
-      width;
+    orientation = Ti.Gesture.orientation,
+    denominator,
+    width;
 
   OS_ANDROID && (displayWidth /= Ti.Platform.displayCaps.logicalDensityFactor);
 
   // there is more space in landscape, so we show more tabs then
-  if (orientation == Ti.UI.LANDSCAPE_LEFT || orientation == Ti.UI.LANDSCAPE_RIGHT){
+  if (
+    orientation == Ti.UI.LANDSCAPE_LEFT ||
+    orientation == Ti.UI.LANDSCAPE_RIGHT
+  ) {
     denominator = num || 7;
   } else {
     denominator = num || 4;
@@ -24,23 +27,22 @@ function getTabWidth(num){
   return width;
 }
 
-function init(args){
-
+function init(args) {
   _.defaults(opts, args);
 
   // 'auto' makes the tabs fill the available width
-  if (args.tabs.width === 'auto'){
+  if (args.tabs.width === "auto") {
     opts.fitWidth = true;
   }
 
-  if (opts.fitWidth){
+  if (opts.fitWidth) {
     $.tabWidth = getTabWidth(args.titles.length);
-  }else{
+  } else {
     $.tabWidth = args.tabs.width || getTabWidth();
   }
 
-  if(_.isString($.tabWidth) && $.tabWidth.indexOf('%')>0) {
-    var newWidth = parseInt($.tabWidth.slice(0, $.tabWidth.indexOf('%')))/100;
+  if (_.isString($.tabWidth) && $.tabWidth.indexOf("%") > 0) {
+    var newWidth = parseInt($.tabWidth.slice(0, $.tabWidth.indexOf("%"))) / 100;
 
     OS_ANDROID && (newWidth /= Ti.Platform.displayCaps.logicalDensityFactor);
 
@@ -53,34 +55,44 @@ function init(args){
     height: Ti.UI.FILL
   });
 
-  for (var i = 0; i < args.titles.length; i++){
+  for (var i = 0; i < args.titles.length; i++) {
     tabs[i] = Ti.UI.createView({
       width: $.tabWidth,
+      backgroundColor: "white",
+      touchFeedback: true,
+      touchFeedbackColor: "#EEEEEE",
       height: Ti.UI.FILL
     });
 
     var label = Ti.UI.createLabel({
-      textAlign : 'center',
-      color: (i === 0 && !!args.tabs.activeColor) ? args.tabs.activeColor : args.tabs.color,
-      font: (i === 0 && !!args.tabs.activeFont) ? args.tabs.activeFont : args.tabs.font,
+      textAlign: "center",
+      touchEnabled: false,
+      color:
+        i === 0 && !!args.tabs.activeColor
+          ? args.tabs.activeColor
+          : args.tabs.color,
+      font:
+        i === 0 && !!args.tabs.activeFont
+          ? args.tabs.activeFont
+          : args.tabs.font,
       text: args.titles[i]
     });
     labels.push(label);
     tabs[i].add(label);
 
-    (function(index){
-      tabs[i].addEventListener('click', function(){
-        Ti.API.log("CLICK");
+    (function(index) {
+      tabs[i].addEventListener("click", function() {
+        // Alloy.Globals.log.info("CLICK");
         var view = this;
         selectFont(index);
         selectColor(index);
-        $.trigger('select', { tab: index, view: view });
+        $.trigger("select", { tab: index, view: view });
       });
     })(i);
 
     $.tabs.add(tabs[i]);
 
-    if (i < args.titles.length - 1){
+    if (i < args.titles.length - 1) {
       // add divider
       // $.tabs.add(Ti.UI.createView({
       //   backgroundColor: args.tabs.dividerColor,
@@ -97,33 +109,29 @@ function selectColor(index) {
   }
 
   for (var j = 0; j < labels.length; j++) {
-    labels[j].color = (j === index) ? opts.tabs.activeColor : opts.tabs.color;
+    labels[j].color = j === index ? opts.tabs.activeColor : opts.tabs.color;
   }
 }
 
 function selectFont(index) {
-
-
   for (var j = 0; j < labels.length; j++) {
-    labels[j].font = (j === index) ? opts.tabs.activeFont : opts.tabs.font;
+    labels[j].font = j === index ? opts.tabs.activeFont : opts.tabs.font;
   }
 }
 
-function updateWidth(){
-
+function updateWidth() {
   $.tabs.setWidth(Ti.UI.FILL);
 
-  if (opts.fitWidth){
-
+  if (opts.fitWidth) {
     $.tabWidth = getTabWidth(opts.titles.length);
 
-    tabs.forEach(function(tab){
+    tabs.forEach(function(tab) {
       tab.setWidth($.tabWidth - 1);
     });
   }
 }
 
-function getWidth(){
+function getWidth() {
   return $.tabWidth * opts.titles.length + opts.titles.length;
 }
 

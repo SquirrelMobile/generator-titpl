@@ -1,0 +1,17 @@
+<Alloy>
+	<View id="container" height="Ti.UI.SIZE" layout="vertical" >
+		<View id="container2">
+			<View id="background"></View>
+			<View id="picker" width="Ti.UI.FILL" height="Ti.UI.FILL">
+
+			</View>
+			<ImageView id="imageLeft" left="5" class="img"></ImageView>
+			<TextField id="textfield" onPrevious="returnF" onChange="handleChange" onReturn="next" onFocus="handleFocus" module="xp.ui" height="Ti.UI.FILL" width="Ti.UI.FILL" />
+			<ImageView id="imageRight" right="5" class="img"></ImageView>
+			<Label id="lblRight" right="5" class="icon"></Label>
+			<View class="separator" id="separator"></View>
+		</View>
+
+
+	</View>
+</Alloy>

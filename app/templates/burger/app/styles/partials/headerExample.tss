@@ -1,0 +1,12 @@
+
+'#filter': {
+  hintText: "filtrer",
+  isList : true,
+  data : [{text : "date"},{text : "name"}]
+}
+
+'#style': {
+  hintText: "style",
+  isList : true,
+  data : [{text : "list"},{text : "column"}]
+}

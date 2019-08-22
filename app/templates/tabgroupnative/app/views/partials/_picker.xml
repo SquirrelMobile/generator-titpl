@@ -1,0 +1,16 @@
+<Alloy>
+  <Window id="win" onOpen="handleOpen">
+    <View id="container" onClick="handleClick" >
+      <View id="view" height="40%" bubbleParent="false"  bottom="-30%" backgroundColor="white">
+        <Label id="title" class="lbl" top="0"/>
+        <Button class="lbl" left="5" top="0" id="cancel" onClick="cancel" />
+        <Button class="lbl" right="5" top="0" id="done" onClick="valid" />
+        <View class="separator" top="49"></View>
+        <!-- <View height="Ti.UI.SIZE" layout="vertical"> -->
+          <Picker id="picker" top="50" bottom="0"  onChange="handleChange"></Picker>
+        <!-- </View> -->
+      </View>
+    </View>
+  </Window>
+
+</Alloy>

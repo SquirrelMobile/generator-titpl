@@ -39,7 +39,7 @@
 }
 
 "Window[platform=android]": {
-	theme : 'Theme.AppCompat.NoTitleBar',
+	theme : 'Theme.Custom',
 	windowSoftInputMode: Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN,
 }
 

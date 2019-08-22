@@ -12,6 +12,37 @@
     <item name="android:textAllCaps">false</item>
   </style>
 
+  <style name="Theme.CustomSplash" parent="@style/Theme.Titanium">
+      <item name="colorPrimary">@color/primary</item>
+      <item name="colorPrimaryDark">@color/primaryDark</item>
+      <item name="colorAccent">@color/primary</item>
+      <item name="colorControlHighlight">@color/colorHighlight</item>
+      <item name="colorControlActivated">@color/colorActivated</item>
+      <item name="android:navigationBarColor">@color/primary</item>
+      <item name="android:statusBarColor">@color/whiteColor</item>
+      <item name="android:textColorPrimary">@color/textPrimary</item>
+			<item name="android:windowBackground">@drawable/background</item>
+      <item name="android:windowAnimationStyle">@style/defaultAnimation</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Login" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="colorControlHighlight">@color/colorHighlight</item>
+        <item name="colorControlActivated">@color/colorActivated</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+        <item name="android:statusBarColor">@color/whiteColor</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:windowLightStatusBar">true</item>
+      </style>
+
+    <style name="defaultAnimation">
+      <item name="android:windowEnterAnimation">@anim/defaultanimationenter</item>
+      <item name="android:windowExitAnimation">@anim/defaultanimation</item>
+    </style>
+
   <style name="Theme.Custom.actionbar" parent="@style/Theme.AppCompat.Light">
     <item name="colorPrimary">@color/primary</item>
     <item name="colorPrimaryDark">@color/primaryDark</item>
@@ -23,12 +54,13 @@
     <item name="android:textColorPrimary">@color/textPrimary</item>
     <item name="android:textAllCaps">false</item>
   </style>
-  
+
   <color name="colorActivated">#f89a3c</color>
+  <color name="whiteColor">#ffffff</color>
   <color name="primary">#f89a3c</color>
   <color name="primaryDark">#222222</color>
   <color name="textPrimary">#222222</color>
   <color name="accent">#f15b2a</color>
-  <color name="colorHighlight">#222222</color>
+  <color name="colorHighlight">#EEEEEE</color>
 </resources>
 <!-- http://www.appcelerator.com/blog/2015/07/understanding-the-android-material-theme/ -->

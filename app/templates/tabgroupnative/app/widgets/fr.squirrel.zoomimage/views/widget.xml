@@ -1,0 +1,7 @@
+<Alloy>
+  <View id="main">
+    <ActivityIndicator color="Alloy.CFG.COLORS.main2" zIndex="99" width="Ti.UI.FILL" height="Ti.UI.FILL" id="loading" class="loadingIndicator"></ActivityIndicator>
+    <View id="image" height="Ti.UI.FILL" width="Ti.UI.FILL" platform="android"></View>
+    <ScrollView zoomScale="0.8" id="image" height="Ti.UI.FILL" width="Ti.UI.FILL" platform="ios"></ScrollView>
+  </View>
+</Alloy>

@@ -2,3 +2,7 @@
 ".container" : {
 
 }
+
+'#win[platform=android]': {
+  activityEnterTransition:Ti.UI.Android.TRANSITION_SLIDE_LEFT
+}

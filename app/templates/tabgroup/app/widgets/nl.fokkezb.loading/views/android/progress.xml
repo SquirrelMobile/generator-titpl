@@ -1,3 +1,0 @@
-<Alloy>
-  <ProgressIndicator ns="Ti.UI.Android" platform="android" id="progressIndicator" class="progressIndicator" onCancel="onCancel" />
-</Alloy>

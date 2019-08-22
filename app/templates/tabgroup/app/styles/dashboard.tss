@@ -1,9 +1,0 @@
-
-
-"#content": {
-  top : 0,
-  left : 0,
-  right : 0,
-  bottom : Alloy.Globals.footerHeight,
-  backgroundColor: Alloy.CFG.COLORS.main
-}

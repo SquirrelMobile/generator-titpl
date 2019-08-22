@@ -4,6 +4,12 @@
   backgroundColor: Alloy.CFG.COLORS.main2
 }
 
+"Button" : {
+  elevation: 0,
+  borderRadius: 40,
+  backgroundColor: Alloy.CFG.COLORS.main2
+}
+
 ".navbar[platform=android]": {
   top : 0,
   height : 44
@@ -14,7 +20,6 @@
   backgroundImage: null,
   top : 2,
   bottom : 2,
-  visible: false
 }
 
 "#btnLeft": {

@@ -1,16 +1,12 @@
 
 ".container" : {
-  top : "15%",
-  left:"7%",
-  right: "7%",
-  layout: "vertical",
-  bottom : 0
+  backgroundColor: "white"
 }
 
 ".titleLbl": {
   text: L('connexionTitle'),
   font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
-  color : "white"
+  color : Alloy.CFG.COLORS.main
 }
 
 ".btn": {
@@ -19,24 +15,40 @@
 }
 
 "#login": {
-  maskType : 'email',
   autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
-  titleHint : L('yourEmail'),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL
+  hintText: L('yourEmail'),
+  hintTextTitle : L('yourEmail'),
+  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL,
+  container : {
+    borderColor: "#EEE",
+  },
+  separator : {
+    visible : false
+  }
 }
 
 "#password": {
-  minLength : 8,
-  titleHint : L('yourPassword'),
-  password: true,
-  returnKey: Ti.UI.RETURNKEY_SEND,
-  iconAction: '\uf070'
+  hintText:  L('yourPassword'),
+  hintTextTitle : L('yourPassword'),
+  passwordMask: true,
+  returnKeyType: Ti.UI.RETURNKEY_SEND,
+  lblRight : {
+    text : "\uf06e",
+    color : "gray",
+    touchEnabled: true,
+  },
+  container : {
+    borderColor: "#EEE",
+  },
+  separator : {
+    visible : false
+  }
 }
 
 "#lostPassword": {
   text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
-  color : "white",
+  color : Alloy.CFG.COLORS.main,
   height: 40,
   top : 25
 }
@@ -50,4 +62,9 @@
 
 ".lblBtn": {
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 }
+}
+
+'#win[platform=android]': {
+  theme :"Theme.Login",
+  activityEnterAnimation: Titanium.UI.Android.TRANSITION_FADE_IN
 }

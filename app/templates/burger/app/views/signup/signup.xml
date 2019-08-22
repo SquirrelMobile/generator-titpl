@@ -5,14 +5,16 @@
 
 		<ScrollView class="container">
 
-			<View class="form">
-				<Widget id="lastname" class="tf" src="input-materialdesign" />
-				<Widget id="firstname" class="tf" src="input-materialdesign" />
-				<Widget id="email" class="tf" src="input-materialdesign" />
-				<Widget id="password" class="tf" src="input-materialdesign" />
+			<View left="20" right="20" layout="vertical" height="Ti.UI.SIZE">
+				<Require src="/partials/_textfield" class="tfForm" id="lastname" onNext="next" next="firstname"  ></Require>
+				<Require src="/partials/_textfield" class="tfForm" id="firstname" onNext="next" next="email" onPrevious="previous" previous="lastname" ></Require>
+				<Require src="/partials/_textfield" class="tfForm" id="email" onNext="next" next="phone" onPrevious="previous" previous="firstname" ></Require>
+				<Require src="/partials/_textfield" class="tfForm" id="phone" onNext="next" next="password" onPrevious="previous" previous="email" ></Require>
+				<Require src="/partials/_textfield" class="tfForm" id="password" onClickLblRight="activePasswordMask" onNext="next" next="passwordConfirm" onPrevious="previous" previous="phone" ></Require>
+				<Require src="/partials/_textfield" class="tfForm" id="passwordConfirm"  onNext="submit" onPrevious="previous" previous="password" ></Require>
+				<Button class="btn" onClick="submit" />
 			</View>
 
-			<Button class="btn" onClick="submit" />
 
 		</ScrollView>
 	</Window>

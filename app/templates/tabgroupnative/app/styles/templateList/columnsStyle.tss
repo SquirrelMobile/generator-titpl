@@ -1,0 +1,12 @@
+
+'.elem': {
+  width: "33%",
+  height: Ti.UI.FILL
+}
+
+'.photo': {
+  left: 5,
+  right: 5,
+  top: 5,
+  bottom : 5,
+}

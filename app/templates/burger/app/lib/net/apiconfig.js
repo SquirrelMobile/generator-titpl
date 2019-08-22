@@ -2,81 +2,77 @@
  * @class Lib.net.apiconfig
  * net lib
  */
-function alertDialog(text,title){
-	Ti.UI.createAlertDialog({
-		title : title,
-		message : text,
-		ok : "OK"
-	}).show();
+function alertDialog(text, title) {
+  Ti.UI.createAlertDialog({
+    title: title,
+    message: text,
+    ok: "OK"
+  }).show();
 }
 
-(function(){
-	var _methods = [
-	        {
-	      	  name: 'signin',
-						post: '/api/v1/sessions',
-						onError : function(response, e){
-							Alloy.Globals.loading.hide();
-							alertDialog("Mauvais identifiant ou mot de passe","Erreur");
-							Ti.API.error('--- error=' + JSON.stringify(response) + JSON.stringify(e) );
-						},
-        	},
-					{
-	      	  name: 'lostPassword',
-						post: '/api/v1/lost_password'
-        	},
-					{
-        	  name: 'showUser',
-        		get: '/api/v1/users/<id>'
-        	}
+(function() {
+  var _methods = [
+    {
+      name: "signin",
+      post: "/api/v1/sessions",
+      onError: function(response, e) {
+        Alloy.Globals.loading.hide();
+        Ti.API.error(
+          "--- error=" + JSON.stringify(response) + JSON.stringify(e)
+        );
+      }
+    },
+    {
+      name: "photos",
+      get: "/photos"
+    }
   ];
 
-	var _exports = {
-			baseurl : Alloy.CFG.baseurl,
+  var _exports = {
+    baseurl: Alloy.CFG.baseurl,
 
-	    /**
-	     * init - description
-	     *
-	     * @return {type}  description
-	     */
-	    init : function(){
-	        //doc https://github.com/jasonkneen/RESTe
-	        var reste = require('reste');
+    /**
+     * init - description
+     *
+     * @return {type}  description
+     */
+    init: function() {
+      //doc https://github.com/jasonkneen/RESTe
+      var reste = require("reste");
 
-	        var api = new reste();
+      var api = new reste();
 
-	        api.config({
-	            debug : true,
-	            autoValidateParams : false,
-							validatesSecureCertificate : false,
-	            timeout : -1,
-	            url : _exports.baseurl,
-	            requestHeaders: {
-	                "Content-Type": "application/json"
-	            },
-	            methods : _methods,
-	            onError : function(response, e){
-              	Alloy.Globals.loading.hide();
-								if (OS_IOS) {
-									Ti.API.error('--- error=' + JSON.stringify(response) + " " + JSON.stringify(e));
-								}
-	            },
-	            onLoad : function(response, callback){
+      api.config({
+        debug: Alloy.CFG.logEnable,
+        autoValidateParams: false,
+        validatesSecureCertificate: false,
+        timeout: -1,
+        url: Alloy.CFG.baseurl,
+        requestHeaders: {
+          "Content-Type": "application/json"
+        },
+        methods: _methods,
+        onError: function(response, e) {
+          Alloy.Globals.loading.hide();
+          if (OS_IOS) {
+            Ti.API.error(
+              "--- error=" + JSON.stringify(response) + " " + JSON.stringify(e)
+            );
+          }
+        },
+        onLoad: function(response, callback) {
+          Ti.API.debug("--- onload=" + JSON.stringify(response));
 
-	            	Ti.API.debug('--- onload=' + JSON.stringify(response));
+          Alloy.Globals.loading.hide();
 
-	              Alloy.Globals.loading.hide();
+          callback(response);
+        }
+      });
 
-	              callback(response);
-
-	            }
-	        });
-
-	        Alloy.Globals.Api = api;
-
-	    },
-			//EXAMPLE
-			/*var zipname = 'test.zip';
+      Alloy.Globals.Api = api;
+    },
+    //EXAMPLE
+    /*var zipname = 'test.zip';
 			var dir = Ti.Filesystem.applicationDataDirectory;
 			var url = 'http://localhost:8888/directory/';
 
@@ -123,47 +119,43 @@ function alertDialog(text,title){
 				}
 			});*/
 
-			/**
-			 * getZipFileFromNet - description
-			 *
-			 * @param  {type} o description
-			 * @return {type}   description
-			 */
-			getZipFileFromNet : function(o){
+    /**
+     * getZipFileFromNet - description
+     *
+     * @param  {type} o description
+     * @return {type}   description
+     */
+    getZipFileFromNet: function(o) {
+      var weblink = o.weblink,
+        directory = o.directory || Ti.Filesystem.applicationDataDirectory,
+        zipname = o.zipname,
+        success = o.success || function() {};
 
-				var weblink = o.weblink,
-						directory = o.directory || Ti.Filesystem.applicationDataDirectory,
-						zipname = o.zipname,
-						success = o.success || function(){};
+      Alloy.Globals.loading.show(L("loading"));
 
-			      Alloy.Globals.loading.show(L('loading'));
+      var client = Ti.Network.createHTTPClient({
+        onload: function(e) {
+          Alloy.Globals.loading.hide();
+          Ti.API.log("--- onload e" + JSON.stringify(e));
 
-			      var client = Ti.Network.createHTTPClient({
-		            onload : function(e) {
-		              Alloy.Globals.loading.hide();
-		              Ti.API.log('--- onload e' + JSON.stringify(e));
+          setTimeout(function() {
+            if (success) {
+              success();
+            }
+          }, 1000);
+        },
+        onerror: function(e) {
+          Alloy.Globals.loading.hide();
+          Ti.API.error("onerror " + JSON.stringify(e));
+        }
+      });
 
-	                setTimeout(function(){
-										if(success){
-											success();
-										}
-	                },1000);
+      Ti.API.log(" GET => " + weblink);
+      client.open("GET", weblink);
+      client.setFile(directory + zipname);
+      client.send();
+    }
+  };
 
-		            },
-		            onerror : function(e) {
-		              Alloy.Globals.loading.hide();
-		              Ti.API.error('onerror ' + JSON.stringify(e));
-		            }
-		        });
-
-		        Ti.API.log(' GET => '+weblink);
-		        client.open("GET", weblink);
-		        client.setFile(directory + zipname);
-		        client.send();
-
-	    }
-	};
-
-	module.exports = _exports;
-
+  module.exports = _exports;
 })();

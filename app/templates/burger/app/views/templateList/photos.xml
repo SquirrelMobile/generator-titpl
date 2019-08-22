@@ -1,0 +1,8 @@
+<Alloy>
+  <ItemTemplate name="photo" height="50" >
+    <View height="45" module="xp.ui" clickStyle="true" left="3" right="3" backgroundColor="white">
+      <ImageView touchEnabled="false" bindId="image" contentMode="Alloy.Globals.CONTENT_MODE_FILL" ns="AvImageview" id="image" />
+      <Label touchEnabled="false" bindId="title" id="title" />
+    </View>
+  </ItemTemplate>
+</Alloy>

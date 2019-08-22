@@ -9,80 +9,98 @@
  * Display signup view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
+(function constructor(args) {
   $.navbar.load({
-    btnLeft : {
-      visible : true
+    btnLeft: {
+      visible: true,
+      backgroundColor: "white"
     },
-    title : {
-      visible : true,
-      text : L('signup')
+    nav: {
+      backgroundColor: "white"
     }
   });
-
-  $.lastname.listener('return', function(){
-    $.firstname.focus();
-  });
-
-  $.firstname.listener('return', function(){
-    $.email.focus();
-  });
-
-  $.email.listener('return', function(){
-    $.password.focus();
-  });
-
-  $.password.listener('return', function(){
-    submit();
-  });
-
-
 })($.args);
 
-
+function previous(e) {
+  Alloy.Globals.log.info("previous", e.source.previous);
+  if ($[e.source.previous]) $[e.source.previous].focus();
+}
 /**
  * submit - description
  *
  * @param  {type} e description
  * @return {type}   description
  */
-function submit(e){
+function submit(e) {
+  var obj = {
+    lastname: $.lastname.getValue(),
+    firstname: $.firstname.getValue(),
+    email: $.email.getValue(),
+    phone: $.phone.getValue(),
+    password: $.password.getValue(),
+    passwordConfirm: $.passwordConfirm.getValue()
+    // state: "STEP1"
+  };
 
-  var lastname = $.lastname.getValue();
-  var firstname = $.firstname.getValue();
-  var password = $.password.getValue();
-  var email = $.email.getValue();
-
-  if(!require('core').valideEmail(email)){
+  if (
+    obj.lastname &&
+    obj.firstname &&
+    obj.email &&
+    obj.phone &&
+    obj.password &&
+    obj.passwordConfirm
+  ) {
+    if (obj.password !== $.passwordConfirm.getValue()) {
+      Ti.UI.createAlertDialog({
+        title: L("warning"),
+        message: L("password"),
+        ok: "OK"
+      }).show();
+      return false;
+    }
+    if (!require("core").valideEmail(obj.email)) {
+      Ti.UI.createAlertDialog({
+        title: L("warning"),
+        message: L("emailInvalidMsg"),
+        ok: "OK"
+      }).show();
+      return false;
+    }
+    // Alloy.Globals.loading.show(L("loading"));
+    // //WS LOGIN
+    // Alloy.Globals.Api.signup({ body: _.omit(obj, "passwordConfirm") }, function(
+    //   e
+    // ) {
+    //   if (e.success) {
     Ti.UI.createAlertDialog({
-      title : L('warning'),
-      message : L('emailInvalidMsg')
+      title: L("confirmation"),
+      message: L("createAccountConfirm")
+    }).show();
+    close();
+    // }
+    // });
+  } else {
+    var d = [];
+    _.each(obj, function(elem, key) {
+      if (!elem) {
+        var view = $[key];
+        if (view) {
+          if (view.textfield.required) {
+            var keyEntire = "form." + key;
+            d.push(L(keyEntire) + "");
+          }
+        }
+      }
+    });
+
+    Ti.UI.createAlertDialog({
+      title: L("warning"),
+      message: "Champs manquants : \n" + d.join("\n"),
+      ok: "OK"
     }).show();
     return false;
   }
-
-  if(lastname && firstname && email && password){
-
-    var obj = {
-      lastname : lastname,
-      firstname : firstname,
-      password : password,
-      email : email
-    };
-    //Alloy.Globals.loading.show(L('loading'));
-    /*Alloy.Globals.Api.signup({body : obj }, function(e){
-
-    });*/
-    Ti.UI.createAlertDialog({
-      title : L('confirmation'),
-      message : L('createAccountConfirm')
-    }).show();
-    close();
-  }
-
 }
-
 
 /**
  * close - description
@@ -90,8 +108,19 @@ function submit(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function close(e){
+function close(e) {
   $.win.close();
+}
+
+function activePasswordMask(e) {
+  Alloy.Globals.log.info("activePasswordMask");
+
+  var isMasked = $.password.lblRight.text === "\uf06e";
+  $.password.textfield.setPasswordMask(isMasked);
+  $.password.lblRight = {
+    text: !isMasked ? "\uf06e" : "\uf070",
+    color: "gray"
+  };
 }
 
 /**
@@ -100,9 +129,6 @@ function close(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function next(e){
-
-  if($[e.source.next])
-    $[e.source.next].focus();
-
+function next(e) {
+  if ($[e.source.next]) $[e.source.next].focus();
 }

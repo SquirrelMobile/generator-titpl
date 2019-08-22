@@ -1,6 +1,0 @@
-<Alloy>
-	<Window id="win">
-		<View id="content"></View>
-		<Require id="tabgroup" src="partials/_tabgroup" onClick="handleContent"></Require>
-	</Window>
-</Alloy>

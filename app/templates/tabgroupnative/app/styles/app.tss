@@ -24,10 +24,11 @@
 }
 
 "Window": {
+	navBarHidden: true,
 	backgroundColor : Alloy.CFG.COLORS.main,
 	orientationModes: [Ti.UI.PORTRAIT],
-	fullscreen : false,
-	navBarHidden : true
+	//fullscreen : false,
+	//navBarHidden : true
 }
 
 "NavigationWindow" : {
@@ -35,13 +36,17 @@
 }
 
 "Window[platform=android]": {
-	theme : 'Theme.AppCompat.NoTitleBar',
+	theme : 'Theme.Custom',
+	//theme : 'Theme.AppCompat.NoTitleBar',
 	windowSoftInputMode: Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN,
 }
 
 "Button[platform=android]": {
-	backgroundColor: "transparent",
-	backgroundSelectedColor: "#cccccc"
+	backgroundColor: Alloy.CFG.COLORS.main,
+	touchFeedback: true,
+	touchFeedbackColor: "#EEEEEE",
+	/* elevation: 10 */
+	/* backgroundSelectedColor: "#cccccc" */
 }
 
 "ScrollView":{
@@ -78,7 +83,8 @@
 }
 
 'TabGroup': {
-	navBarHidden: true
+	navBarHidden: true,
+	orientationModes : [Ti.UI.PORTRAIT]
 }
 
 ".back": {

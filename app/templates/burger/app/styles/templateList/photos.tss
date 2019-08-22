@@ -1,0 +1,12 @@
+
+'#image': {
+  width: 100,
+  height: 45,
+  left: 5
+}
+
+'#title': {
+  left: 115,
+  right: 30,
+  height: Ti.UI.SIZE
+}

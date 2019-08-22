@@ -9,24 +9,19 @@
  * Display top profil view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
-})($.args);
-
+(function constructor(args) {})($.args);
 
 /**
  * getHeight - description
  *
  * @return {type}  description
  */
-function getHeight(e){
-
+function getHeight(e) {
   var height = e.source.rect.height;
-  var radius = height/2;
+  var radius = height / 2;
 
   $.photo.width = height;
   $.photo.borderRadius = radius;
-
 }
 
 /**
@@ -35,6 +30,14 @@ function getHeight(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function selectPhoto(e){
+function selectPhoto(e) {
   $.trigger("openMedia", e);
+}
+
+function logout(e) {
+  Ti.App.Properties.removeAllProperties();
+  require("/dao/database").reset("variable");
+  Alloy.createController("/login/login", { closeApp: true })
+    .getView()
+    .open();
 }

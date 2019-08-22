@@ -2,19 +2,21 @@
 	<NavigationWindow module="xp.ui" id="nav">
 		<Window id="win">
 			<ScrollView class="container">
+				<View layout="vertical" left="20" right="20" height="Ti.UI.SIZE">
+					<View height="200">
+						<Label class="titleLbl lblTitleLight" />
+					</View>
+					<Require src="/partials/_textfield" id="login" onNext="next"  next="password"  ></Require>
+					<View height="10"></View>
+					<Require src="/partials/_textfield" id="password" onNext="connect" onClickLblRight="activePasswordMask" onPrevious="previous" previous="login" ></Require>
+					<Button class="btn" top="50" title="L('connect')" onClick="connect" />
 
-				<Label class="titleLbl lblTitleLight" />
+					<Button class="btn" title="L('register')" onClick="openWin" type="signup" />
 
-				<View class="form">
-					<Widget id="login" class="tf" src="input-materialdesign" />
-					<Widget id="password" class="tf" src="input-materialdesign" />
+					<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
+
 				</View>
 
-				<Button class="btn" title="L('connect')" onClick="connect" />
-
-				<Button class="btn" title="L('register')" onClick="openWin" type="signup" />
-
-				<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
 
 			</ScrollView>
 		</Window>

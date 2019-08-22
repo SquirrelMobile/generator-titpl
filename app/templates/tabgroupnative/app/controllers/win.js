@@ -31,6 +31,7 @@ function actions(e){
       if (_.isFunction(controller.submit)) {
         controller.submit();
       }
+    break;
     case 'home':
       $.win.close();
     break;

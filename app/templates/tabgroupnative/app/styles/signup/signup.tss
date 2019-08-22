@@ -1,42 +1,54 @@
 
 ".container" : {
-  top : "15%",
-  left:"7%",
-  right: "7%",
-  layout: "vertical",
-  bottom : 0
+  backgroundColor: "white"
 }
 
 ".btn": {
   top : 25,
   title:  L('validate')
 }
-
-"#email": {
-  maskType : 'email',
-  autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
-  titleHint : L('yourEmail'),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL
+'#lastname': {
+  hintText: L("form.lastname"),
+  autocapitalization : Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
+  required : true
 }
 
-"#password": {
-  minLength : 8,
-  titleHint : L('yourPassword'),
-  password: true,
-  returnKey: Ti.UI.RETURNKEY_SEND,
-  iconAction: '\uf070'
+'#firstname': {
+  hintText: L("form.firstname"),
+  autocapitalization : Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
+  required : true
 }
 
-"#lastname": {
-  titleHint : L('yourLastname'),
-  required : L('invalidLastname'),
-  returnKey: Ti.UI.RETURNKEY_NEXT
+'#email': {
+  hintText: L("form.email"),
+  required : true
 }
 
-"#firstname": {
-  titleHint: L('yourFirstname'),
-  required : L('invalidFirstname'),
-  returnKey: Ti.UI.RETURNKEY_NEXT
+'#adeli': {
+  hintText: L("form.adeli"),
+  required : true
+}
+
+'#phone': {
+  hintText: L("form.phone"),
+  keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD
+}
+
+'#password': {
+  hintText: L("form.password"),
+  lblRight : {
+    text : "\uf06e",
+    color : "gray",
+    touchEnabled: true,
+  },
+  passwordMask: true,
+  required : true
+}
+
+'#passwordConfirm': {
+  hintText: L("form.passwordConfirm"),
+  passwordMask: true,
+  required : true
 }
 
 ".form": {
@@ -44,4 +56,9 @@
   layout : "vertical",
   left : "10%",
   right : "10%"
+}
+
+'#win[platform=android]': {
+  theme :"Theme.Login",
+  activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT
 }

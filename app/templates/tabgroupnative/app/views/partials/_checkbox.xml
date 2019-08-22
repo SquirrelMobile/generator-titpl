@@ -1,0 +1,10 @@
+<Alloy>
+  <View id="buttonWrapper"  height="Ti.UI.SIZE" width="Ti.UI.SIZE" bubbleParent="true" onClick="toggle">
+
+    <View left="0" top="5" touchEnabled="false" id="checkBoxView">
+      <View id="check" touchEnabled="false" ></View>
+    </View>
+    <Label left="0" right="20" top="5" bottom="5" height="Ti.UI.SIZE" isTxt="true"  id="textContent"/>
+
+  </View>
+</Alloy>

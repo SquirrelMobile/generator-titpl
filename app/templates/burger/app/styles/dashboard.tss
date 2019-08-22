@@ -4,7 +4,7 @@
   closeDrawerGestureMode: "CLOSE_MODE_ALL", //CLOSE_MODE_TAP_CENTERWINDOW, CLOSE_MODE_ALL, CLOSE_MODE_PANNING_NAVBAR
   leftDrawerWidth: Alloy.Globals.drawerWidth,
   rightDrawerWidth: Alloy.Globals.drawerWidth,
-  animationMode : "ANIMATION_SLIDE_SCALE", //ANIMATION_SLIDE_SCALE, ANIMATION_SLIDE , ANIMATION_FADE, ANIMATION_PARALLAX_FACTOR_7, ANIMATION_PARALLAX_FACTOR_3, ANIMATION_NONE
+  animationMode : "ANIMATION_PARALLAX_FACTOR_7", //ANIMATION_SLIDE_SCALE, ANIMATION_SLIDE , ANIMATION_FADE, ANIMATION_PARALLAX_FACTOR_7, ANIMATION_PARALLAX_FACTOR_3, ANIMATION_NONE
 }
 
 "#drawer[platform=android]": {
@@ -14,8 +14,7 @@
   leftDrawerWidth: Alloy.Globals.drawerWidth,
   rightDrawerWidth: Alloy.Globals.drawerWidth,
   parallaxAmount : 0.3,
-  exitOnClose: true,
-  animationMode : "ANIMATION_ZOOM" // ANIMATION_SCALE, ANIMATION_ZOOM, ANIMATION_SLIDEUP, ANIMATION_NONE
+  exitOnClose: true // ANIMATION_SCALE, ANIMATION_ZOOM, ANIMATION_SLIDEUP, ANIMATION_NONE
 }
 
 "#contentWrapper":{

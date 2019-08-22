@@ -34,14 +34,13 @@ Then answer all questions. They are used for filling the tiapp.xml and config.js
 10. What's the second color for your app ? (navbar, button color, CFG.COLORS.main2 value on config.json)
 11. What's the baseurl of your webservice ? (CFG.baseurl value on config.json)
 
-___
-
+---
 
 At the end of the process, if you need to register the application :
 **appc new --import --no-services**
 
 If you are not logged into Appcelerator platform :
-*appc login*
+_appc login_
 
 To test your application :
 **appc run**
@@ -56,7 +55,18 @@ To test your application :
 
 # CHANGELOG
 
-1.2.2 : 28-01-2019
+1.3.0 : 22-08-2019
+
+- Update FontAwesome
+- Remove Template with fake tabgroup
+- Add list template with colums
+- Add cache HTTP request
+- Add lib to enable / disable log from config.json
+- Add widget to zoom on image
+- Update modules to works with Ti > 8.X
+
+  1.2.2 : 28-01-2019
+
 - Update FontAwesome
 - Add new Template with native tabgroup
 - Add keytoolbarios controller
@@ -64,11 +74,13 @@ To test your application :
 - Remove camalcase npm
 - Use spawnSync to ti SDK list
 
-1.2.1 : 05-09-2018
+  1.2.1 : 05-09-2018
+
 - Add av.imageview module
 - Change media lib to choose / take picture on profil
 
-1.2.0 : 31-07-2018
+  1.2.0 : 31-07-2018
+
 - Add refreshControl on ListView
 - Add getAttributed function in core.js lib to handle attributed String
 - Edit rest.js lib to support PATCH http
@@ -76,19 +88,23 @@ To test your application :
 - Add NSPhotoLibraryAddUsageDescription in tiapp
 - Add android:hardwareAccelerated="true" on tiapp for Android
 
-1.1.1 : 02-05-2018
+  1.1.1 : 02-05-2018
+
 - Add translation english / french
 
-1.1.0 : 27-04-2018
+  1.1.0 : 27-04-2018
+
 - Add backbone event to Alloy.Globals instead lib
 - Add Alloy.Globals.Device in alloy.js
 - Add requestLocationPermissions function in core.js lib
 - Add OneSignal module and lib for Push Notification
 
-1.0.6 : 04-01-2018
+  1.0.6 : 04-01-2018
+
 - Update module for Ti SDK > 7.0
 
-1.0.5 : 27-09-2017
+  1.0.5 : 27-09-2017
+
 - Add calendar widget
 
-1.0.4 - 21-08-2017
+  1.0.4 - 21-08-2017

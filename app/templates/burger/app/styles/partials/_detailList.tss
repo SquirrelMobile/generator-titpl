@@ -1,5 +1,5 @@
 
 ".container" : {
   layout: "vertical",
-  backgroundColor: "blue"
+  backgroundColor: "white"
 }

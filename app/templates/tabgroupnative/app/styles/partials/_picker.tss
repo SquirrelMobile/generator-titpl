@@ -1,0 +1,42 @@
+
+'#picker': {
+  textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+  type : Ti.UI.PICKER_TYPE_PLAIN
+  /* width: Ti.UI.FILL, */
+  /* font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 } */
+}
+
+'#container': {
+}
+
+"#win[platform=ios]": {
+  modal: false,
+  backgroundColor: "#30000000"
+}
+
+"#win[platform=android]": {
+  modal: true,
+  theme : 'Theme.Custom',
+  backgroundColor: "#30000000"
+}
+
+'.lbl': {
+  height: 50,
+  font: {
+    fontSize: 14,
+    fontFamily: Alloy.CFG.FONTS.semibold
+  }
+}
+
+'#cancel': {
+  title:  L("cancel")
+}
+
+'#done': {
+  title : L("validate")
+}
+
+'.separator': {
+  height: 1,
+  backgroundColor: "#10333333"
+}

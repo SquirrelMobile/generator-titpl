@@ -2,3 +2,11 @@
 ".container" : {
 
 }
+
+'#win[platform=android]': {
+  activityEnterTransition:Ti.UI.Android.TRANSITION_SLIDE_LEFT
+}
+
+'#win[platform=ios]': {
+  navBarHidden:true
+}

@@ -4,25 +4,26 @@
       "light": "Helvetica-Light",
       "regular": "Helvetica-Regular",
       "bold": "Helvetica-Bold",
-      "fabrands": "FontAwesome5BrandsRegular",
-      "fareg": "FontAwesome5ProRegular",
+      "fabrands": "FontAwesome5Brands-Regular",
+      "fareg": "FontAwesome5Pro-Regular",
       "falight": "FontAwesome5ProLight",
-      "fa": "FontAwesome5ProSolid"
+      "fa": "FontAwesome5Pro-Solid"
     },
     "COLORS": {
       "main": "<%= MAINCOLOR %>",
-      "main2" : "<%= MAINCOLOR2 %>",
+      "main2": "<%= MAINCOLOR2 %>",
       "black": "#222222",
       "gray": "#dbdfe2",
       "text": "#9896a4"
     },
-    "pushwoosh" : {
-      "projectId" : "XXXX-XXXX",
-      "gcmID" : "XXXXXXXXXXXX"
+    "pushwoosh": {
+      "projectId": "XXXX-XXXX",
+      "gcmID": "XXXXXXXXXXXX"
     },
-    "crash" : {
-      "email" : "youremail@company.com"
-    }
+    "crash": {
+      "email": "youremail@company.com"
+    },
+    "logEnable": true
   },
   "env:development": {
     "baseurl": "<%= BASEURL %>"
@@ -43,6 +44,7 @@
     "de.manumaticx.pagingcontrol": "*",
     "input-materialdesign": "*",
     "fr.squirrel.tutorial": "*",
-    "com.caffeinalab.titanium.calendar": "*"
+    "com.caffeinalab.titanium.calendar": "*",
+    "fr.squirrel.zoomimage": "*"
   }
 }
