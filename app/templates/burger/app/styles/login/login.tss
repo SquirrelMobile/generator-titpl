@@ -9,42 +9,6 @@
   color : Alloy.CFG.COLORS.main
 }
 
-".btn": {
-  top : 25,
-  title:  L('validate')
-}
-
-"#login": {
-  autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
-  hintText: L('yourEmail'),
-  hintTextTitle : L('yourEmail'),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL,
-  container : {
-    borderColor: "#EEE",
-  },
-  separator : {
-    visible : false
-  }
-}
-
-"#password": {
-  hintText:  L('yourPassword'),
-  hintTextTitle : L('yourPassword'),
-  passwordMask: true,
-  returnKeyType: Ti.UI.RETURNKEY_SEND,
-  lblRight : {
-    text : "\uf06e",
-    color : "gray",
-    touchEnabled: true,
-  },
-  container : {
-    borderColor: "#EEE",
-  },
-  separator : {
-    visible : false
-  }
-}
-
 "#lostPassword": {
   text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
@@ -67,4 +31,37 @@
 '#win[platform=android]': {
   theme :"Theme.Login",
   activityEnterAnimation: Titanium.UI.Android.TRANSITION_FADE_IN
+}
+
+'#form': {
+  champs : [
+    {
+      id: "email",
+      top : 0,
+      type : "textfield",
+      hintTextTitle:L('yourEmail'),
+      required : true
+    },
+    {
+      id: "password",
+      type : "textfield",
+      passwordMask: true,
+      hintTextTitle:L('yourPassword'),
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf06e",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      required : true
+    },
+    {
+      id: "valid",
+      top: 30,
+      text : L('connect'),
+      type : "valid",
+    }
+  ]
 }

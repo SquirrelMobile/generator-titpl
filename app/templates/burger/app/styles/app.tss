@@ -145,3 +145,9 @@
   colorPattern : Alloy.CFG.COLORS.main2,
   returnKey: Ti.UI.RETURNKEY_NEXT
 }
+
+'.btn-default': {
+	backgroundColor: Alloy.CFG.COLORS.main2,
+  touchFeedback: true,
+  color : "white"
+}

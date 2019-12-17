@@ -3,7 +3,8 @@
  * Display login view
  *
  */
-
+import { AlertDialog } from "classes/ui/dialog";
+var champs = $.form.getChamps();
 /**
  * @method Controller
  * Display login view
@@ -16,6 +17,11 @@
       activity.finish();
     });
   }
+
+  champs.password.addEventListener("click", function(e) {
+    champs.password.passwordMask = !champs.password.passwordMask;
+    champs.password.setPasswordMask(!champs.password.passwordMask);
+  });
 
   // $.login.listener("return", function() {
   //   $.password.focus();
@@ -76,19 +82,12 @@ function openWin(e) {
  * @param  {object} e
  */
 function connect(e) {
-  var password = $.password.getValue();
-  var login = $.login.getValue();
-
-  if (!require("core").valideEmail(login)) {
-    Ti.UI.createAlertDialog({
-      title: L("warning"),
-      message: L("emailInvalidMsg"),
-      ok: L("ok")
-    }).show();
+  if (!require("core").valideEmail(e.email)) {
+    require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
     return false;
   }
 
-  if (password && login) {
+  if (e.password && e.email) {
     /*Alloy.Globals.loading.show(L("loading"));
       //WS LOGIN
       var obj = {
@@ -188,7 +187,6 @@ if (Ti.App.Properties.getBool("showTutorial")) {
   ];
 
   $.win.addEventListener("open", function() {
-    this.removeEventListener("open", arguments.callee);
     tutorial.setPages(pages);
   });
 }

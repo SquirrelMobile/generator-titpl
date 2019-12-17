@@ -32,7 +32,7 @@
 	<string name="home">Accueil</string>
 	<string name="list">Liste</string>
 	<string name="more">Plus</string>
-	<string name="logout">Déconnexion</string>
+	<string name="logout">Déconexion</string>
 	<string name="ok">OK</string>
 	<string name="yes">Oui</string>
 	<string name="no">Non</string>
@@ -44,7 +44,6 @@
 	<string name="errorMessageData">Erreur lors de la récupération des données</string>
 	<string name="next">Suivant</string>
 	<string name="close">Fermer</string>
-	<string name="leaveApp">Êtes-vous sûr de vouloir quitter l'application ?</string>
 	<string name="media.dialog.title">Choisir une photo</string>
 	<string name="media.dialog.message">Choisir la source :</string>
 	<string name="gallery">Galerie photo</string>
@@ -60,4 +59,10 @@
 	<string name="form.phone">Téléphone</string>
 	<string name="form.password">Mot de passe</string>
 	<string name="form.passwordConfirm">Confirmer le mot de passe</string>
+	<string name="form.beginHintextDefault">Entrez votre </string>
+	<string name="form.cgu">Accepter les CGU</string>
+	<string name="form.birthday">Date de naissance</string>
+	<string name="form.birthdate">Date de naissance</string>
+	<string name="dialog.missingsField">Champ(s) manquant(s)</string>
+	<string name="form.username">Pseudo</string>
 </resources>

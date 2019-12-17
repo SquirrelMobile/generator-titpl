@@ -1,0 +1,14 @@
+<Alloy>
+  <Window id="win" backgroundColor="#30000000" onOpen="handleOpen">
+    <View class="winStyle" id="main" height="Ti.UI.SIZE" bubbleParent="false" backgroundColor="white" borderRadius="7" module="xp.ui">
+      <View id="padding" height="Ti.UI.SIZE" bubbleParent="false" top="20" bottom="0" left="20" right="20" layout="vertical" >
+        <Label id="title" class="lbl"/>
+        <!-- <Label class="warningAge"/> -->
+        <View id="pickerContent" height="Ti.UI.SIZE"></View>
+        <!-- <Picker id="picker" /> -->
+        <!-- <Button class="btn" title="L('validate')" bottom="10" id="btnNext" onClick="valid"  /> -->
+        <Button module="classes/ui/buttons" height="45" width="180" class="btn-default" bottom="20" onClick="valid" text="L('validate')"></Button>
+      </View>
+    </View>
+  </Window>
+</Alloy>

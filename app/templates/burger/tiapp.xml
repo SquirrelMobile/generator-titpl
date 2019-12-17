@@ -2,7 +2,7 @@
   xmlns:ti="http://ti.appcelerator.org">
   <id><%= ID %></id>
   <name><%= APPNAME %></name>
-  <version>1.0</version>
+  <version>1.0.0</version>
   <publisher><%= PUBLISHER %></publisher>
   <url><%= URL %></url>
   <description><%= DESCRIPTION %></description>
@@ -24,6 +24,8 @@
     <use-jscore-framework>true</use-jscore-framework>
     <plist>
       <dict>
+        <key>aps-environment</key>
+        <string>production</string>
         <key>CFBundleVersion</key>
         <string>1</string>
         <key>ITSAppUsesNonExemptEncryption</key>
@@ -93,18 +95,19 @@
     <theme>default</theme>
   </mobileweb>
   <modules>
+    <module>ti.animation</module>
     <module>dk.napp.drawer</module>
     <module>av.imageview</module>
     <module>ti.compression</module>
     <module>com.williamrijksen.onesignal</module>
     <module platform="android">ti.bottomsheet</module>
     <module platform="android">com.skypanther.tirotate</module>
-    <module platform="android">org.iotashan.titouchimageview</module>
+    <module platform="android">org.iotashan.TiTouchImageView</module>
     <module platform="android">fr.squirrel.pdfview</module>
   </modules>
   <deployment-targets>
     <target device="android">true</target>
-    <target device="ipad">true</target>
+    <target device="ipad">false</target>
     <target device="iphone">true</target>
     <target device="mobileweb">false</target>
   </deployment-targets>

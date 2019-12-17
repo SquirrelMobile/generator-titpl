@@ -141,7 +141,12 @@ var main = function() {
       }
     }
 
-    if (config.onLoad && args.url && args.method === "GET") {
+    if (
+      config.onLoad &&
+      args.url &&
+      args.cacheEnabled &&
+      args.method === "GET"
+    ) {
       // var data = require("/dao/variable").get(args.url);
 
       var data = Alloy.Globals.Cache.get(args.url, http.responseText);
@@ -157,7 +162,12 @@ var main = function() {
     http.onload = function(e) {
       // get the response parsed
       var response = parseJSON(http.responseText);
-      if (e && e.source && e.source.connectionType === "GET") {
+      if (
+        e &&
+        e.source &&
+        args.cacheEnabled &&
+        e.source.connectionType === "GET"
+      ) {
         if (data === http.responseText) {
           return false;
         }
@@ -236,7 +246,7 @@ var main = function() {
   reste.addMethod = function(args) {
     log("add route : " + args.name);
 
-    reste[args.name] = function(params, onLoad) {
+    reste[args.name] = function(params, onLoad, onError2) {
       var body,
         method = "GET",
         url,
@@ -306,6 +316,7 @@ var main = function() {
         makeHttpRequest(
           {
             url: url,
+            cacheEnabled: args.cacheEnabled,
             method: method,
             params: body,
             headers: args.requestHeaders || args.headers
@@ -339,11 +350,12 @@ var main = function() {
             {
               url: url,
               method: method,
+              cacheEnabled: args.cacheEnabled,
               params: body,
               headers: args.requestHeaders || args.headers
             },
             onLoad,
-            onError
+            onError2 || onError
           );
         }
       }

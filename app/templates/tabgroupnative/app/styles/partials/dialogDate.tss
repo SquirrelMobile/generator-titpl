@@ -1,0 +1,65 @@
+
+"#win[platform=ios]": {
+  modal: false,
+}
+
+"#win[platform=android]": {
+  modal: true,
+  theme : 'Theme.Custom'
+}
+
+"#picker": {
+  top: 10,
+  type:Ti.UI.PICKER_TYPE_DATE,
+}
+
+"#btnNext": {
+  text: L("validate")
+}
+
+".winStyle[formFactor=handheld]": {
+  left: 45,
+  right: 45,
+  borderRadius: 10,
+  elevation:5 ,
+  layout: 'vertical',
+  backgroundColor: "white"
+}
+".winStyle[if=Alloy.Globals.smallScreen]": {
+  left: 1,
+  right: 1,
+  borderRadius: 10,
+  elevation:5 ,
+  layout: 'vertical',
+  backgroundColor: "white"
+}
+
+".winStyle[formFactor=tablet]": {
+ width: 315
+}
+
+".btn": {
+    top : 25,
+    backgroundColor : Alloy.CFG.COLORS.main,
+    borderColor: Alloy.CFG.COLORS.main2,
+    color: Alloy.CFG.COLORS.main2,
+    font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
+}
+
+'.warningAge': {
+  color: "red",
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
+  text : L("date.warning")
+}
+
+'.lbl': {
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 20 },
+  color: Alloy.CFG.COLORS.black,
+}
+
+'#padding[if=Alloy.Globals.smallScreen]': {
+  left: 5,
+  right: 5
+}

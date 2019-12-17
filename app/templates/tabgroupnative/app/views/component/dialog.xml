@@ -1,0 +1,13 @@
+<Alloy>
+  <Window id="win" theme="Theme.Custom" onOpen="handleOpen" onTouchstart="handleTouch">
+      <View id="main" class="dialogView" height="Ti.UI.SIZE">
+
+        <View height="Ti.UI.SIZE" top="30" id="imageTitle" class="wrap"></View>
+        <Label id="title" class="title wrap" />
+        <Label id="desc" class="desc wrap" />
+        <View height="Ti.UI.SIZE" bottom="30" id="btnView" class="wrap">
+
+        </View>
+      </View>
+  </Window>
+</Alloy>

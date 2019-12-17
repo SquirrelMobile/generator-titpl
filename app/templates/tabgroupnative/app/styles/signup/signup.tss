@@ -1,64 +1,108 @@
 
 ".container" : {
-  backgroundColor: "white"
-}
-
-".btn": {
-  top : 25,
-  title:  L('validate')
-}
-'#lastname': {
-  hintText: L("form.lastname"),
-  autocapitalization : Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
-  required : true
-}
-
-'#firstname': {
-  hintText: L("form.firstname"),
-  autocapitalization : Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
-  required : true
-}
-
-'#email': {
-  hintText: L("form.email"),
-  required : true
-}
-
-'#adeli': {
-  hintText: L("form.adeli"),
-  required : true
-}
-
-'#phone': {
-  hintText: L("form.phone"),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD
-}
-
-'#password': {
-  hintText: L("form.password"),
-  lblRight : {
-    text : "\uf06e",
-    color : "gray",
-    touchEnabled: true,
-  },
-  passwordMask: true,
-  required : true
-}
-
-'#passwordConfirm': {
-  hintText: L("form.passwordConfirm"),
-  passwordMask: true,
-  required : true
-}
-
-".form": {
-  height : Ti.UI.SIZE,
-  layout : "vertical",
-  left : "10%",
-  right : "10%"
+  backgroundColor: "white",
+  layout: 'vertical'
 }
 
 '#win[platform=android]': {
   theme :"Theme.Login",
   activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT
+}
+
+'#form': {
+  champs : [
+    {
+      id: "username",
+      type : "textfield",
+      hintTextTitle:L('form.username'),
+      required : true
+    },
+    {
+      id: "email",
+      keyboardType: Ti.UI.KEYBOARD_EMAIL,
+      type : "textfield",
+      hintTextTitle:L('form.email'),
+      imageRight:"/images/icons/mail.png",
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf0e0",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      required : true
+    },
+    {
+      id: "password",
+      type : "textfield",
+      passwordMask: true,
+      hintTextTitle:L('yourPassword'),
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf023",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      required : true
+    },
+    {
+      id: "passwordConfirm",
+      type : "textfield",
+      passwordMask: true,
+      hintTextTitle:L('form.passwordConfirm'),
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf023",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      required : true
+    },
+    {
+      id: "phone",
+      type : "textfield",
+      keyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD,
+      hintTextTitle:L('form.phone'),
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf095",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      required : true
+    },
+    {
+      id: "birthdate",
+      type : "textfield",
+      hintText: "JJ/MM/YYYY",
+      hintTextTitle:L('form.birthday'),
+      hintTextTitle2:L('form.birthdate'),
+      imageRight:"/images/icons/calendar.png",
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf133",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
+      isDate :true,
+    },
+    {
+      id: "cgu",
+      text:  L("form.cgu"),
+      type : "checkbox",
+      required : true
+    },
+    {
+      id: "valid",
+      text : L("validate"),
+      type : "valid"
+    }
+  ]
 }

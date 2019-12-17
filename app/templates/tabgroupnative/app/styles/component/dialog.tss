@@ -1,0 +1,48 @@
+
+'.dialogView': {
+  left: 45,
+  right: 45,
+  borderRadius: 10,
+  elevation:5 ,
+  layout: 'vertical',
+  backgroundColor: "white"
+}
+
+'.title': {
+  font : {fontFamily: "SourceSansPro-Bold",fontSize: 26},
+  color : "black"
+}
+
+'.desc': {
+  font : {fontFamily: "SourceSansPro-Regular",fontSize: 15},
+  color : "#9498BE"
+}
+
+'.wrap': {
+  left: 25,
+  right: 25,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+'.confirmStyle': {
+  backgroundColor: "#3C4BF0",
+  color : "white"
+}
+
+'.btn': {
+  borderRadius: 6,
+  backgroundColor: "#F5F6FE",
+  color : "#9498BE"
+}
+
+'#win[platform=ios]': {
+  backgroundColor: "#30000000",
+  modal : false
+}
+
+'#win[platform=android]': {
+  backgroundColor: "#30000000",
+  modal : true,
+  activityEnterAnimation: Ti.Android.R.anim.fade_in,
+  activityExitAnimation: Ti.Android.R.anim.fade_out,
+}

@@ -55,7 +55,17 @@ To test your application :
 
 # CHANGELOG
 
-1.3.0 : 22-08-2019
+1.4.0 : 17-12-2019
+
+- Add prettier rules and package.json file
+- Update onesignal module for iOS 13
+- Update TiTouchImageView Android
+- NEW : Add form generator with multiple options
+- NEW : Update RESTE lib to enable request's cache
+- NEW : custom alertDialog with options
+- NEW : Add Ti.animation with support of Lottie
+
+  1.3.0 : 22-08-2019
 
 - Update FontAwesome
 - Remove Template with fake tabgroup

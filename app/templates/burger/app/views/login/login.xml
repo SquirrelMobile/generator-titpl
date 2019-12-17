@@ -6,12 +6,8 @@
 					<View height="200">
 						<Label class="titleLbl lblTitleLight" />
 					</View>
-					<Require src="/partials/_textfield" id="login" onNext="next"  next="password"  ></Require>
-					<View height="10"></View>
-					<Require src="/partials/_textfield" id="password" onNext="connect" onClickLblRight="activePasswordMask" onPrevious="previous" previous="login" ></Require>
-					<Button class="btn" top="50" title="L('connect')" onClick="connect" />
-
-					<Button class="btn" title="L('register')" onClick="openWin" type="signup"  />
+					<Require src="/component/form" id="form" onValid="connect"></Require>
+					<Button  width="185" title="L('register')" onClick="openWin" type="signup" />
 
 					<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
 

@@ -59,4 +59,10 @@
 	<string name="form.phone">Téléphone</string>
 	<string name="form.password">Mot de passe</string>
 	<string name="form.passwordConfirm">Confirmer le mot de passe</string>
+	<string name="form.beginHintextDefault">Entrez votre </string>
+	<string name="form.cgu">Accepter les CGU</string>
+	<string name="form.birthday">Date de naissance</string>
+	<string name="form.birthdate">Date de naissance</string>
+	<string name="dialog.missingsField">Champ(s) manquant(s)</string>
+	<string name="form.username">Pseudo</string>
 </resources>

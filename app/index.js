@@ -14,7 +14,7 @@ var generators = require("yeoman-generator");
 var bundleIdFromName = "";
 var asks = {};
 var ti = [];
-var defaultSDK = "8.0.2.GA";
+var defaultSDK = "8.3.0.GA";
 ti.push({ name: defaultSDK, value: defaultSDK });
 var templateList = [
   {
@@ -63,7 +63,7 @@ module.exports = generators.Base.extend({
 
     console.log(chalk.green("Loading SDK list..."));
 
-    var evt = exec("appc", ["ti", "sdk", "list", "-o", "json"]);
+    var evt = exec("ti", ["sdk", "list", "-o", "json"]);
 
     if (evt.error) {
       console.log(chalk.underline.red("\nError : " + evt.error));
@@ -231,7 +231,12 @@ module.exports = generators.Base.extend({
       this.templatePath(template + "/_gitignore"),
       this.destinationPath(folderName + "/.gitignore")
     );
+    this.fs.copy(
+      this.templatePath(template + "/_prettierrc"),
+      this.destinationPath(folderName + "/.prettierrc")
+    );
     this.fs.delete(this.destinationPath(folderName + "/_gitignore"));
+    this.fs.delete(this.destinationPath(folderName + "/_prettierrc"));
     this.fs.copyTpl(
       this.templatePath(template + "/tiapp.xml"),
       this.destinationPath(folderName + "/tiapp.xml"),
@@ -255,6 +260,14 @@ module.exports = generators.Base.extend({
         MAINCOLOR: asks.maincolor,
         MAINCOLOR2: asks.maincolor2,
         BASEURL: asks.baseurl
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath(template + "/package.json"),
+      this.destinationPath(folderName + "/package.json"),
+      {
+        APPNAME: asks.appname,
+        SDK: asks.sdk
       }
     );
   },

@@ -2,4 +2,4 @@
  * @class Lib.db
  * database lib
  */
-module.exports = Ti.Database.open('databasetest');
+module.exports = Ti.Database.open("datadb");

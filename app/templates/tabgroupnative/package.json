@@ -1,0 +1,32 @@
+{
+  "name": "<%= APPNAME %>",
+  "scripts": {
+    "tisdk": "ti sdk install <%= SDK %>",
+    "gittio": "gittio install",
+    "npm": "cd app/lib && npm i",
+    "tn": "tn generate && tn list",
+    "clean": "ti clean",
+    "build": "ti build --platform",
+    "build:ios": "ti build --platform iphone",
+    "build:android": "ti build --platform android",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
+    "assets": "ticons icons _assets/icon_shape.png && ticons icons _assets/icon.png -p ios && ticons splashes _assets/icon.png -c",
+    "lint": "eslint app",
+    "format": "npm run format:prettier && npm run format:html",
+    "format:prettier": "node_modules/.bin/prettier --config .prettierrc \"**/*.{ts,css,less,js}\" --write",
+    "format:html": "node bin/glob-ls.js '**/*.html' 'build/**/*.html.ejs' | xargs node_modules/.bin/html-beautify -r"
+  },
+  "devDependencies": {
+    "alloy": "^1.13.9",
+    "eslint": "^5.13.0",
+    "eslint-config-axway": "^4.2.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-alloy": "^1.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "gittio": "^0.6.4",
+    "js-beautify": "^1.8.9",
+    "prettier": "^1.16.4",
+    "titanium": "^5.2.1",
+    "tn": "^4.2.0"
+  }
+}
