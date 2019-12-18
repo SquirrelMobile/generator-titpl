@@ -45,6 +45,10 @@ _appc login_
 To test your application :
 **appc run**
 
+# More templates ?
+
+If you want contribute and add your own template, you can checkout this repository : https://github.com/SquirrelMobile/template-titpl and follow instructions.
+
 # TODO
 
 1. Add more template
@@ -55,7 +59,12 @@ To test your application :
 
 # CHANGELOG
 
-1.4.0 : 17-12-2019
+1.4.1 : 18-12-2019
+
+- Update DefaultIcon on template
+- Update readme to add more template
+
+  1.4.0 : 17-12-2019
 
 - Add prettier rules and package.json file
 - Update onesignal module for iOS 13

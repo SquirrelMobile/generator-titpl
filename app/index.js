@@ -69,11 +69,6 @@ module.exports = generators.Base.extend({
       console.log(chalk.underline.red("\nError : " + evt.error));
       console.log(
         chalk.underline.green(
-          "\nPlease run (if not installed) : npm install -g appcelerator"
-        )
-      );
-      console.log(
-        chalk.underline.green(
           "\nPlease run (if not installed) : npm install -g titanium"
         )
       );
@@ -120,7 +115,7 @@ module.exports = generators.Base.extend({
           type: "input",
           name: "url",
           message: "What's the URL for the project webpage (if any) ? :",
-          default: "http://www.squirrel.fr"
+          default: "https://www.squirrel.fr"
         },
         /*{
                   type:     'input',
@@ -166,7 +161,7 @@ module.exports = generators.Base.extend({
           type: "input",
           name: "baseurl",
           message: "What's the baseurl of your webservice ? :",
-          default: "http://www.squirrel.fr"
+          default: "https://www.squirrel.fr"
         }
         /*, {
                   type:    'checkbox',

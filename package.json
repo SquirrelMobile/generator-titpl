@@ -1,6 +1,6 @@
 {
   "name": "generator-titpl",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Scalfolding Axway Appcelerator Titanium mobile application",
   "repository": "squirrelmobile/generator-titpl",
   "author": {
@@ -15,10 +15,14 @@
   "keywords": [
     "yeoman-generator",
     "axway",
-    "appclerator",
+    "appcelerator",
     "titanium",
     "template titanium mobile",
     "mobile",
+    "application mobile",
+    "ios",
+    "android",
+    "titpl",
     "burger menu",
     "tabgroup"
   ],
