@@ -10,56 +10,14 @@
  * @param  {Arguments} args Arguments passed to the controller
  */
 
-// var currentWin = null;
-// var ui = require("xp.ui");
-// var $nav = null;
-
 (function constructor(args) {
-  if (Ti.App.Properties.getBool("isConnected")) {
-    Alloy.createController("dashboard")
-      .getView()
-      .open();
-  } else {
-    Alloy.createController("login/login", args)
-      .getView()
-      .open();
-  }
+	if (Ti.App.Properties.getBool("isConnected")) {
+		Alloy.createController("dashboard")
+			.getView()
+			.open();
+	} else {
+		Alloy.createController("login/login", args)
+			.getView()
+			.open();
+	}
 })($.args);
-//
-// function handleOpenWin(o){
-//
-//   _.defaults(o, {
-//     data : {},
-//     controller : null,
-//     dispatcher  : null
-//   });
-//
-//   var win = Alloy.createController(o.controller, o.data);
-//   currentWin = win.getView();
-//
-//   function close(){
-//
-//     if(currentWin){
-//         $nav.closeWindow(currentWin);
-//         currentWin = null;
-//     }
-//
-//     win.off('close');
-//     win = null;
-//
-//   }
-//
-//   win.on('close', close);
-//   win.on('select' , function(e){
-//
-//     if(o.dispatcher){
-//       Alloy.Globals.events.trigger(o.dispatcher, e);
-//     }
-//
-//     close();
-//
-//   });
-//
-//   $nav.openWindow(currentWin, {animated : true});
-//
-// }

@@ -1,54 +1,28 @@
 
 ".container" : {
-  backgroundColor: "white"
+  backgroundColor: Alloy.CFG.COLORS.main,
 }
+
 
 ".titleLbl": {
   text: L('connexionTitle'),
   font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
-  color : Alloy.CFG.COLORS.main
+  color : Alloy.CFG.COLORS.black
 }
 
-".btn": {
-  top : 25,
-  title:  L('validate')
-}
-
-"#login": {
-  autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
-  hintText: L('yourEmail'),
-  hintTextTitle : L('yourEmail'),
-  keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL,
-  container : {
-    borderColor: "#EEE",
-  },
-  separator : {
-    visible : false
-  }
-}
-
-"#password": {
-  hintText:  L('yourPassword'),
-  hintTextTitle : L('yourPassword'),
-  passwordMask: true,
-  returnKeyType: Ti.UI.RETURNKEY_SEND,
-  lblRight : {
-    text : "\uf06e",
-    color : "gray",
-    touchEnabled: true,
-  },
-  container : {
-    borderColor: "#EEE",
-  },
-  separator : {
-    visible : false
-  }
+".btnsignup": {
+  width : 185,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
+  color : "white",
+  height: 50,
+  backgroundColor: Alloy.CFG.COLORS.main2,
+  borderRadius: 5,
 }
 
 "#lostPassword": {
   text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
-  color : Alloy.CFG.COLORS.main,
+  color : Alloy.CFG.COLORS.black,
   height: 40,
   top : 25
 }
@@ -76,7 +50,15 @@
       top : 0,
       type : "textfield",
       hintTextTitle:L('yourEmail'),
-      required : true
+      required : true,
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf0e0",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      },
     },
     {
       id: "password",
@@ -86,10 +68,10 @@
       imageRight:true,
       imageRightView :{
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf023",
+        text : "\uf06e",
         zIndex: 999,
         color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
       },
       required : true
     },

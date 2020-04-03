@@ -17,11 +17,11 @@
  * @return {type}  description
  */
 function getHeight(e) {
-  var height = e.source.rect.height;
-  var radius = height / 2;
+	var height = e.source.rect.height;
+	var radius = height / 2;
 
-  $.photo.width = height;
-  $.photo.borderRadius = radius;
+	$.photo.width = height;
+	$.photo.borderRadius = radius;
 }
 
 /**
@@ -31,13 +31,5 @@ function getHeight(e) {
  * @return {type}   description
  */
 function selectPhoto(e) {
-  $.trigger("openMedia", e);
-}
-
-function logout(e) {
-  Ti.App.Properties.removeAllProperties();
-  require("/dao/database").reset("variable");
-  Alloy.createController("/login/login", { closeApp: true })
-    .getView()
-    .open();
+	$.trigger("openMedia", e);
 }

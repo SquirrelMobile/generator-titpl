@@ -1,3 +1,0 @@
-<Alloy>
-	<View id="tabgroup" module="xp.ui" class="container" onClick="handleClick" />
-</Alloy>

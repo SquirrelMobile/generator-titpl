@@ -5,8 +5,9 @@
       "regular": "Helvetica-Regular",
       "bold": "Helvetica-Bold",
       "fabrands": "FontAwesome5Brands-Regular",
+      "faduo": "FontAwesome5Duotone-Solid",
       "fareg": "FontAwesome5Pro-Regular",
-      "falight": "FontAwesome5ProLight",
+      "falight": "FontAwesome5Pro-Light",
       "fa": "FontAwesome5Pro-Solid"
     },
     "COLORS": {
@@ -42,9 +43,9 @@
   "dependencies": {
     "nl.fokkezb.loading": "*",
     "de.manumaticx.pagingcontrol": "*",
-    "input-materialdesign": "*",
     "fr.squirrel.tutorial": "*",
     "com.caffeinalab.titanium.calendar": "*",
-    "fr.squirrel.zoomimage": "*"
+    "fr.squirrel.zoomimage": "*",
+    "com.alcoapps.socialshare": "*"
   }
 }

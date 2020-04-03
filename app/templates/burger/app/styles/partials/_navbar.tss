@@ -14,10 +14,9 @@
   backgroundImage: null,
   top : 2,
   bottom : 2,
-  visible: false
 }
 
-"#back": {
+"#btnLeft": {
   backgroundImage: null,
   title : "\uf053",
   font : { fontSize : '25sp' },

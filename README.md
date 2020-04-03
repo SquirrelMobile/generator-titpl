@@ -59,7 +59,20 @@ If you want contribute and add your own template, you can checkout this reposito
 
 # CHANGELOG
 
-1.4.1 : 18-12-2019
+1.5.0 : 03-04-2020
+
+- Use Ti.UI.Android.drawer instead modules
+- Support Titanium 9.0.0
+- Update geocoding in core library
+- Disable Dark mode in tiapp.xml
+- Update attstring library
+- Update tutoriel widget
+- Add ratingview library
+- Add notificationbanner modules
+- Add social share modules
+- Clean code in controller / views / styles
+
+  1.4.1 : 18-12-2019
 
 - Update DefaultIcon on template
 - Update readme to add more template

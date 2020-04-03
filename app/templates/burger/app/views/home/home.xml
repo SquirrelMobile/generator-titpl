@@ -1,6 +1,6 @@
 <Alloy>
 	<View class="container">
-		<Require src="partials/_navbar" id="navbar" />
+		<Require src="partials/_navbar" class="navbar" />
 
 		<Button top="50" class="btn" onClick="openWindow" title="L('openNewWin')"></Button>
 

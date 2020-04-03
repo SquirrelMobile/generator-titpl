@@ -2,15 +2,15 @@
 	<View id="container">
 		<View id="nav" class="navbar">
 
-			<Button id="burger" class="fa" left="10" onClick="actions" type="Left" />
+			<Button id="burger" class="falight" left="10" onClick="actions" type="left" />
 
-			<Button id="back" class="fa" onClick="actions" type="back"></Button>
+			<Button id="btnLeft" class="falight" onClick="actions" type="back"></Button>
 
 			<Label id="title" visible="false"/>
 
-			<Button id="logo" onClick="actions" type="home" />
+			<ImageView id="logo" onClick="actions" type="home" />
 
-			<Button id="close" class="fa" onClick="actions" type="back" />
+			<Button id="btnRight" class="falight" onClick="actions" type="action" />
 
 		</View>
 	</View>

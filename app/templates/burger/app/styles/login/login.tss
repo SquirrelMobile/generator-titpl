@@ -1,18 +1,28 @@
 
 ".container" : {
-  backgroundColor: "white"
+  backgroundColor: Alloy.CFG.COLORS.main,
 }
+
 
 ".titleLbl": {
   text: L('connexionTitle'),
   font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
-  color : Alloy.CFG.COLORS.main
+  color : Alloy.CFG.COLORS.black
+}
+
+".btnsignup": {
+  width : 185,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
+  color : "white",
+  height: 50,
+  backgroundColor: Alloy.CFG.COLORS.main2,
+  borderRadius: 5,
 }
 
 "#lostPassword": {
   text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
-  color : Alloy.CFG.COLORS.main,
+  color : Alloy.CFG.COLORS.black,
   height: 40,
   top : 25
 }
@@ -40,7 +50,15 @@
       top : 0,
       type : "textfield",
       hintTextTitle:L('yourEmail'),
-      required : true
+      required : true,
+      imageRight:true,
+      imageRightView :{
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        text : "\uf0e0",
+        zIndex: 999,
+        color : Alloy.CFG.COLORS.main,
+        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      },
     },
     {
       id: "password",

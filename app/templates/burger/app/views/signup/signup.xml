@@ -1,13 +1,11 @@
 <Alloy>
-	<Window id="win" layout="vertical">
+	<Window id="win" class="container">
 
-		<Require id="navbar" src="partials/_navbar" onClick="close" />
+		<Require class="navbar" src="partials/_navbar" onClick="close" />
 
 		<ScrollView class="container">
-
-				<Require src="/component/form" id="form" onValid="submit"></Require>
-
-
+			<Require src="/component/form" id="form" onValid="submit" />
 		</ScrollView>
+
 	</Window>
 </Alloy>

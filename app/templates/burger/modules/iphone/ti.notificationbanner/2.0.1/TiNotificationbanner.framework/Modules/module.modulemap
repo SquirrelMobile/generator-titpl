@@ -1,0 +1,11 @@
+framework module TiNotificationbanner {
+  umbrella header "TiNotificationbanner.h"
+
+  export *
+  module * { export * }
+}
+
+module TiNotificationbanner.Swift {
+    header "TiNotificationbanner-Swift.h"
+    requires objc
+}

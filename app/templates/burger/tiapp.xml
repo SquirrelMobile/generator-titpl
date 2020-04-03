@@ -66,13 +66,15 @@
             <string>en</string>
             <string>fr</string>
         </array>
+        <key>UIUserInterfaceStyle</key>
+        <string>Light</string>
       </dict>
     </plist>
   </ios>
   <android xmlns:android="http://schemas.android.com/apk/res/android">
     <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="<%= IDMANIFEST %>" android:versionCode="1" android:versionName="1.0.0">
-      <!-- <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25"/> -->
       <application android:allowBackup="false" android:theme="@style/Theme.Custom.actionbar" android:hardwareAccelerated="true">
+        <!-- change TemplateBurgerActivity HERE with your app name to avoir double launch icon -->
         <activity android:name=".TemplateBurgerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode|density" android:label="@string/app_name" android:theme="@style/Theme.Titanium" android:theme="@style/Theme.CustomSplash" android:alwaysRetainTaskState="true">
     			<intent-filter>
     				<action android:name="android.intent.action.MAIN"/>
@@ -88,10 +90,12 @@
   </android>
   <modules>
     <module>ti.animation</module>
-    <module>dk.napp.drawer</module>
+    <module platform="iphone">dk.napp.drawer</module>
     <module>av.imageview</module>
     <module>ti.compression</module>
     <module>com.williamrijksen.onesignal</module>
+    <module>ti.notificationbanner</module>
+    <module platform="iphone">dk.napp.social</module>
     <module platform="android">ti.bottomsheet</module>
     <module platform="android">com.skypanther.tirotate</module>
     <module platform="android">org.iotashan.TiTouchImageView</module>

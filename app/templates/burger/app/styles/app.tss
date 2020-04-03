@@ -5,6 +5,10 @@
 	font: { fontFamily : Alloy.CFG.FONTS.fa }
 }
 
+".faduo": {
+	font: { fontFamily : Alloy.CFG.FONTS.faduo }
+}
+
 ".fabrands": {
 	font: { fontFamily : Alloy.CFG.FONTS.fabrands }
 }

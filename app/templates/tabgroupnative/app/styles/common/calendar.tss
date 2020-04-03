@@ -11,3 +11,17 @@
 	right : 0,
 	backgroundColor : Alloy.CFG.COLORS.main
 }
+
+".navbar": {
+	logo : {
+		visible : false
+	},
+	title : {
+		visible : true,
+		text : L('chooseDate'),
+		color : "white"
+	},
+	btnLeft : {
+		visible : true
+	}
+}

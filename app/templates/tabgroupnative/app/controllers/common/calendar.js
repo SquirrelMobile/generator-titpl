@@ -1,59 +1,38 @@
 var $calendar, calendarView, triggerCalendar;
 
-(function constructor(args) {
+(function constructor(args) {})(arguments[0] || {});
 
-    $.navbar.load({
-      logo : {
-        visible : false
-      },
-      title : {
-        visible : true,
-        text : L('chooseDate'),
-        color : "white"
-      },
-      btnLeft : {
-        visible : true
-      }
-    });
+function close(e) {
+	if ($calendar) {
+		$calendar.off("click", triggerCalendar);
+		$.containerCalendar.remove(calendarView);
+		calendarView = null;
+		$calendar = null;
+	}
 
-})(arguments[0] || {});
-
-function close(e){
-
-    if($calendar){
-        $calendar.off('click', triggerCalendar);
-        $.containerCalendar.remove(calendarView);
-        calendarView = null;
-        $calendar = null;
-    }
-
-    $.win.close();
-
+	$.win.close();
 }
 
-function triggerCalendar(e){
-  Ti.API.log('--- e ' + JSON.stringify(e));
+function triggerCalendar(e) {
+	Ti.API.log("--- e " + JSON.stringify(e));
 
-    $.trigger('chooseDate', e);
+	$.trigger("chooseDate", e);
 
-    close();
-    Ti.API.log('--- date choose  ' + JSON.stringify(e));
-
+	close();
+	Ti.API.log("--- date choose  " + JSON.stringify(e));
 }
 
-exports.open = function(e){
+exports.open = function(e) {
+	var args = e.args || {};
 
-  var args = e.args || {};
+	$calendar = Alloy.createWidget("com.caffeinalab.titanium.calendar", e.args);
+	calendarView = $calendar.getView();
 
-  $calendar = Alloy.createWidget('com.caffeinalab.titanium.calendar', e.args);
-  calendarView = $calendar.getView();
+	$calendar.on("click", triggerCalendar);
 
-  $calendar.on('click', triggerCalendar);
+	$.containerCalendar.add(calendarView);
 
-  $.containerCalendar.add(calendarView);
+	Ti.API.log("--- construct calendar view");
 
-  Ti.API.log('--- construct calendar view');
-
-  $.win.open({ opacity : 1 });
-
+	$.win.open({ opacity: 1 });
 };

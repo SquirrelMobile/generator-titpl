@@ -1,24 +1,10 @@
 <Alloy>
-	<TabGroup id="tabGroup"  theme="Theme.Custom" navBarHidden="true" onOpen="handleOpen"  backgroundColor="white" onFocus="focus" >
-        <Tab id="home"  >
-            <Window id="homeCtrl" navBarHidden="true"  >
-							<View layout="vertical">
-								<Require src="/partials/_navbar" class="navbar" ></Require>
-								<View id="homeContent" opacity="0">
-									<Require src="/home/home"></Require>
-								</View>
-							</View>
-            </Window>
+	<TabGroup id="tabGroup" theme="Theme.Custom" onOpen="handleOpen"  backgroundColor="white">
+        <Tab id="tab1">
+            <Require src="home/home"></Require>
         </Tab>
-        <Tab id="account"  >
-            <Window id="accountCtrl" navBarHidden="true" >
-							<View layout="vertical">
-								<Require src="/partials/_navbar" class="navbar" ></Require>
-								<View id="accountContent" opacity="0" >
-									<Require src="/profil/profil"></Require>
-								</View>
-							</View>
-            </Window>
+        <Tab id="tab2">
+					<Require src="profil/profil"></Require>
         </Tab>
   </TabGroup>
 </Alloy>

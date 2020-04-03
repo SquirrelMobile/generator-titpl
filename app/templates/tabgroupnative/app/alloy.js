@@ -1,10 +1,16 @@
 console.log("DIRECTORY IS => " + Ti.Filesystem.applicationDataDirectory);
-require("ti.detect");
+import { hasNotch } from "ti.detect";
 require("/dao/cache");
-var AvImageview = require("av.imageview");
-Alloy.Globals.log = require("/log");
+
+const AvImageview = require("av.imageview");
+
+if (Ti.version.replace(/[.]/gi, "").replace("GA", "") >= 900) {
+  global.AvImageview = AvImageview;
+}
 Alloy.Globals.CONTENT_MODE_FIT = AvImageview.CONTENT_MODE_ASPECT_FIT;
 Alloy.Globals.CONTENT_MODE_FILL = AvImageview.CONTENT_MODE_ASPECT_FILL;
+
+Alloy.Globals.log = require("/log");
 
 Alloy.Globals.events = _.clone(Backbone.Events);
 Alloy.Globals.moment = require("moment");
@@ -12,7 +18,7 @@ Alloy.Globals.moment.locale(Ti.Locale.currentLanguage);
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
 
 Alloy.Globals.Device = {
-  isiPhoneX: Alloy.CFG.TiDetect.hasNotch,
+  isiPhoneX: hasNotch,
   version: Ti.Platform.version,
   versionMajor: parseInt(Ti.Platform.version.split(".")[0], 10),
   versionMinor: parseInt(Ti.Platform.version.split(".")[1], 10),
@@ -60,7 +66,7 @@ if (OS_IOS) {
 }
 
 //enable push notification with OneSignal
-//require("net/onesignalpns")();
+//require("net/onesignalpns").init();
 
 //appc new --import --no-services
 // adb logcat | grep TiAPI

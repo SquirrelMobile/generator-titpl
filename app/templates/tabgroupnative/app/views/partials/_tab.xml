@@ -1,8 +1,0 @@
-<Alloy>
-	<View class="btnMenu" type="menu" id="tab" onClick="handleClick">
-		<View class="vMenu">
-			<Label id="img" />
-			<Label id="lblTab" />
-		</View>
-	</View>
-</Alloy>

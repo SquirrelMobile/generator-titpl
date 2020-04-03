@@ -162,6 +162,10 @@ var main = function() {
     http.onload = function(e) {
       // get the response parsed
       var response = parseJSON(http.responseText);
+      var jwtToken = http.getResponseHeader("jwtToken");
+      if (jwtToken) {
+        response["jwtToken"] = jwtToken;
+      }
       if (
         e &&
         e.source &&
@@ -186,10 +190,10 @@ var main = function() {
 
       if (onError) {
         // if we have an onError method, use it
-        onError(parseJSON(http.responseText), e);
+        onError(parseJSON(http.responseText), e, args, lastOnLoad);
       } else if (config.onError) {
         // otherwise fallback to the one specified in config
-        config.onError(parseJSON(http.responseText), e);
+        config.onError(parseJSON(http.responseText), e, args, lastOnLoad);
       } else if (onLoad) {
         // otherwise revert to the onLoad callback
         onLoad(parseJSON(http.responseText), e);

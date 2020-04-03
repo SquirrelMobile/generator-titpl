@@ -4,14 +4,14 @@
 		<Require type="view" id="menu" src="partials/_menu" onClick="loadView" />
 
 		<NavigationWindow id="nav" orientationModes="[Titanium.UI.PORTRAIT]" role="centerWindow" platform="ios">
-		<Window module="xp.ui" orientationModes="[Titanium.UI.PORTRAIT]" id="mainWindow">
+		<Window orientationModes="[Titanium.UI.PORTRAIT]" id="mainWindow">
       <View id="contentWrapper"/>
 		</Window>
 		</NavigationWindow>
 
-		<Window module="xp.ui" id="mainWindow" role="centerWindow" platform="android">
+		<!-- <View id="mainWindow" role="centerWindow" platform="android">
 			<View id="contentWrapper"/>
-		</Window>
+		</View> -->
 
 	</Widget>
 </Alloy>

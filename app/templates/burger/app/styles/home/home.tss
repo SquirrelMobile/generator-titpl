@@ -3,3 +3,12 @@
   backgroundColor: Alloy.CFG.COLORS.main,
   layout: "vertical"
 }
+
+".navbar": {
+  logo : {
+    visible : true
+  },
+  burger : {
+    visible : true
+  }
+}

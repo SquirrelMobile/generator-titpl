@@ -6,7 +6,7 @@
   backgroundColor: "black"
 }
 
-"#image1": {
+"#image": {
   width: Ti.UI.FILL,
   top: 0
 }

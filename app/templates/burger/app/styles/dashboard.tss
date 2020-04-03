@@ -14,6 +14,7 @@
   leftDrawerWidth: Alloy.Globals.drawerWidth,
   rightDrawerWidth: Alloy.Globals.drawerWidth,
   parallaxAmount : 0.3,
+  drawerLayout: true,
   exitOnClose: true // ANIMATION_SCALE, ANIMATION_ZOOM, ANIMATION_SLIDEUP, ANIMATION_NONE
 }
 

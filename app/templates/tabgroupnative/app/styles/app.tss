@@ -5,6 +5,10 @@
 	font: { fontFamily : Alloy.CFG.FONTS.fa }
 }
 
+".faduo": {
+	font: { fontFamily : Alloy.CFG.FONTS.faduo }
+}
+
 ".fabrands": {
 	font: { fontFamily : Alloy.CFG.FONTS.fabrands }
 }
@@ -124,7 +128,7 @@
 }
 
 ".btn": {
-	font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 15 },
+	font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 15 },
   color : "white",
   height: 50,
   backgroundColor: Alloy.CFG.COLORS.main2,

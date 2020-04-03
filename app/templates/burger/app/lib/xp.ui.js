@@ -1,158 +1,71 @@
-if (!OS_IOS) {
-  var NavigationWindow = function(args) {
-    this.args = args;
-  };
-
-  NavigationWindow.prototype.open = function(params) {
-    params = params || {};
-    params.displayHomeAsUp = false;
-    return this.openWindow(this.args.window, params);
-  };
-
-  NavigationWindow.prototype.close = function(params) {
-    return this.closeWindow(this.args.window, params);
-  };
-
-  NavigationWindow.prototype.openWindow = function(window, options) {
-    var that = this;
-
-    options = options || {};
-    options.swipeBack =
-      typeof options.swipeBack === "boolean"
-        ? options.swipeBack
-        : that.args.swipeBack;
-    options.displayHomeAsUp =
-      typeof options.displayHomeAsUp === "boolean"
-        ? options.displayHomeAsUp
-        : that.args.displayHomeAsUp;
-
-    // if (OS_ANDROID && options.animated !== false) {
-    //   options.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
-    //   options.activityExitAnimation = Ti.Android.R.anim.slide_out_right;
-    // }
-
-    // if (options.swipeBack !== false) {
-    //   window.addEventListener("swipe", function(e) {
-    //     if (e.direction === "right") {
-    //       that.closeWindow(window, options);
-    //     }
-    //   });
-    // }
-
-    if (
-      OS_ANDROID &&
-      options.displayHomeAsUp !== false &&
-      !window.navBarHidden
-    ) {
-      window.addEventListener("open", function() {
-        var activity = window.getActivity();
-        if (activity) {
-          var actionBar = activity.actionBar;
-          if (actionBar) {
-            actionBar.displayHomeAsUp = true;
-            actionBar.onHomeIconItemSelected = function() {
-              that.closeWindow(window, options);
-            };
-          }
-        }
-      });
-    }
-
-    return window.open(options);
-  };
-
-  NavigationWindow.prototype.closeWindow = function(window, options) {
-    options = options || {};
-
-    if (OS_ANDROID && options.animated !== false) {
-      options.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
-      options.activityExitAnimation = Ti.Android.R.anim.slide_out_right;
-    }
-
-    return window.close(options);
-  };
-}
-
-exports.createNavigationWindow = function(args) {
-  var navWin = OS_IOS
-    ? Ti.UI.iOS.createNavigationWindow(args)
-    : new NavigationWindow(args);
-
-  if (args && args.id) {
-    Alloy.Globals[args.id] = navWin;
-  }
-
-  return navWin;
-};
-
 exports.createWindow = function(args) {
-  if (OS_IOS) {
-    return Ti.UI.createWindow(args);
-  } else {
-    return Ti.UI.createView(args);
-  }
+	if (OS_IOS) {
+		return Ti.UI.createWindow(args);
+	} else {
+		return Ti.UI.createView(args);
+	}
 };
 
 exports.createTextArea = function(args) {
-  var $textArea = Ti.UI.createTextArea(args);
+	var $textArea = Ti.UI.createTextArea(args);
 
-  if (args.hintText) {
-    $textArea.originalColor = $textArea.color || "#000";
-    if (!$textArea.value) {
-      $textArea.applyProperties({
-        value: $textArea.hintText,
-        color: "#717171"
-      });
-    }
+	if (args.hintText) {
+		$textArea.originalColor = $textArea.color || "#000";
+		if (!$textArea.value) {
+			$textArea.applyProperties({
+				value: $textArea.hintText,
+				color: "#717171",
+			});
+		}
 
-    $textArea.addEventListener("focus", function(e) {
-      if (e.source.value == e.source.hintText) {
-        e.source.applyProperties({
-          value: "",
-          color: e.source.originalColor
-        });
-      }
-    });
+		$textArea.addEventListener("focus", function(e) {
+			if (e.source.value == e.source.hintText) {
+				e.source.applyProperties({
+					value: "",
+					color: e.source.originalColor,
+				});
+			}
+		});
 
-    $textArea.addEventListener("blur", function(e) {
-      if (!e.source.value) {
-        e.source.applyProperties({
-          value: e.source.hintText,
-          color: "#717171"
-        });
-      }
-    });
-  }
+		$textArea.addEventListener("blur", function(e) {
+			if (!e.source.value) {
+				e.source.applyProperties({
+					value: e.source.hintText,
+					color: "#717171",
+				});
+			}
+		});
+	}
 
-  return $textArea;
+	return $textArea;
 };
 
 exports.createLabel = function createLabel(args) {
-  if (OS_IOS && args.html) {
-    var html = args.html;
+	if (OS_IOS && args.html) {
+		var html = args.html;
 
-    delete args.text;
-    delete args.html;
+		delete args.text;
+		delete args.html;
 
-    var label = Ti.UI.createLabel(args);
-    var ref = label;
+		var label = Ti.UI.createLabel(args);
+		var ref = label;
 
-    var html2as = require("nl.fokkezb.html2as");
+		var html2as = require("nl.fokkezb.html2as");
 
-    html2as(html, function(err, attr) {
-      if (err) {
-        console.error(err);
-      } else {
-        ref.attributedString = attr;
-      }
+		html2as(html, function(err, attr) {
+			if (err) {
+				console.error(err);
+			} else {
+				ref.attributedString = attr;
+			}
 
-      ref = null;
-    });
+			ref = null;
+		});
 
-    return label;
-  } else {
-    return Ti.UI.createLabel(args);
-  }
+		return label;
+	} else {
+		return Ti.UI.createLabel(args);
+	}
 };
 
 // helper
@@ -162,95 +75,95 @@ var isAndroid = Ti.Platform.osname == "android";
  * Fixes the auto focus on textfield on android
  */
 exports.createTextField = function(args) {
-  if (isAndroid) {
-    var view = Ti.UI.createTextField(args);
+	if (isAndroid) {
+		var view = Ti.UI.createTextField(args);
 
-    // fix auto focus
-    // view.addEventListener('focus', function focusFix(e) {
-    //     e.source.blur();
-    //     e.source.removeEventListener('focus', focusFix);
-    // });
-    return view;
-  } else {
-    var toolbar = Alloy.createController("/partials/keytoolbarios", args);
-    var textField = Ti.UI.createTextField(args);
+		// fix auto focus
+		// view.addEventListener('focus', function focusFix(e) {
+		//     e.source.blur();
+		//     e.source.removeEventListener('focus', focusFix);
+		// });
+		return view;
+	} else {
+		var toolbar = Alloy.createController("/partials/keytoolbarios", args);
+		var textField = Ti.UI.createTextField(args);
 
-    textField.addEventListener("reload", function(e) {
-      toolbar.reload(e);
-    });
+		textField.addEventListener("reload", function(e) {
+			toolbar.reload(e);
+		});
 
-    toolbar.on("close", function() {
-      textField.blur();
-    });
+		toolbar.on("close", function() {
+			textField.blur();
+		});
 
-    toolbar.on("previous", function() {
-      textField.fireEvent("previous");
-    });
+		toolbar.on("previous", function() {
+			textField.fireEvent("previous");
+		});
 
-    toolbar.on("next", function() {
-      textField.fireEvent("return");
-    });
+		toolbar.on("next", function() {
+			textField.fireEvent("return");
+		});
 
-    textField.keyboardToolbar = toolbar.getView();
+		textField.keyboardToolbar = toolbar.getView();
 
-    return textField;
-  }
+		return textField;
+	}
 };
 
 exports.createView = function(args) {
-  if (args.shadowStyle) {
-    if (OS_IOS) {
-      return Ti.UI.createView(
-        _.extend(args, {
-          viewShadowColor: "#55000000",
-          viewShadowOffset: { x: 0, y: args.offset ? args.offset : 5 },
-          viewShadowRadius: 3
-        })
-      );
-    } else {
-      var opt = {};
-      if (!args.borderRadius) {
-        opt = { borderRadius: 0 };
-      }
-      return Ti.UI.Android.createCardView(_.extend(args, opt));
-    }
-  } else if (args.clickStyle) {
-    if (OS_IOS) {
-      var view = Ti.UI.createView(args);
-      view.addEventListener("touchStart", function() {
-        view.opacity = 0.3;
-      });
-      view.addEventListener("touchEnd", function() {
-        view.opacity = args.opacity ? args.opacity : 1;
-      });
-      return view;
-    } else {
-      return Ti.UI.createView(
-        _.extend(args, {
-          backgroundColor: "white",
-          touchFeedback: true,
-          touchFeedbackColor: Alloy.CFG.COLORS.main
-        })
-      );
-    }
-  } else {
-    return Ti.UI.createView(
-      _.extend(args, {
-        backgroundColor: "white",
-        touchFeedback: true,
-        touchFeedbackColor: Alloy.CFG.COLORS.main
-      })
-    );
-  }
+	if (args.shadowStyle) {
+		if (OS_IOS) {
+			return Ti.UI.createView(
+				_.extend(args, {
+					viewShadowColor: "#55000000",
+					viewShadowOffset: { x: 0, y: args.offset ? args.offset : 5 },
+					viewShadowRadius: 3,
+				}),
+			);
+		} else {
+			var opt = {};
+			if (!args.borderRadius) {
+				opt = { borderRadius: 0 };
+			}
+			return Ti.UI.Android.createCardView(_.extend(args, opt));
+		}
+	} else if (args.clickStyle) {
+		if (OS_IOS) {
+			var view = Ti.UI.createView(args);
+			view.addEventListener("touchStart", function() {
+				view.opacity = 0.3;
+			});
+			view.addEventListener("touchEnd", function() {
+				view.opacity = args.opacity ? args.opacity : 1;
+			});
+			return view;
+		} else {
+			return Ti.UI.createView(
+				_.extend(args, {
+					backgroundColor: "white",
+					touchFeedback: true,
+					touchFeedbackColor: Alloy.CFG.COLORS.main,
+				}),
+			);
+		}
+	} else {
+		return Ti.UI.createView(
+			_.extend(args, {
+				backgroundColor: "white",
+				touchFeedback: true,
+				touchFeedbackColor: Alloy.CFG.COLORS.main,
+			}),
+		);
+	}
 };
 
 exports.createOptionDialog = function(args) {
-  if (OS_ANDROID) {
-    var TiBottomSheet = require("ti.bottomsheet");
-    var optionDialog = TiBottomSheet.createOptionDialog(args);
-    return optionDialog;
-  } else {
-    var optionDialog = Ti.UI.createOptionDialog(args);
-    return optionDialog;
-  }
+	if (OS_ANDROID) {
+		var TiBottomSheet = require("ti.bottomsheet");
+		var optionDialog = TiBottomSheet.createOptionDialog(args);
+		return optionDialog;
+	} else {
+		var optionDialog = Ti.UI.createOptionDialog(args);
+		return optionDialog;
+	}
 };

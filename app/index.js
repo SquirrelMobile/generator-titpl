@@ -14,7 +14,7 @@ var generators = require("yeoman-generator");
 var bundleIdFromName = "";
 var asks = {};
 var ti = [];
-var defaultSDK = "8.3.0.GA";
+var defaultSDK = "9.0.0.GA";
 ti.push({ name: defaultSDK, value: defaultSDK });
 var templateList = [
   {

@@ -9,19 +9,8 @@
  * Display detail list view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
-  $.navbar.load({
-    burger : {
-      visible : true
-    },
-    logo : {
-      visible : true
-    }
-  });
-
-  load();
-
+(function constructor(args) {
+	load();
 })($.args);
 
 /**
@@ -29,45 +18,40 @@
  *
  * @return {type}  description
  */
-function load(){
+function load() {
+	var data = require("data").dataList();
+	var sections = require("data").dataSectionList();
 
-  var data = require('data').dataList();
-  var sections = require('data').dataSectionList();
+	var sectionData = [];
+	var sectionList = [];
+	var currentSection = null;
+	var row = {};
 
-  var sectionData = [];
-  var sectionList = [];
-  var currentSection = null;
-  var row = {};
+	_.each(sections, function(section) {
+		currentSection = Alloy.createController("partials/_listSection", {
+			title: section.name,
+		}).getView();
+		sectionList.push(currentSection);
 
-  _.each(sections, function(section){
+		sectionData = [];
 
-    currentSection = Alloy.createController('partials/_listSection', { title : section.name }).getView();
-    sectionList.push(currentSection);
+		_.each(data, function(d) {
+			row = {
+				template: "default",
+				properties: d,
+				title: {
+					text: d.name,
+				},
+			};
 
-    sectionData = [];
+			sectionData.push(row);
+		});
 
-    _.each(data, function(d){
+		currentSection.setItems(sectionData);
+	});
 
-        row = {
-          template : 'default',
-          properties : d,
-          title : {
-            text : d.name
-          }
-        };
-
-        sectionData.push(row);
-
-     });
-
-     currentSection.setItems(sectionData);
-
-  });
-
-  $.listview.load(sectionList);
-
+	$.listview.load(sectionList);
 }
-
 
 /**
  * openWindow - description
@@ -75,29 +59,26 @@ function load(){
  * @param  {type} e description
  * @return {type}   description
  */
-function openWindow(e){
-
-  var obj = {
-    controller : 'win',
-    data : {
-      controller : 'partials/_detail',
-      navbar : {
-        nav : {
-          backgroundColor : 'blue',
-        },
-        btnLeft : {
-          visible : true
-        },
-        logo : {
-          visible : true
-        }
-      }
-    }
-  };
-  Alloy.Globals.events.trigger('openWindow', obj);
-
+function openWindow(e) {
+	var obj = {
+		controller: "win",
+		data: {
+			controller: "partials/_detail",
+			navbar: {
+				nav: {
+					backgroundColor: "blue",
+				},
+				btnLeft: {
+					visible: true,
+				},
+				logo: {
+					visible: true,
+				},
+			},
+		},
+	};
+	Alloy.Globals.events.trigger("openWindow", obj);
 }
-
 
 /**
  * handleClick - description
@@ -105,8 +86,6 @@ function openWindow(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function handleClick(e){
-
-  openWindow();
-
+function handleClick(e) {
+	openWindow();
 }

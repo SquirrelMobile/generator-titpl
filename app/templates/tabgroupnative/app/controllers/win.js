@@ -2,41 +2,40 @@
 var args = $.args;
 var controller = null;
 
-(function constructor(args){
+(function constructor(args) {
+	controller = Alloy.createController(args.controller, args);
+	controller.on("back", function() {
+		$.destroy();
+		$.win.close();
+	});
 
-  controller = Alloy.createController(args.controller, args);
-  controller.on("back",function(){
-    $.destroy();
-    $.win.close();
-  });
-  $.win.add(controller.getView());
+	controller.on("select", function(e) {
+		$.trigger("select", e);
+	});
+	$.win.add(controller.getView());
 
-  if(args.navbar){
-    $.navbar.load(args.navbar);
-  }
-
+	if (args.navbar) {
+		$.navbar.load(args.navbar);
+	}
 })(args);
 
+function actions(e) {
+	var type = e.type;
 
-function actions(e){
-
-  var type = e.type;
-
-  switch (type) {
-    case 'back':
-      $.destroy();
-      $.win.close();
-    break;
-    case 'action':
-      if (_.isFunction(controller.submit)) {
-        controller.submit();
-      }
-    break;
-    case 'home':
-      $.win.close();
-    break;
-    default:
-    break;
-  }
-
+	switch (type) {
+		case "back":
+			$.destroy();
+			$.win.close();
+			break;
+		case "action":
+			if (_.isFunction(controller.submit)) {
+				controller.submit();
+			}
+			break;
+		case "home":
+			$.win.close();
+			break;
+		default:
+			break;
+	}
 }

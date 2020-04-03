@@ -1,44 +1,43 @@
+'TabGroup': {
+	navBarHidden: true,
+	tabsBackgroundColor : "white",
+	orientationModes : [Ti.UI.PORTRAIT]
+}
+
 'TabGroup[platform=android]': {
   theme : "Theme.Custom",
   smoothScrollOnTabClick : false,
   swipeable : false,
   modal : false,
-  tabsBackgroundColor : "white",
+  shiftMode : false,
   style: Titanium.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION
 }
 
 'TabGroup[platform=ios]': {
+  tabsTranslucent : false,
   navbarHidden: true,
   tabsTintColor  : Alloy.CFG.COLORS.main,
   unselectedItemTintColor  : "black"
 }
 
+"Tab":{
+  activeTitleColor : Alloy.CFG.COLORS.main,
+  tintColor : Alloy.CFG.COLORS.main,
+  touchFeedback: true,
+  activeIconIsMask : true,
+  touchFeedbackColor: Alloy.CFG.COLORS.black,
+  titleColor: Alloy.CFG.COLORS.black
+}
 
-'#home': {
-icon : "/images/common/logo.png",
+
+'#tab1': {
+ icon : "/images/common/logo.png",
  title: L("home"),
- activeTitleColor : Alloy.CFG.COLORS.main,
- tintColor : Alloy.CFG.COLORS.main,
- touchFeedback: true,
- activeIconIsMask : true,
- touchFeedbackColor: "white",
- titleColor: "#000",
  activeIcon : "/images/groupActive.png"
 }
 
-'#account': {
+'#tab2': {
   icon : "/images/common/logo.png",
-   title: L("account"),
-   activeTitleColor : Alloy.CFG.COLORS.main,
-   activeIconIsMask : true,
-	 touchFeedback: true,
-   touchFeedbackColor: "white",
-   titleColor: "#000",
-   activeIcon : "/images/profileActive.png"
-}
-
-'.navbar': {
-  logo : {
-    visible : true
-  }
+  title: L("account"),
+  activeIcon : "/images/profileActive.png"
 }

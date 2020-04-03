@@ -9,3 +9,9 @@
   color : 'pink',
   font : { fontSize: 40}
 }*/
+
+'.navbar': {
+  logo : {
+    visible : true
+  }
+}

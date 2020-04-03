@@ -1,8 +1,7 @@
 <Alloy>
 	<View id="win" class="container">
 
-		<Require id="navbar" src="partials/_navbar" />
-
+		<Require src="partials/_navbar" class="navbar" />
 		<Require id="top" src="profil/_top" onOpenMedia="openDialogCamera" />
 
 		<View height="5"/>
@@ -10,8 +9,17 @@
 		<Widget id="paging" src="de.manumaticx.pagingcontrol" />
 
 		<ScrollableView id="scrollableView">
-			<View title="Tab 1" backgroundColor="red" />
-			<View title="Tab 2" backgroundColor="blue" />
+			<View title="Tab 1" backgroundColor="red" layout="vertical">
+				<Button class="btn" onClick="showsbannernotification" top="10">Display alert</Button>
+				<Button class="btn" onClick="share" top="10">Share app</Button>
+			</View>
+			<View title="Tab 2" backgroundColor="white">
+				<RatingView module="classes/ui/ratingsView" id="rating" />
+
+				<Button class="btn" onClick="getRating" bottom="30">Get rating</Button>
+
+
+			</View>
 		</ScrollableView>
 
 	</View>

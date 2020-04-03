@@ -3,3 +3,12 @@
   layout: "vertical",
   backgroundColor: "blue"
 }
+
+".navbar": {
+  burger : {
+    visible : true
+  },
+  logo : {
+    visible : true
+  }
+}

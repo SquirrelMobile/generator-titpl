@@ -9,12 +9,12 @@
 }
 
 '.title': {
-  font : {fontFamily: "SourceSansPro-Bold",fontSize: 26},
+  font : {fontFamily: Alloy.CFG.FONTS.bold ,fontSize: 26},
   color : "black"
 }
 
 '.desc': {
-  font : {fontFamily: "SourceSansPro-Regular",fontSize: 15},
+  font : {fontFamily: Alloy.CFG.FONTS.regular,fontSize: 15},
   color : "#9498BE"
 }
 

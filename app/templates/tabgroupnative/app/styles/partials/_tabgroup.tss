@@ -1,9 +1,0 @@
-".container" : {
-  layout: "horizontal",
-  horizontalWrap: false,
-  right : 0,
-  left : 0,
-  bottom : 0,
-  height : Alloy.Globals.footerHeight,
-  backgroundColor: Alloy.CFG.COLORS.main2
-}

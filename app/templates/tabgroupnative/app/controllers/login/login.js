@@ -19,41 +19,10 @@ var champs = $.form.getChamps();
   }
 
   champs.password.addEventListener("click", function(e) {
-    Ti.API.log("maskPassword", JSON.stringify(e));
     champs.password.passwordMask = !champs.password.passwordMask;
-    champs.password.setPasswordMask(!champs.password.passwordMask);
+    champs.password.setPasswordMask(champs.password.passwordMask);
   });
-
-  // $.login.listener("return", function() {
-  //   $.password.focus();
-  // });
-  //
-  // $.password.listener("return", function() {
-  //   connect();
-  // });
-  //
-  // var _toFlag = false;
-  // $.password.clickIconAction(function(e) {
-  //   $.password.setPasswordMask(_toFlag);
-  //   $.password.setIconAction(_toFlag ? "\uf070" : "\uf06e");
-  //   _toFlag = !_toFlag;
-  // });
 })($.args);
-
-function activePasswordMask(e) {
-  Alloy.Globals.log.info("activePasswordMask");
-
-  var isMasked = $.password.lblRight.text === "\uf06e";
-  $.password.textfield.setPasswordMask(isMasked);
-  $.password.lblRight = {
-    text: !isMasked ? "\uf06e" : "\uf070",
-    color: "gray"
-  };
-}
-
-function previous(e) {
-  if ($[e.source.previous]) $[e.source.previous].focus();
-}
 
 /**
  * openWin - open Signup or Lost password
@@ -114,23 +83,14 @@ function connect(e) {
   }
 }
 
-/**
- * next - focus next field
- *
- * @param  {object} e field
- */
-function next(e) {
-  if ($[e.source.next]) $[e.source.next].focus();
-}
-
 //TUTORIEL EXAMPLE
 if (Ti.App.Properties.getBool("showTutorial")) {
   var tutorial = Alloy.createWidget("fr.squirrel.tutorial", {
     indicatorSelect: {
-      image: "/images/ellipseblue.png"
+      backgroundColor: "black"
     },
     indicatorUnselect: {
-      image: "/images/ellipseblueinactive.png"
+      backgroundColor: "white"
     },
     titleBtnStart: L("next"),
     titleBtnEnd: L("close"),
@@ -188,7 +148,6 @@ if (Ti.App.Properties.getBool("showTutorial")) {
   ];
 
   $.win.addEventListener("open", function() {
-    this.removeEventListener("open", arguments.callee);
     tutorial.setPages(pages);
   });
 }
