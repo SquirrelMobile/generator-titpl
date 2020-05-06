@@ -10,7 +10,7 @@ var champs = $.form.getChamps();
  * @param  {Arguments} args Arguments passed to the controller
  */
 (function constructor(args) {
-	champs.email.addEventListener("change", handleBtnSend);
+	// champs.email.addEventListener("change", handleBtnSend);
 
 	function handleBtnSend() {
 		if (champs.email.getValue() !== "") {
@@ -27,10 +27,10 @@ var champs = $.form.getChamps();
  * @param  {type} e description
  */
 function submit(e) {
-	if (!require("core").valideEmail(e.email)) {
-		require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
-		return false;
-	}
+	// if (!require("core").valideEmail(e.email)) {
+	// 	require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
+	// 	return false;
+	// }
 
 	if (e.email) {
 		require("core").alertSimple(L("confirmation"), L("emailSendMsg"));

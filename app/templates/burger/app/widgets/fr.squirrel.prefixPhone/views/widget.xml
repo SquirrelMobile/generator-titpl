@@ -1,0 +1,32 @@
+<Alloy>
+	<Window id="win" backgroundColor="#30000000">
+
+		<View class="container" bubbleParent="false" >
+			<View class="round" layout="vertical">
+				<Label id="title" class="lblCountry" />
+				<Button class="close" onClick="close" />
+				<ListView id="listview" defaultItemTemplate="default" separatorColor="transparent" onItemclick="handleClick">
+					<SearchBar id="search" />
+
+					<Templates>
+
+
+						<ItemTemplate name="callingCode" height="50">
+							<View class="vrow">
+								<View height="Ti.UI.SIZE" >
+									<Label bindId="emoji" class="emoji"/>
+								 <Label bindId="title" class="lbl" left="60" />
+								</View>
+								 <View class="separator" />
+							</View>
+						</ItemTemplate>
+
+					</Templates>
+
+				</ListView>
+			</View>
+
+		</View>
+
+	</Window>
+</Alloy>

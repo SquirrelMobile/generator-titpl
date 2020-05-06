@@ -20,19 +20,17 @@ var listType = "list";
 	_.defer(function() {
 		load();
 	});
-	if (OS_ANDROID) {
-		$.list.header.on("change", function(e) {
-			Alloy.Globals.log.info(e.row);
-			if (e.row.id === "filter") {
-				filter = e.row.val;
-				displayList();
-			}
-			if (e.row.id === "style") {
-				listType = e.row.val;
-				displayList();
-			}
-		});
-	}
+	$.list.on("headerChange", function(e) {
+		console.log("test", e.row.id);
+		if (e.row.id === "filter") {
+			filter = e.row.val;
+			displayList();
+		}
+		if (e.row.id === "style") {
+			listType = e.row.val;
+			displayList();
+		}
+	});
 })($.args);
 
 function displayList() {

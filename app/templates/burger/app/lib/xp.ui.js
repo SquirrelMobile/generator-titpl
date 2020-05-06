@@ -36,6 +36,27 @@ exports.createTextArea = function(args) {
 			}
 		});
 	}
+	if (OS_IOS) {
+		var toolbar = Alloy.createController("/partials/keytoolbarios", args);
+
+		$textArea.addEventListener("reload", function(e) {
+			toolbar.reload(e);
+		});
+
+		toolbar.on("close", function() {
+			$textArea.blur();
+		});
+
+		toolbar.on("previous", function() {
+			$textArea.fireEvent("previous");
+		});
+
+		toolbar.on("next", function() {
+			$textArea.fireEvent("return");
+		});
+
+		$textArea.keyboardToolbar = toolbar.getView();
+	}
 
 	return $textArea;
 };

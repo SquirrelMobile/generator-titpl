@@ -41,6 +41,8 @@
   "os:mobileweb": {},
   "os:windows": {},
   "dependencies": {
+    "fr.squirrel.geocoding": "*",
+    "fr.squirrel.prefixPhone": "*",
     "nl.fokkezb.drawer": "*",
     "nl.fokkezb.loading": "*",
     "de.manumaticx.pagingcontrol": "*",

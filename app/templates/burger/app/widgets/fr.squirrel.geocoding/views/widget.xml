@@ -1,0 +1,21 @@
+<Alloy>
+	<Window id="win" modal="false">
+
+		<View>
+
+			<View id="map" >
+					<Module id="mapview" module="ti.map" onComplete="mapReady" method="createView"></Module>
+			</View>
+			<View id="selector" touchEnabled="false" layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.SIZE">
+				<Label touchEnabled="false" id="pin" height="Ti.UI.SIZE" width="Ti.UI.SIZE">\uf3c5</Label>
+				<Label touchEnabled="false" id="fakePin" height="Ti.UI.SIZE" visible="false" width="Ti.UI.SIZE">\uf3c5</Label>
+			</View>
+			<View id="searchBar" borderColor="#10000000" top="10" left="10" right="50"  height="Ti.UI.SIZE" borderRadius="10" zIndex="99"></View>
+			<Label class="close" onClick="close" right="0" top="10" height="50" width="50"></Label>
+			<View id="btn" elevation="10" height="50" bottom="10" left="10" right="10" backgroundColor="white" borderRadius="10" onClick="handleClick">
+				<Label class="validBtn"></Label>
+			</View>
+		</View>
+
+	</Window>
+</Alloy>

@@ -1,0 +1,77 @@
+
+'.dialogView': {
+  left: '10%',
+  top: "5%",
+  bottom: "5%",
+  right: '10%',
+  elevation:5 ,
+  layout: 'vertical',
+  backgroundColor: Alloy.CFG.COLORS.main
+}
+
+'.title': {
+  font : {fontFamily: Alloy.CFG.FONTS.bold ,fontSize: 15},
+  color : "black",
+  left : 5,
+  right : 5,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+'.icon': {
+  color : "black",
+  right : '5%',
+  text : "\uf00d"
+}
+
+'.desc': {
+  font : {fontFamily: Alloy.CFG.FONTS.regular,fontSize: 15},
+  color : "#9498BE"
+}
+
+'.wrap': {
+  left: 25,
+  right: 25,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+'.confirmStyle': {
+  backgroundColor: "#3C4BF0",
+  color : "white"
+}
+
+'.btn': {
+  borderRadius: 6,
+  backgroundColor: "#F5F6FE",
+  color : "#9498BE"
+}
+
+'#win[platform=ios]': {
+  backgroundColor: "#30000000",
+  modal : false
+}
+
+'#win[platform=android]': {
+  backgroundColor: "#30000000",
+  modal : true,
+  activityEnterAnimation: Ti.Android.R.anim.fade_in,
+  activityExitAnimation: Ti.Android.R.anim.fade_out,
+}
+
+".header": {
+  left : 0,
+  right : 0,
+  height: 60,
+}
+
+".separator": {
+  left: 0,
+  right: 0,
+  bottom: 0,
+  height: 1,
+  backgroundColor: Alloy.CFG.COLORS.borderColor
+}
+
+"#content": {
+  //height : 300,
+  height: Ti.UI.SIZE
+}

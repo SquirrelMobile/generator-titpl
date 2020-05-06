@@ -5,33 +5,33 @@
  */
 
 var control = Ti.UI.createRefreshControl({
-  tintColor: Alloy.CFG.COLORS.main
+	tintColor: Alloy.CFG.COLORS.main,
 });
 control.addEventListener("refreshstart", function(e) {
-  $.trigger("refresh", e);
+	$.trigger("refresh", e);
 });
 
 (function constructor(args) {
-  if (!args.noRefresh) {
-    $.listview.setRefreshControl(control);
-  }
-  if (args.header) {
-    $.header.add(
-      Alloy.createController(args.header)
-        .on("change", headerChange)
-        .getView()
-    );
-    $.header.height = Ti.UI.SIZE;
-  }
+	if (!args.noRefresh) {
+		$.listview.setRefreshControl(control);
+	}
+	if (args.header) {
+		$.header.add(
+			Alloy.createController(args.header)
+				.on("change", headerChange)
+				.getView(),
+		);
+		$.header.height = Ti.UI.SIZE;
+	}
 
-  if (args.footer) {
-    $.footer.add(Alloy.createController(args.footer).getView());
-    $.footer.height = Ti.UI.SIZE;
-  }
+	if (args.footer) {
+		$.footer.add(Alloy.createController(args.footer).getView());
+		$.footer.height = Ti.UI.SIZE;
+	}
 })($.args);
 
 function headerClick(e) {
-  $.trigger("headerClick", e);
+	$.trigger("headerClick", e);
 }
 
 /**
@@ -41,19 +41,19 @@ function headerClick(e) {
  * @return {type}   description
  */
 function handleClick(e) {
-  var row = e.section.getItemAt(e.itemIndex),
-    prop = row.properties;
-  Ti.API.log("tst");
-  $.trigger(
-    "click",
-    _.extend(prop, {
-      source: e.source,
-      row: row,
-      bindId: e.bindId,
-      sectionIndex: e.sectionIndex,
-      itemIndex: e.itemIndex
-    })
-  );
+	var row = e.section.getItemAt(e.itemIndex),
+		prop = row.properties;
+	Ti.API.log("tst", prop);
+	$.trigger(
+		"click",
+		_.extend(prop, {
+			source: e.source,
+			row: row,
+			bindId: e.bindId,
+			sectionIndex: e.sectionIndex,
+			itemIndex: e.itemIndex,
+		}),
+	);
 }
 
 /**
@@ -63,11 +63,11 @@ function handleClick(e) {
  * @return {type}   description
  */
 function marker(e) {
-  $.trigger("marker", e);
+	$.trigger("marker", e);
 }
 
 $.beginRefreshing = function() {
-  control.beginRefreshing();
+	control.beginRefreshing();
 };
 
 /**
@@ -77,7 +77,7 @@ $.beginRefreshing = function() {
  * @return {type}         description
  */
 $.addMarkerlist = function(section) {
-  $.listview.addMarker(section);
+	$.listview.addMarker(section);
 };
 
 /**
@@ -87,7 +87,7 @@ $.addMarkerlist = function(section) {
  * @return {type}         description
  */
 $.addItemSection = function(section) {
-  $.listview.appendSection(section);
+	$.listview.appendSection(section);
 };
 
 /**
@@ -97,19 +97,19 @@ $.addItemSection = function(section) {
  * @return {type}          description
  */
 $.load = function(sections) {
-  $.listview.setSections(sections);
+	$.listview.setSections(sections);
 
-  _.defer(function() {
-    control.endRefreshing();
-  });
+	_.defer(function() {
+		control.endRefreshing();
+	});
 };
 
 $.getControl = function() {
-  return control;
+	return control;
 };
 
 function headerChange(e) {
-  if (OS_IOS) {
-    $.trigger("headerChange", { row: e });
-  }
+	if (OS_IOS) {
+		$.trigger("headerChange", { row: e });
+	}
 }

@@ -1,34 +1,30 @@
 var args = arguments[0] || {};
 
 (function constructor(args) {
-
-  load(args);
-
+	load(args);
 })(arguments[0] || {});
 
-
-function load(e){
-  Ti.API.log("LOAD",e.hintText);
-  if (e.previous) {
-    $.previous.opacity = 1;
-  }
-  if (e.hintText) {
-    $.hintext.title = e.hintText;
-  }
-  if (e.next) {
-    $.next.opacity = 1;
-  }
+function load(e) {
+	if (e.previous && e.previous.id) {
+		$.previous.opacity = 1;
+	}
+	if (e.hintText) {
+		$.hintext.title = e.hintText;
+	}
+	if (e.next && e.next.id) {
+		$.next.opacity = 1;
+	}
 }
 $.reload = load;
 
-function closeKeyboard(e){
-  $.trigger("close",e);
+function closeKeyboard(e) {
+	$.trigger("close", e);
 }
 
-function next(e){
-  $.trigger("next",e);
+function next(e) {
+	$.trigger("next", e);
 }
 
-function previous(e){
-  $.trigger("previous",e);
+function previous(e) {
+	$.trigger("previous", e);
 }

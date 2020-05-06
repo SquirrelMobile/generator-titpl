@@ -28,7 +28,7 @@ class Button {
 	constructor(obj) {
 		let that = this;
 
-		this.action = obj.action;
+		this.action = (obj && obj.action) || null;
 
 		this.parent = Ti.UI.createView(
 			_.extend(
@@ -38,7 +38,7 @@ class Button {
 					elevation: 10,
 					borderRadius: 0,
 				},
-				obj.button || {},
+				(obj && obj.button) || {},
 			),
 		);
 
@@ -59,11 +59,11 @@ class Button {
 					minimumFontSize: 7,
 					font: { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
 				},
-				obj.label,
+				obj && obj.label,
 			),
 		);
 
-		if (obj.icon) {
+		if (obj && obj.icon) {
 			this.icon = Ti.UI.createLabel(
 				_.extend(
 					{
@@ -83,7 +83,7 @@ class Button {
 			view.add(this.icon);
 		}
 
-		if (obj.underline && obj.label.text) {
+		if (obj && obj.underline && obj.label.text) {
 			this.label.attributedString = require("core").getAttributed(underlineall(args.label.text));
 		}
 

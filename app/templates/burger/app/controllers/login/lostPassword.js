@@ -10,7 +10,7 @@ var champs = $.form.getChamps();
  * @param  {Arguments} args Arguments passed to the controller
  */
 (function constructor(args) {
-	champs.email.addEventListener("change", handleBtnSend);
+	// champs.email.addEventListener("change", handleBtnSend);
 
 	function handleBtnSend() {
 		if (champs.email.getValue() !== "") {

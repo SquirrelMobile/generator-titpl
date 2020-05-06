@@ -1,0 +1,15 @@
+<Alloy>
+  <Window id="win" theme="Theme.Custom" onOpen="handleOpen" onTouchstart="handleTouch">
+      <View id="main" class="dialogView" height="Ti.UI.SIZE">
+
+        <View class="header">
+          <Label id="title" class="title" />
+          <Label id="icon" class="icon falight" onClick="closeWin" />
+          <View class="separator" />
+        </View>
+
+        <View id="content" />
+
+      </View>
+  </Window>
+</Alloy>

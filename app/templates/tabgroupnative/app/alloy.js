@@ -5,7 +5,7 @@ require("/dao/cache");
 const AvImageview = require("av.imageview");
 
 if (Ti.version.replace(/[.]/gi, "").replace("GA", "") >= 900) {
-  global.AvImageview = AvImageview;
+	global.AvImageview = AvImageview;
 }
 Alloy.Globals.CONTENT_MODE_FIT = AvImageview.CONTENT_MODE_ASPECT_FIT;
 Alloy.Globals.CONTENT_MODE_FILL = AvImageview.CONTENT_MODE_ASPECT_FILL;
@@ -18,51 +18,53 @@ Alloy.Globals.moment.locale(Ti.Locale.currentLanguage);
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
 
 Alloy.Globals.Device = {
-  isiPhoneX: hasNotch,
-  version: Ti.Platform.version,
-  versionMajor: parseInt(Ti.Platform.version.split(".")[0], 10),
-  versionMinor: parseInt(Ti.Platform.version.split(".")[1], 10),
-  width:
-    Ti.Platform.displayCaps.platformWidth >
-    Ti.Platform.displayCaps.platformHeight
-      ? Ti.Platform.displayCaps.platformHeight
-      : Ti.Platform.displayCaps.platformWidth,
-  height:
-    Ti.Platform.displayCaps.platformWidth >
-    Ti.Platform.displayCaps.platformHeight
-      ? Ti.Platform.displayCaps.platformWidth
-      : Ti.Platform.displayCaps.platformHeight,
-  dpi: Ti.Platform.displayCaps.dpi,
-  orientation:
-    Ti.Gesture.orientation == Ti.UI.LANDSCAPE_LEFT ||
-    Ti.Gesture.orientation == Ti.UI.LANDSCAPE_RIGHT
-      ? "landscape"
-      : "portrait"
+	isiPhoneX: hasNotch,
+	version: Ti.Platform.version,
+	versionMajor: parseInt(Ti.Platform.version.split(".")[0], 10),
+	versionMinor: parseInt(Ti.Platform.version.split(".")[1], 10),
+	width:
+		Ti.Platform.displayCaps.platformWidth > Ti.Platform.displayCaps.platformHeight
+			? Ti.Platform.displayCaps.platformHeight
+			: Ti.Platform.displayCaps.platformWidth,
+	height:
+		Ti.Platform.displayCaps.platformWidth > Ti.Platform.displayCaps.platformHeight
+			? Ti.Platform.displayCaps.platformWidth
+			: Ti.Platform.displayCaps.platformHeight,
+	dpi: Ti.Platform.displayCaps.dpi,
+	orientation:
+		Ti.Gesture.orientation == Ti.UI.LANDSCAPE_LEFT ||
+		Ti.Gesture.orientation == Ti.UI.LANDSCAPE_RIGHT
+			? "landscape"
+			: "portrait",
 };
 
 if (OS_ANDROID) {
-  Alloy.Globals.Device.width =
-    Alloy.Globals.Device.width / (Alloy.Globals.Device.dpi / 160);
-  Alloy.Globals.Device.height =
-    Alloy.Globals.Device.height / (Alloy.Globals.Device.dpi / 160);
+	Alloy.Globals.Device.width = Alloy.Globals.Device.width / (Alloy.Globals.Device.dpi / 160);
+	Alloy.Globals.Device.height = Alloy.Globals.Device.height / (Alloy.Globals.Device.dpi / 160);
 }
 
 require("install")();
 require("core").listenNetwork();
 if (!ENV_PROD) {
-  require("core").detectCrash();
+	require("core").detectCrash();
 }
 
 require("net/apiconfig").init();
 
-if (OS_IOS) {
-  Ti.App.addEventListener("resumed", function(e) {
-    setTimeout(function() {
-      Ti.UI.iOS.setAppBadge(0);
-    }, 500);
-  });
+Ti.App.addEventListener("resumed", function(e) {
+	setTimeout(function() {
+		if (OS_IOS) {
+			Ti.UI.iOS.setAppBadge(0);
+		} else {
+			Ti.Android.NotificationManager.cancelAll();
+		}
+	}, 500);
+});
 
-  Ti.UI.iOS.setAppBadge(0);
+if (OS_IOS) {
+	Ti.UI.iOS.setAppBadge(0);
+} else {
+	Ti.Android.NotificationManager.cancelAll();
 }
 
 //enable push notification with OneSignal
@@ -72,8 +74,4 @@ if (OS_IOS) {
 // adb logcat | grep TiAPI
 
 Alloy.Globals.top = OS_IOS ? (Alloy.Globals.Device.isiPhoneX ? 40 : 20) : 0;
-Alloy.Globals.footerHeight = OS_IOS
-  ? Alloy.Globals.Device.isiPhoneX
-    ? 74
-    : 54
-  : 54;
+Alloy.Globals.footerHeight = OS_IOS ? (Alloy.Globals.Device.isiPhoneX ? 74 : 54) : 54;

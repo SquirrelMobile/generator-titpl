@@ -169,8 +169,6 @@ import { AlertDialog } from "classes/ui/dialog";
 					if (e.success) {
 						require("dao/variable").set("latitude", e.coords.latitude);
 						require("dao/variable").set("longitude", e.coords.longitude);
-						console.log("onLocation lat ", e.coords.longitude);
-						console.log("onLocation long", e.coords.latitude);
 						cb();
 					} else {
 						cb();
@@ -183,13 +181,26 @@ import { AlertDialog } from "classes/ui/dialog";
 							if (e.success) {
 								require("dao/variable").set("latitude", e.coords.latitude);
 								require("dao/variable").set("longitude", e.coords.longitude);
-								console.log("onLocation lat ", e.coords.longitude);
-								console.log("onLocation long", e.coords.latitude);
 								cb();
 							} else {
 								cb();
 							}
 						});
+					} else {
+						if (e.authorizationStatus === Ti.Geolocation.AUTHORIZATION_WHEN_IN_USE) {
+							Ti.Geolocation.getCurrentPosition(function(e) {
+								if (e.success) {
+									require("dao/variable").set("latitude", e.coords.latitude);
+									require("dao/variable").set("longitude", e.coords.longitude);
+									cb();
+								} else {
+									cb();
+								}
+							});
+						} else {
+							cb();
+							//il a refusé la geoloc
+						}
 					}
 				});
 			}

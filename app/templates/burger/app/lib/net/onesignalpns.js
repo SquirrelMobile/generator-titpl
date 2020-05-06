@@ -25,30 +25,35 @@
 		 *
 		 * @return {type}  description
 		 */
+		success: function(pushToken, userId) {
+			if (pushToken) {
+				Ti.App.Properties.setString("notificationToken", pushToken);
+			}
+			if (userId) {
+				Ti.App.Properties.setString("userIdOneSignal", userId);
+			}
+			if (e.pushToken && e.userId && Ti.App.Properties.getBool("isConnected")) {
+				// var obj = {
+				//   type_os: OS_IOS ? "ios" : "android",
+				//   token_push: Ti.App.Properties.setString("notificationToken"),
+				//   player_id: Ti.App.Properties.getString("userIdOneSignal")
+				// };
+				// setTimeout(function() {
+				//     Alloy.Globals.Api.updateUser({ body: obj }, function(e) {
+				//       console.log("UpdateOnesignal", JSON.stringify(e));
+				//     });
+				// }, 1000);
+			}
+		},
 		init: function() {
 			//initialize
-			onesignal.idsAvailable(function(e) {
-				Ti.API.log("--- idsAvailable " + JSON.stringify(e));
-				//pushToken will be nil if the user did not accept push notifications
-				if (e.pushToken) {
-					Ti.App.Properties.setString("notificationToken", e.pushToken);
-				}
-				if (e.userId) {
-					Ti.App.Properties.setString("userIdOneSignal", e.userId);
-				}
-				if (e.pushToken && e.userId && Ti.App.Properties.getBool("isConnected")) {
-					// var obj = {
-					//   type_os: OS_IOS ? "ios" : "android",
-					//   token_push: Ti.App.Properties.setString("notificationToken"),
-					//   player_id: Ti.App.Properties.getString("userIdOneSignal")
-					// };
-					// setTimeout(function() {
-					//     Alloy.Globals.Api.updateUser({ body: obj }, function(e) {
-					//       console.log("UpdateOnesignal", JSON.stringify(e));
-					//     });
-					// }, 1000);
-				}
-			});
+			if (OS_ANDROID) {
+				onesignal.idsAvailable(function(e) {
+					Ti.API.log("--- idsAvailable " + JSON.stringify(e));
+					//pushToken will be nil if the user did not accept push notifications
+					_exports.success(e.pushToken, e.userId);
+				});
+			}
 
 			//start event
 			onesignal.removeEventListener("notificationReceived", function() {});
@@ -113,6 +118,11 @@
 				onesignal.promptForPushNotificationsWithUserResponse(function(obj) {
 					Ti.API.log("ONE signal " + JSON.stringify(obj));
 					Ti.App.Properties.setBool("allowNotification", true);
+					var e = onesignal.getPermissionSubscriptionState();
+					if (e.subscriptionStatus) {
+						_exports.success(e.subscriptionStatus.pushToken, e.subscriptionStatus.userId);
+					}
+
 					// Ti.App.Properties.setString("notificationToken", e.registrationId);
 				});
 			}

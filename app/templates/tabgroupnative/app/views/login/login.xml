@@ -3,17 +3,12 @@
 		<Window id="win">
 			<ScrollView class="container">
 				<View layout="vertical" left="20" right="20" height="Ti.UI.SIZE">
-					<View height="200">
-						<Label class="titleLbl lblTitleLight" />
-					</View>
-					<Require src="/component/form" id="form" onValid="connect"></Require>
-					<Button class="btnsignup" title="L('register')" onClick="openWin" type="signup" />
 
+					<Require src="/component/form" class="defaultForm" id="form" onValid="connect"></Require>
+					<Button class="btnsignup" title="L('register')" top="20" onClick="openWin" type="signup" />
 					<Label id="lostPassword" class="lblBtn" onClick="openWin" type="lostPassword" />
 
 				</View>
-
-
 			</ScrollView>
 		</Window>
 	</NavigationWindow>

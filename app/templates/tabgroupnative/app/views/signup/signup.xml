@@ -4,7 +4,9 @@
 		<Require class="navbar" src="partials/_navbar" onClick="close" />
 
 		<ScrollView class="container">
-			<Require src="/component/form" id="form" onValid="submit" />
+			<View left="10" right="10">
+				<Require src="/component/form" class="defaultForm" id="form" onValid="submit" />
+			</View>
 		</ScrollView>
 
 	</Window>

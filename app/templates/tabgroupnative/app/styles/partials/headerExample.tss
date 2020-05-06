@@ -10,3 +10,32 @@
   isList : true,
   data : [{text : "list"},{text : "column"}]
 }
+
+'#form': {
+  champs : [
+  {
+    id: "filter",
+    title : {
+      text : "filtrer",
+    },
+    list : [{text : "date"},{text : "name"}],
+    container : {
+      right: 10
+    },
+    groupId: 1,
+    type : "textFieldList",
+  },
+  {
+    id: "style",
+    title : {
+      text : "Type",
+    },
+    list : [{text : "list"},{text : "column"}],
+    container : {
+      left: 10
+    },
+    groupId: 1,
+    type : "textFieldList",
+  }
+    ]
+}

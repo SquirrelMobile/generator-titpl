@@ -42,44 +42,257 @@
   theme :"Theme.Login",
   activityEnterAnimation: Titanium.UI.Android.TRANSITION_FADE_IN
 }
-
 '#form': {
   champs : [
     {
       id: "email",
-      top : 0,
-      type : "textfield",
-      hintTextTitle:L('yourEmail'),
-      required : true,
-      imageRight:true,
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf0e0",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      title : {
+        text : "Email",
       },
+      textField : {
+        hintText : "Type your email",
+      },
+      type : "textFieldEmail",
+      required : true,
     },
     {
       id: "password",
-      type : "textfield",
-      passwordMask: true,
-      hintTextTitle:L('yourPassword'),
-      imageRight:true,
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf06e",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: "FontAwesome5Pro-Solid", fontSize: 14 },
+      title : {
+        text : "Password",
       },
-      required : true
+      textField : {
+          hintText : "Type your password",
+      },
+      type : "textFieldPassword",
     },
     {
       id: "valid",
-      top: 30,
-      text : L('connect'),
+      button : {
+        top: 20,
+        backgroundColor: Alloy.CFG.COLORS.main2,
+        width: 185,
+        borderRadius: 5,
+      },
+      label : {
+        text : L('connect'),
+        color: "white",
+      },
       type : "valid",
     }
   ]
 }
+/* '#form': {
+  champs : [
+    {
+      container : {
+        backgroundColor: "transparent",
+        borderColor: "transparent"
+      },
+      containerPhoto : {
+        layout : 'horizontal'
+      },
+      image : {
+        height: 100,
+  			width: 100,
+  			borderRadius: 50,
+        backgroundColor: "white",
+      },
+      button : {
+        label : {
+          text: L("choosePicture")
+        }
+      },
+      type : "photoSelector",
+    },
+    {
+      id: "email",
+      title : {
+        text : "Email",
+      },
+      container : {
+        right : 5
+      },
+      textField : {
+        hintText : "type your email",
+      },
+      type : "textFieldEmail",
+      required : true,
+      groupId: 1
+    },
+    {
+      id: "phone",
+      title : {
+        text : "Phone",
+      },
+      container : {
+        left : 5
+      },
+      textField : {
+        hintText : "type your number phone",
+      },
+      type : "textFieldPhone",,
+      groupId: 1
+    },
+    {
+      id: "birthday",
+      title : {
+        text : "Birthday",
+      },
+      textField : {
+        hintText : "type your birthday",
+      },
+      type : "textFieldDate"
+    },
+    {
+      id: "textfield",
+      title : {
+        text : "textfield",
+      },
+      textField : {
+        hintText : "textfield",
+      },
+      required : true,
+      type : "textField",
+    },
+    {
+      id: "textfield",
+      title : {
+        text : "textfield",
+      },
+      textField : {
+        hintText : "entre ton date",
+      },
+      list : [
+      {text : "list"},{text : "column"}
+      ],
+      required : true,
+      type : "textFieldList",
+    },
+    {
+      id: "password",
+      title : {
+        text : "Password",
+      },
+      textField : {
+          hintText : "Type your password",
+      },
+      type : "textFieldPassword",
+    },
+    {
+      id: "test2",
+      title : {
+        text : "textfield",
+      },
+      optionDialog : {
+        title: 'Titanium rocks!',
+        options: [ 'Option A', 'Option B' ],
+        cancelable: true
+      },
+      textField : {
+          hintText : L('yourPassword'),
+      },
+      type : "textFieldOptionDialog",
+    },
+
+    {
+      id: "comment",
+      title : {
+        text : "Comment",
+      },
+      textArea : {
+          hintText : "type your comment",
+      },
+      type : "textArea",
+    },
+    {
+      id: "map",
+      title : {
+        text : "Map",
+      },
+      container : {
+        height : 100
+      },
+      label : {
+        text : "select"
+      },
+      type : "map",
+    },
+    {
+      id: "textFieldGenericPopup",
+      title : {
+        text : "textFieldGenericPopup",
+      },
+      textField : {
+          hintText : "textFieldGenericPopup",
+      },
+      dialog : {
+        title : {
+          text : "example"
+        },
+        content : "partials/listExample"
+      },
+      type : "textFieldGenericPopup",
+    },
+    {
+      text :"qsodijoqfsid oqdsijf qsofij qosijq",
+      type : "label",
+    },
+    {
+      id: "test44",
+      activeColor : "black",
+      disabledColor: "white",
+      title : {
+        text : "example",
+      },
+      data : [
+       {
+         active : true,
+         id : 1,
+         label : {
+           text : "test"
+         },
+         icon :{
+           text : "\uf00d"
+         }
+       },{
+         id : 2,
+         label : {
+           text : "test"
+         },
+         icon :{
+           text : "\uf00d"
+         }
+       },{
+         id : 3,
+         label : {
+           text : "test"
+         },
+         icon :{
+           text : "\uf00d"
+         }
+       }
+      ],
+      type : "buttonsMultiple",
+    },
+    {
+      id: "checkqsdfqsd",
+      label :{
+        text: "Accept"
+      },
+      type : "checkbox",
+    },
+    {
+      id: "valid",
+      button : {
+        backgroundColor: Alloy.CFG.COLORS.main2,
+        width: 185,
+        bottom: 10
+      },
+      label : {
+        text : L('connect'),
+        color: "white",
+      },
+      type : "valid",
+    }
+  ]
+} */

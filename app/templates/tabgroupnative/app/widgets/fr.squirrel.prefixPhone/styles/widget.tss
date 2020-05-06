@@ -1,0 +1,67 @@
+
+".lbl": {
+  left : 20,
+  right : 20,
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 14 },
+  color : "black",
+}
+
+".separator": {
+  bottom: 0,
+  height: 1,
+  backgroundColor: "#dfdfe0",
+  width: Ti.UI.FILL
+}
+
+"#win[platform=ios]": {
+  modal: false,
+}
+
+"#win[platform=android]": {
+  modal: true,
+}
+
+
+".container": {
+  top: Alloy.Globals.top,
+  bottom : 20,
+  left: 40,
+  right : 40,
+  backgroundColor: 'white'
+}
+
+'.lblCountry': {
+  width: Ti.UI.FILL,
+  color : "white",
+  font : { fontFamily: Alloy.CFG.FONTS.bold, fontSize: 18 },
+   textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+   height: 50,
+   backgroundColor : "black",
+   text : L("selectCountry")
+}
+
+".emoji": {
+  left:20,
+  font: {
+    fontSize: 30
+  }
+}
+
+"#search": {
+  hintText: L('search')
+}
+
+".round": {
+  borderRadius: 5,
+  viewShadowColor: "#55000000",
+  viewShadowOffset: {x:0, y: 5 },
+  viewShadowRadius: 3
+}
+
+".close": {
+  color : "white",
+  height : 40,
+  top : -40,
+  right : 20,
+  title : L('close')
+}

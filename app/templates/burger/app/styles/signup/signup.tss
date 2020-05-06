@@ -13,96 +13,86 @@
   champs : [
     {
       id: "username",
-      type : "textfield",
-      hintTextTitle:L('form.username'),
+      title : {
+        text : L('form.username'),
+      },
+      textField : {
+        hintText : L('form.username'),
+      },
+      type : "textField",
       required : true
     },
     {
       id: "email",
-      keyboardType: Ti.UI.KEYBOARD_EMAIL,
-      type : "textfield",
-      hintTextTitle:L('form.email'),
-      imageRight:"/images/icons/mail.png",
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf0e0",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      title : {
+        text : L('form.email'),
       },
+      textField : {
+        hintText : L('form.email'),
+      },
+      type : "textFieldEmail",
       required : true
     },
     {
       id: "password",
-      type : "textfield",
-      passwordMask: true,
-      hintTextTitle:L('yourPassword'),
-      imageRight:true,
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf023",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      type : "textFieldPassword",
+      title : {
+        text : L('form.password'),
       },
-      required : true
-    },
-    {
-      id: "passwordConfirm",
-      type : "textfield",
-      passwordMask: true,
-      hintTextTitle:L('form.passwordConfirm'),
-      imageRight:true,
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf023",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      textField : {
+        hintText : L('form.password'),
       },
       required : true
     },
     {
       id: "phone",
-      type : "textfield",
-      keyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD,
-      hintTextTitle:L('form.phone'),
-      imageRight:true,
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf095",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      title : {
+        text : L("form.phone"),
       },
-      required : true
+      container : {
+        left : 5
+      },
+      prefix: {
+        font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 14 },
+      },
+      textField : {
+        hintText : L("form.phone"),
+      },
+      type : "textFieldPhone",
+      required : true,
+      groupId: 1
     },
     {
-      id: "birthdate",
-      type : "textfield",
-      hintText: "JJ/MM/YYYY",
-      hintTextTitle:L('form.birthday'),
-      hintTextTitle2:L('form.birthdate'),
-      imageRight:"/images/icons/calendar.png",
-      imageRightView :{
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        text : "\uf133",
-        zIndex: 999,
-        color : Alloy.CFG.COLORS.main,
-        font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 14 },
+      id: "birthday",
+      title : {
+        text : L("form.birthdate"),
       },
-      isDate :true,
+      textField : {
+        hintText : L("form.birthdate"),
+      },
+      required : true,
+      type : "textFieldDate"
     },
     {
       id: "cgu",
-      color : Alloy.CFG.COLORS.black,
-      text:  L("form.cgu"),
+      label :{
+        text: L("form.cgu"),
+        font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 14 },
+        color : "white"
+      },
       type : "checkbox",
-      required : true
     },
     {
       id: "valid",
-      text : L("validate"),
+      button : {
+        backgroundColor: Alloy.CFG.COLORS.main2,
+        width: 185,
+        top: 20
+      },
+      label : {
+        text : L('validate'),
+        color: "white",
+      },
       type : "valid"
     }
   ]

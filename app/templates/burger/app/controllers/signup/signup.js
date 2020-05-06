@@ -5,15 +5,23 @@
  */
 
 var champs = $.form.getChamps();
-champs.cgu.listener("click", function() {
-	Ti.Platform.openURL("http://google.com");
-});
+
+// champs.cgu.label.addEventListener("click", function() {
+// 	Ti.Platform.openURL("http://google.com");
+// });
 /**
  * @method Controller
  * Display signup view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args) {})($.args);
+(function constructor(args) {
+	_.each(champs, function(e, key) {
+		console.log(key);
+	});
+	champs.cgu.label.addEventListener("click", function() {
+		//alert("");
+	});
+})($.args);
 
 /**
  * submit - description

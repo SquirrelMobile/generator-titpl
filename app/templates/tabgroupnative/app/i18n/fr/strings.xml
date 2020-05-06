@@ -65,4 +65,9 @@
 	<string name="form.birthdate">Date de naissance</string>
 	<string name="dialog.missingsField">Champ(s) manquant(s)</string>
 	<string name="form.username">Pseudo</string>
+	<string name="error.email_not_validated">Format email non valide</string>
+	<string name="error.phone_not_validated">Format téléphone non valide</string>
+	<string name="error.password_not_validated">Mot de passe trop court</string>
+	<string name="select.map">Sélectionner</string>
+	<string name="selectCountry">Choisir un pays</string>
 </resources>

@@ -1,0 +1,40 @@
+"Label": {
+	color: '#000',
+	font: {
+		fontSize: 18,
+		fontWeight: 'bold'
+	},
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+
+'#pin': {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 30 },
+	color : Alloy.CFG.COLORS.main
+}
+
+'.validBtn': {
+	width: Ti.UI.FILL,
+	touchEnabled: false,
+	left: 20,
+	right: 20,
+	text : "Valider la position",
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 12 },
+	color : Alloy.CFG.COLORS.main
+}
+
+'#fakePin': {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 30 },
+	color : Alloy.CFG.COLORS.black
+}
+
+'.close': {
+	text: "\uf00d",
+	borderRadius: 25,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: { fontFamily: Alloy.CFG.FONTS.fa, fontSize: 30 },
+	color : Alloy.CFG.COLORS.main
+}

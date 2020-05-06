@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container">
+		<Require src="partials/_list" id="list" onClick="handleClick" />
+	</View>
+</Alloy>

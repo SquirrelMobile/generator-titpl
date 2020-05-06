@@ -5,15 +5,23 @@
  */
 
 var champs = $.form.getChamps();
-champs.cgu.listener("click", function() {
-	Ti.Platform.openURL("http://google.com");
-});
+
+// champs.cgu.label.addEventListener("click", function() {
+// 	Ti.Platform.openURL("http://google.com");
+// });
 /**
  * @method Controller
  * Display signup view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args) {})($.args);
+(function constructor(args) {
+	_.each(champs, function(e, key) {
+		console.log(key);
+	});
+	champs.cgu.label.addEventListener("click", function() {
+		//alert("");
+	});
+})($.args);
 
 /**
  * submit - description
@@ -22,15 +30,6 @@ champs.cgu.listener("click", function() {
  * @return {type}   description
  */
 function submit(e) {
-	if (champs.password.getValue() !== champs.passwordConfirm.getValue()) {
-		require("core").alertSimple(L("warning"), L("password"));
-		return false;
-	}
-
-	if (!require("core").valideEmail(champs.email.getValue())) {
-		require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
-		return false;
-	}
 	// Alloy.Globals.loading.show(L("loading"));
 	// //WS LOGIN
 	// Alloy.Globals.Api.signup({ body: _.omit(obj, "passwordConfirm") }, function(
