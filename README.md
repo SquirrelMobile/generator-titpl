@@ -59,7 +59,12 @@ If you want contribute and add your own template, you can checkout this reposito
 
 # CHANGELOG
 
-1.5.0 : 03-04-2020
+1.6.0 : 06-05-2020
+
+- Update modules
+- Update lib form
+
+  1.5.0 : 03-04-2020
 
 - Use Ti.UI.Android.drawer instead modules
 - Support Titanium 9.0.0
